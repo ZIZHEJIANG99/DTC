@@ -1,0 +1,83 @@
+.contact-data a {
+  color: #365462;
+  font-weight: 700;
+}
+  .email-block p, .phone-block p {
+    margin:0 !important;font-size:.9em;
+  }
+.email-block {
+  background-image: url('https://cdn.shopify.com/s/files/1/0222/3004/0648/files/Group_3874.png?v=1686265321');
+  background-repeat: no-repeat;
+  padding-top: 7rem;
+}
+.phone-block {
+  background-image: url('https://cdn.shopify.com/s/files/1/0222/3004/0648/files/Group_3875.png?v=1686265321');
+  background-repeat: no-repeat;
+  padding-top: 8.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .fenugreek {
+    background-image: url('https://cdn.shopify.com/s/files/1/0222/3004/0648/files/MF-fenugreek_free2.jpg?v=1686263680');
+    background-repeat: no-repeat;
+    background-position: right top;
+  }
+}
+@media screen and (min-width: 751px) {
+  .hide-mobile {
+    display: none;
+  }
+  #contact-page {}
+  .contact-padding {
+    padding: 8rem 10rem 24rem;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 45% 8% 32% auto;
+  }
+  .contact-content {
+    grid-column: 1;
+  }
+  .contact-data {
+    grid-column: 3;
+  }
+  .email-block, .phone-block {
+    text-align: center;
+  }
+  .email-block {
+    background-position: top center;
+    margin: 2.4rem auto 6rem;
+  }
+  .phone-block {
+    background-position: top center;
+  }
+}
+@media screen and (max-width: 750px) {
+  .hide-desk {
+    display: none;
+  }
+  #contact-page {
+    padding: 2rem 0 8rem;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+  .contact-content {
+    grid-row: 1;
+  }
+  .contact-data {
+    grid-row: 2;
+  }
+  .email-block, .phone-block {
+    text-align: left;
+  }
+  .phone-block {
+    background-position: top left;
+    grid-row: 2;
+    margin: 3rem auto 4rem;
+  }
+  .email-block {
+    grid-row: 3;
+    background-position: top left;
+  }
+}

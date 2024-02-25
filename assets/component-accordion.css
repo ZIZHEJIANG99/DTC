@@ -1,0 +1,115 @@
+.accordion summary {
+  display: flex;
+  align-items: center;
+  position: relative;
+  line-height: 1;
+  padding: 15px 20px 15px 0;
+}
+
+.accordion .summary__title {
+  display: flex;
+  flex: 1;
+}
+
+.accordion .summary__title + .icon-caret {
+  height: calc(var(--font-heading-scale) * 0.6rem);
+}
+
+.accordion + .accordion {
+  margin-top: 0;
+  border-top: none;
+}
+
+.accordion {
+  margin-top: 2.5rem;
+  margin-bottom: 0;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.accordion__title {
+  font-size: 27px;
+  display: inline-block;
+  max-width: calc(100% - 6rem);
+  min-height: 1.6rem;
+  margin: 0 0 0 25px;
+  word-break: break-word;
+  font-weight:500;
+}
+
+.accordion .icon-accordion {
+  align-self: center;
+  fill: rgb(var(--color-foreground));
+  height: calc(var(--font-heading-scale) * 2rem);
+  margin-right: calc(var(--font-heading-scale) * 1rem);
+  width: calc(var(--font-heading-scale) * 2rem);
+}
+
+.accordion details[open] > summary .icon-caret {
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+  overflow-x: auto;
+  padding: 20px 60px;
+  font-size:25px;
+}
+.accordion__content img {
+  max-width: 100%;
+}
+
+.accordion span.plus-minus {
+  position: absolute;
+  right: 0;
+  display: inline-block; 
+  height: 20px; 
+  width: 20px; 
+}
+
+.accordion span.plus-minus:after,
+.accordion span.plus-minus:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.accordion span.plus-minus:before {
+  width: 10px;
+  height: 2px;
+  background: #365462;
+}
+
+.accordion span.plus-minus:after {
+  width: 2px;
+  height: 10px;
+  background: #365462;
+}
+
+.accordion details[open] > summary span.plus-minus:after {
+  display: none;
+}
+
+
+@media(max-width:1599px){
+  .accordion__title {
+    font-size: 18px;
+  }
+  .accordion__content{font-size:18px;}
+}
+
+@media (max-width: 989px) {
+  .accordion__content {
+    padding: 15px 30px;
+  }
+  .accordion__content{font-size:16px;}
+}
+
+@media (max-width: 989px) {
+  .accordion{border-bottom:solid 2px #365462; border-top:none; margin-top:0;}
+  .collapsible-content__heading{margin-bottom:0;}
+}
+

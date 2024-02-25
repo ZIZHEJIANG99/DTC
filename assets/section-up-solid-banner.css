@@ -1,0 +1,11 @@
+.teal-head {color:#365462 !important;}
+
+@media only screen and (max-width: 749px) {
+.hide-desk {display:none;}
+  .mob-bnr-solid h2 { position: absolute;
+            bottom: 5rem;
+            left: 2.5rem; }
+
+.mob-bnr-solid {position:relative;}
+  
+  }

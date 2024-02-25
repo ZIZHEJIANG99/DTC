@@ -1,0 +1,206 @@
+.page-width {}
+#article-post {
+  padding-top: 50px;
+}
+#article-post .caption-with-letter-spacing {
+  line-height: 1.3rem !important;
+  display: block;
+}
+.article-breadcrumb a {
+  color: #365462;
+  font-weight: 700;
+}
+.blog-post-header {}
+.article-template__hero-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.article-template__title {
+  line-height: 1;
+}
+.article-template__title {
+  margin: 0;
+}
+.article-template__title:not(:only-child) {
+  margin-bottom: 1rem;
+}
+.article-template__link {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.article-template__link .icon-wrap {
+  display: flex;
+  margin-right: 1rem;
+  transform: rotate(180deg);
+}
+.article-template__back {
+  grid-row: 3;
+}
+.article-template__back:last-child {
+  margin-bottom: 3.2rem;
+}
+.article-template__hero-container {
+  border-radius: 50%;
+}
+
+.author {
+  text-decoration: none;
+  border-bottom: none;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 751px) {
+  .hide-mobile {
+    display: none;
+  }
+  .article-template {
+    background-color: #F8F8F9;
+  }
+  #article-post {
+    max-width: 152rem;
+  }
+  .article-grid {
+    display: grid;
+    grid-template-rows: auto 5vw auto 5vw;
+  }
+  .article-content {
+    grid-row: 1;
+  }
+  .article-template header {
+    margin-bottom: 2rem;
+    padding: 0 6.771vw 6rem;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .article-template__hero-container {
+    float: right;
+    shape-outside: ellipse();
+    margin: 20px;
+    width: clamp(500px, 36.458vw, 700px);
+    height: clamp(500px, 36.458vw, 700px);
+  }
+  .article-template__content {
+    border-radius: 4rem 4rem 0 0;
+    padding: 5rem 6.771vw 10rem;
+    background-color: white;
+  }
+  .article-template__social-sharing {
+    width: 100%;
+    padding: 0 6.771vw 11rem;
+    border-radius: 0 0 4rem 4rem;
+    background-color: white;
+  }
+  .article-template__next-container {
+    grid-row: 3;
+  }
+  .article-next-card {
+    background-color: #AFD57F;
+    border-radius: 4rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .article-next-image {
+    grid-column: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-color: #365462;
+    border-radius: 4rem 0 0 4rem;
+  }
+  .article-next-link {
+    grid-column: 2;
+    padding: 5rem;
+  }
+.article-next-date {
+  color: white;
+  font-size: 1.6875rem;
+  margin-bottom: 2.5rem;
+}
+.article-next-title {
+  color: white;
+  font-size: 4.0625rem;
+  font-weight: 700;
+  line-height: 4.3125rem;
+  margin-bottom: 2.5rem;
+}
+.article-next-title a {
+  color: white;
+  text-decoration: none;
+}
+}
+
+@media screen and (max-width: 751px) {
+  .hide-desk {
+    display: none;
+  }
+  .article-grid {
+    display: grid;
+    grid-template-rows: auto auto auto auto 10vw auto 10vw;
+  }
+  .article-bread-m {
+    grid-row: 1
+  }
+  .article-template__hero-container {
+    grid-row: 2;
+    margin: 0 auto;
+    width: 82.667vw;
+    height: 82.667vw;
+    max-width: 310px;
+    max-height: 310px;
+  }
+  .article-head {
+    grid-row: 3;
+  }
+  .article-content {
+    grid-row: 4;
+  }
+  .article-template header {
+    margin: 2rem 0 3rem;
+  }
+
+
+
+
+  .article-template__next-container {
+    grid-row: 6;
+  }
+  .article-next-card {
+    background-color: #AFD57F;
+    border-radius: 4rem;
+    display: grid;
+    grid-template-rows: 278px auto;
+  }
+  .article-next-image {
+    grid-row: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    background-color: #365462;
+    border-radius: 4rem 4rem 0 0;
+  }
+  .article-next-link {
+    grid-row: 2;
+    padding: 2.5rem 2.5rem 5rem;
+  }
+.article-next-date {
+  color: white;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+.article-next-title {
+  color: white;
+  font-size: 1.1875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  margin-bottom: 1.5625rem;
+}
+.article-next-title a {
+  color: white;
+  text-decoration: none;
+}
+
+}

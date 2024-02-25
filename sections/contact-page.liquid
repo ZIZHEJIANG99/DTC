@@ -1,0 +1,86 @@
+{{ 'section-contact-page.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width fenugreek">
+
+<div id="contact-page">
+  <div class="contact-padding">
+  <div class="contact-grid ">
+    
+  <div class="contact-content rte">
+
+    {{ page.content }}
+  </div>
+
+<div class="contact-data hide-desk">
+<div class="email-block"><p><a href="mailto:{{ section.settings.contact_email }}">
+{{ section.settings.contact_email }}</a></p>
+</div>
+<div class="phone-block">
+<p>{{ section.settings.contact_phone }}<p>
+</div>
+</div>
+    
+ <div class="contact-data hide-mobile">
+<div class="phone-block">
+<p>{{ section.settings.contact_phone }}<p>
+</div>
+   <div class="email-block">
+<p><a href="mailto:{{ section.settings.contact_email }}">
+{{ section.settings.contact_email }}</a></p>
+</div>
+</div>
+  
+  </div>
+</div>
+</div>
+</div>
+
+  
+{% schema %}
+{
+  "name": "Contact Page",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "page",
+      "id": "page",
+      "label": "t:sections.page.settings.page.label"
+    },
+        {
+      "id": "contact_email",
+      "type": "text",
+      "label": "Email Address",
+      "default": "info@myupspring.com"
+    },
+           {
+      "id": "contact_phone",
+      "type": "html",
+      "label": "Phone + Hours",
+      "default": "888-904-9511"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Page"
+    }
+  ]
+}
+{% endschema %}

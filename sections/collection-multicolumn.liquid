@@ -1,0 +1,142 @@
+{%- if collection.metafields.custom.column_1_title != blank or collection.metafields.custom.column_1_content != blank or collection.metafields.custom.column_2_title != blank or collection.metafields.custom.column_2_content != blank or collection.metafields.custom.column_3_title != blank or collection.metafields.custom.column_3_content != blank -%}
+{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .shop-all-box a{text-decoration:none;}
+  {%- unless collection.metafields.custom.column_1_title_color == blank -%}
+    .shop-all-box .shop-box-1 h3.inline-richtext, .shop-all-box .shop-box-1 svg{color:{{ collection.metafields.custom.column_1_title_color }}; fill:{{ collection.metafields.custom.column_1_title_color }}}
+    .shop-all-box .shop-box-1 .shop-dots span{color:{{ collection.metafields.custom.column_1_title_color }}}
+  {%- endunless -%}
+  {%- unless collection.metafields.custom.column_2_title_color == blank -%}
+    .shop-all-box .shop-box-2 h3.inline-richtext, .shop-all-box .shop-box-2 svg{color:{{ collection.metafields.custom.column_2_title_color }}; fill:{{ collection.metafields.custom.column_2_title_color }}}
+    .shop-all-box .shop-box-2 .shop-dots span{color:{{ collection.metafields.custom.column_2_title_color }}}
+  {%- endunless -%}
+  {%- unless collection.metafields.custom.column_3_title_color == blank -%}
+    .shop-all-box .shop-box-3 h3.inline-richtext, .shop-all-box .shop-box-3 svg{color:{{ collection.metafields.custom.column_3_title_color }}; fill:{{ collection.metafields.custom.column_3_title_color }}}
+    .shop-all-box .shop-box-3 .shop-dots span{color:{{ collection.metafields.custom.column_3_title_color }}}
+  {%- endunless -%}
+{%- endstyle -%}
+
+{%- liquid
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and section.blocks.size > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+-%}
+
+<div class="shop-all-box multicolumn color-background-1 gradient background-primary no-heading">
+  <div class="page-width section-{{ section.id }}-padding isolate">
+    <slider-component class="slider-mobile-gutter">
+      <ul class="multicolumn-list contains-content-container grid grid--1-col-tablet-down grid--3-col-desktop" id="Slider-template--14566747799624__07bda8e5-4abb-4b19-b5b5-17fa9312fc9c" role="list">
+        {%- if collection.metafields.custom.column_2_title != blank or collection.metafields.custom.column_2_content != blank -%}
+        <li id="Slide-template--14566747799624__07bda8e5-4abb-4b19-b5b5-17fa9312fc9c-2" class="shop-box-2 multicolumn-list__item grid__item">
+          <div class="multicolumn-card content-container">
+            <div class="multicolumn-card__info">
+              <svg baseProfile="tiny" height="13px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="13px" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375"></path></g></svg>
+              <div class="shop-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              {%- unless collection.metafields.custom.column_2_title == blank -%}<a href="{{ collections[collection.metafields.custom.column_2_link].url }}"><h3 class="inline-richtext">{{ collection.metafields.custom.column_2_title }}</h3></a>{%- endunless -%}
+              <div class="rte">
+                {{ collection.metafields.custom.column_2_content }}
+              </div>
+            </div>
+          </div>
+        </li>
+        {%- endif -%}
+        {%- if collection.metafields.custom.column_1_title != blank or collection.metafields.custom.column_1_content != blank -%}
+        <li id="Slide-template--14566747799624__07bda8e5-4abb-4b19-b5b5-17fa9312fc9c-1" class="shop-box-1 multicolumn-list__item grid__item">
+          <div class="multicolumn-card content-container">
+            <div class="multicolumn-card__info">
+          
+              <svg baseProfile="tiny" height="13px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="13px" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375"></path></g></svg>
+              <div class="shop-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              {%- unless collection.metafields.custom.column_1_title == blank -%}<a href="{{ collections[collection.metafields.custom.column_1_link].url }}"><h3 class="inline-richtext">{{ collection.metafields.custom.column_1_title }}</h3></a>{%- endunless -%}
+              <div class="rte">
+                {{ collection.metafields.custom.column_1_content }}
+              </div>
+            </div>
+          </div>
+        </li>
+        {%- endif -%}
+        {%- if collection.metafields.custom.column_3_title != blank or collection.metafields.custom.column_3_content != blank -%}
+        <li id="Slide-template--14566747799624__07bda8e5-4abb-4b19-b5b5-17fa9312fc9c-3" class="shop-box-3 multicolumn-list__item grid__item">
+          <div class="multicolumn-card content-container">
+            <div class="multicolumn-card__info">
+              <svg baseProfile="tiny" height="13px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="13px" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375"></path></g></svg>
+              <div class="shop-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              {%- unless collection.metafields.custom.column_3_title == blank -%}<a href="{{ collections[collection.metafields.custom.column_3_link].url }}"><h3 class="inline-richtext">{{ collection.metafields.custom.column_3_title }}</h3></a>{%- endunless -%}
+              <div class="rte">
+                {{ collection.metafields.custom.column_3_content }}
+              </div>
+            </div>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+    </slider-component>
+    <div class="center"></div>
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Collection Multicolumns",
+  "class": "section",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Multicolumns"
+    }
+  ]
+}
+{% endschema %}

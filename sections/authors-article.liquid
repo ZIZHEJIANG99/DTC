@@ -1,0 +1,217 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card-blog.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .blog-articles {
+    width: 100%;
+  }
+
+  .article-template__hero-container:not(.solid-backround) {
+    -webkit-mask-image: none;
+    mask-image: none;
+    border-radius: 50%;
+  }
+
+   .main-blog.page-width.section-{{ section.id }}-padding {
+     margin-top: 90px;
+   }
+
+ @media screen and (max-width: 767px) {
+  .article-card__image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+   .main-blog.page-width.section-{{ section.id }}-padding {
+     padding: 0;
+     margin-top: 50px;
+   }
+ }
+
+ @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+}
+  
+{%- endstyle -%}
+
+
+<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  {% assign authorHandle = article.handle | remove: 'authors/' %}
+  {% assign authorPost = article.author %}
+
+  <div class="page-width">
+        <div id="article-post">
+            <div class="article-grid">
+
+                <div class="article-content">
+                    <div class="hide-mobile article-bread-m"><p class="article-breadcrumb"><a href="{{ blog.url }}">All Blogs</a> | {{ article.title | escape }}</p></div>
+                    {%- if article.image -%}
+                        <div class="article-template__hero-container" {{ block.shopify_attributes }} style="background-image: url('{{ article.image | image_url: width: 1500 }}')">
+                        </div>
+                    {%- else -%}
+                        <div class="article-template__hero-container solid-backround" {{ block.shopify_attributes }} style="background-color: #365462;">
+                        </div>
+                    {%- endif -%}
+                    {%- for block in section.blocks -%}
+                        {%- case block.type -%}
+                            {%- when 'title' -%}
+                            <div class="article-head ">
+                            <header>
+                                <p class="hide-desk article-breadcrumb"><a href="{{ blog.url }}">All Blogs</a> | {{ article.title | escape }}</p>
+                                <h1 class="title--primary">{{ article.title | escape }}</h1>
+                            </header></div>
+
+                            {%- when 'content' -%}
+                            <div
+                                class="article-template__content rte"
+                                itemprop="articleBody"
+                                {{ block.shopify_attributes }}
+                            >
+                                {{ article.content }}
+                                {%- paginate blogs.upspring-blog.articles by 6 -%}
+                                    <input type="hidden" id="blog_total" value="{{ paginate.parts.size }}">
+                                    <input type="hidden" id="current_page" value="1">
+                                    
+                                    <div class="main-blog page-width section-{{ section.id }}-padding">
+                                        <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %} ajax_load_content">
+                                            {%- for article in blogs.upspring-blog.articles -%}
+                                                {% assign authorName = article.author | handleize %}
+                                                {% if authorName == authorHandle %}
+                                                    <div class="blog-articles__article article">
+                                                        {%- render 'article-card-up',
+                                                        article: article,
+                                                        media_height: 'medium',
+                                                        media_aspect_ratio: article.image.aspect_ratio,
+                                                        show_image: true,
+                                                        show_date: false,
+                                                        show_author: true,
+                                                        show_excerpt: true
+                                                        -%}
+                                                    </div>
+                                                {% endif %}
+                                            {%- endfor -%}
+                                        </div>
+                                
+                                        {%- if paginate.parts.size > 0 -%}
+                                        <a href="javascript:void(0);" id="blog-load-more" style="display:none;">See More</a>
+                                        {%- endif -%}
+                                        {%- if paginate.pages > 1 -%}
+                                            {%- render 'pagination', paginate: paginate -%}
+                                        {%- endif -%}
+                                    </div>
+                                {%- endpaginate -%}
+                            </div>
+                        {%- when 'share' -%}
+                            <div class="article-template__social-sharing" {{ block.shopify_attributes }}>
+                                {% assign share_url = request.origin | append: article.url %}
+                                {% render 'share-button', block: block, share_link: share_url %}
+                            </div>
+                        {%- endcase -%}
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+          "@type": "Article",
+          "articleBody": {{ article.content | strip_html | json }},
+  "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": {{ request.origin | append: page.url | json }}
+  },
+  "headline": {{ article.title | json }},
+  {% if article.excerpt != blank %}
+    "description": {{ article.excerpt | strip_html | json }},
+  {% endif %}
+  {% if article.image %}
+    "image": [
+    {{ article | image_url: width: 1920 | prepend: "https:" | json }}
+    ],
+  {% endif %}
+  "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+  "author": {
+            "@type": "Person",
+            "name": {{ article.author | json }}
+  },
+  "publisher": {
+            "@type": "Organization",
+            "name": {{ shop.name | json }}
+  }
+  }
+</script>
+
+{% schema %}
+  {
+    "name": "Authors Article",
+    "tag": "section",
+    "class": "section",
+    "blocks": [
+      {
+        "type": "@app"
+      },
+      {
+        "type": "featured_image",
+        "name": "t:sections.main-article.blocks.featured_image.name",
+        "limit": 1
+      },
+      {
+        "type": "title",
+        "name": "t:sections.main-article.blocks.title.name",
+        "limit": 1
+      },
+      {
+        "type": "content",
+        "name": "t:sections.main-article.blocks.content.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "checkbox",
+            "id": "blog_show_date",
+            "default": true,
+            "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+          }, {
+            "type": "checkbox",
+            "id": "blog_show_author",
+            "default": false,
+            "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+          }
+        ]
+      }, {
+        "type": "share",
+        "name": "t:sections.main-article.blocks.share.name",
+        "limit": 2,
+        "settings": [
+          {
+            "type": "text",
+            "id": "share_label",
+            "label": "t:sections.main-article.blocks.share.settings.text.label",
+            "default": "Share"
+          }, {
+            "type": "paragraph",
+            "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+          }, {
+            "type": "paragraph",
+            "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

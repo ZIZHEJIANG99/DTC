@@ -1,0 +1,12 @@
+
+.up-custom {color:#365462 !important;}
+
+@media only screen and (min-width: 750px) {
+.up-custom {max-width:32rem;line-hight:1 !important;margin-top:6rem !important;}
+  }
+
+@media only screen and (max-width: 749px) {
+  .hide-desk {display:none;}
+  .mob-bnr h2 {margin:0 !important;
+              font-size:3rem;padding: 1rem 2rem 2rem;}
+  }

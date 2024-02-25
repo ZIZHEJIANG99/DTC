@@ -1,0 +1,106 @@
+{%- if product.metafields.custom.highlight_icon_section_title_1 != blank or product.metafields.custom.highlight_icon_section_title_2 != blank or product.metafields.custom.highlight_icon_section_title_3 != blank or product.metafields.custom.highlight_icon_section_title_4 != blank -%}
+<section class="page-width why-us-section">
+  <h2 class="cust-hd text-center">{{ section.settings.title }}</h2>
+	<div class="cust-why-main">
+		<div class="cw-col cw-left">
+			<div class="cw-left-inner">
+	            <img src="{{ product.metafields.custom.label_section_image | img_url:'master' }}" alt="{{ product.metafields.custom.label_section_image.alt }}" class="cwl-desk-img">
+	           {%- comment -%} <img src="{{ product.metafields.custom.label_section_image | img_url:'master' }}" alt="{{ product.metafields.custom.label_section_image.alt }}" class="cwl-mob">{%- endcomment -%}
+                <img src="{{ product.metafields.custom.a_label_section_mobile_image | img_url:'master' }}" alt="{{ product.metafields.custom.a_label_section_mobile_image.alt }}" class="cwl-mob">
+				{%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/UpSpring_Website_AssetsResize-02.jpg?v=1684526710" alt="" class="cwl-desk">
+				<img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/UpSpring_Website_AssetsResize-02.jpg?v=1684526710" alt="" class="cwl-mob">{%- endcomment -%}
+				{%- comment -%}
+                <div class="cw-left-dtl">
+                    <div class="heart-sec">
+                        <svg baseProfile="tiny" height="13px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="13px" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375"></path></g></svg>
+                    <div class="shop-dots">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                    </div>
+                    
+					<h3 class="cust-hd">A label you can feel good about.</h3>
+					<div class="cwl-desk">
+                      {%- unless product.metafields.custom.label_section_content contains '<ul>' -%}
+                        <p>{{ product.metafields.custom.label_section_content }}</p>
+                      {%- else -%}
+                        {{ product.metafields.custom.label_section_content }}
+                      {%- endunless -%}
+					</div>
+				</div>
+                {%- endcomment -%}
+			</div>
+		</div>
+		<div class="cw-col cw-right">
+			<div class="cw-icon-section">
+                {%- if product.metafields.custom.highlight_icon_section_title_1 != blank or product.metafields.custom.highlight_icon_section_content_1 != blank -%}
+				<div class="cw-icon-col">
+					{%- comment -%}{% render 'glass-icon' %}{%- endcomment -%}
+					{%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/cw-icon-4.png?v=1684535692" alt="Mixed berry icon highlighting the berry flavor of UpSpring Milkflow drink mix." class="cw-icon-img">{%- endcomment -%}
+                    <img src="{{ product.metafields.custom.highlight_icon_section_image_1 | img_url:'master' }}" alt="{{ product.metafields.custom.highlight_icon_section_image_1.alt }}" class="cw-icon-img">
+					<div class="cw-icon-dtl">
+						<h3>{{ product.metafields.custom.highlight_icon_section_title_1 }}</h3>
+                        <p>{{ product.metafields.custom.highlight_icon_section_content_1 }}</p>
+					</div>
+				</div>
+                {%- endif -%}
+                {%- if product.metafields.custom.highlight_icon_section_title_2 != blank or product.metafields.custom.highlight_icon_section_content_2 != blank -%}
+				<div class="cw-icon-col">
+					{%- comment -%}{% render 'glass-icon' %}{%- endcomment -%}
+					{%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/cw-icon-4.png?v=1684535692" alt="Mixed berry icon highlighting the berry flavor of UpSpring Milkflow drink mix." class="cw-icon-img">{%- endcomment -%}
+                    <img src="{{ product.metafields.custom.highlight_icon_section_image_2 | img_url:'master' }}" alt="{{ product.metafields.custom.highlight_icon_section_image_2.alt }}" class="cw-icon-img">
+					<div class="cw-icon-dtl">
+						<h3>{{ product.metafields.custom.highlight_icon_section_title_2 }}</h3>
+                        <p>{{ product.metafields.custom.highlight_icon_section_content_2 }}</p>
+					</div>
+				</div>
+                {%- endif -%}
+                {%- if product.metafields.custom.highlight_icon_section_title_3 != blank or product.metafields.custom.highlight_icon_section_content_3 != blank -%}
+				<div class="cw-icon-col">
+					{%- comment -%}{% render 'glass-icon' %}{%- endcomment -%}
+					{%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/cw-icon-4.png?v=1684535692" alt="Mixed berry icon highlighting the berry flavor of UpSpring Milkflow drink mix." class="cw-icon-img">{%- endcomment -%}
+                    <img src="{{ product.metafields.custom.highlight_icon_section_image_3 | img_url:'master' }}" alt="{{ product.metafields.custom.highlight_icon_section_image_3.alt }}" class="cw-icon-img">
+					<div class="cw-icon-dtl">
+						<h3>{{ product.metafields.custom.highlight_icon_section_title_3 }}</h3>
+                        <p>{{ product.metafields.custom.highlight_icon_section_content_3 }}</p>
+					</div>
+				</div>
+                {%- endif -%}
+                {%- if product.metafields.custom.highlight_icon_section_title_4 != blank or product.metafields.custom.highlight_icon_section_content_4 != blank -%}
+				<div class="cw-icon-col">
+					{%- comment -%}{% render 'glass-icon' %}{%- endcomment -%}
+					{%- comment -%}<img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/cw-icon-4.png?v=1684535692" alt="Mixed berry icon highlighting the berry flavor of UpSpring Milkflow drink mix." class="cw-icon-img">{%- endcomment -%}
+                    <img src="{{ product.metafields.custom.highlight_icon_section_image_4 | img_url:'master' }}" alt="{{ product.metafields.custom.highlight_icon_section_image_4.alt }}" class="cw-icon-img">
+					<div class="cw-icon-dtl">
+						<h3>{{ product.metafields.custom.highlight_icon_section_title_4 }}</h3>
+                        <p>{{ product.metafields.custom.highlight_icon_section_content_4 }}</p>
+					</div>
+				</div>
+                {%- endif -%}
+			</div>
+		</div>
+	</div>
+</section>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Why Mama Love",
+    "enabled_on": {
+      "templates": ["product"]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Why Mama Love"
+      }
+    ]
+  }
+{% endschema %}

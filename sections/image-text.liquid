@@ -1,0 +1,99 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width section-{{ section.id }}-padding">
+  <div class="made-banner">
+    <div class="made-inner">
+      <div class="made-bnr">
+        <img src="{{ section.settings.image | img_url:'master' }}" alt="{{ section.settings.image.alt }}">
+      </div>
+      <div class="mad-inner-text">
+        <div class="mad-icon">
+          <svg id="Group_3540" data-name="Group 3540" xmlns="http://www.w3.org/2000/svg" width="105.887" height="98.002" viewBox="0 0 105.887 98.002">
+            <g id="Group_3537" data-name="Group 3537">
+              <g id="Group_3536" data-name="Group 3536">
+                <path id="Path_3089" data-name="Path 3089" d="M6.243,172.832l9.576-10.607L15.09,176.5l14.271-.729-10.607,9.576,10.607,9.576L15.09,194.19l.729,14.271L6.243,197.855l-9.576,10.607L-2.6,194.19l-14.271.729,10.607-9.576-10.607-9.576L-2.6,176.5l-.729-14.271Z" transform="translate(63.179 -111.553)" fill="#365462"/>
+				<g id="Group_3535" data-name="Group 3535">
+                  <path id="Path_3090" data-name="Path 3090" d="M-28.357,130.667c.229-.349.427-.659.635-.961a12.3,12.3,0,0,1,13.218-4.864,12.309,12.309,0,0,1,9.059,10.414A15.447,15.447,0,0,1-7.589,144.8a42.489,42.489,0,0,1-6.762,8.536c-3.642,3.764-7.695,7.07-11.66,10.473-.773.663-1.548,1.321-2.354,2.011-.637-.542-1.265-1.072-1.887-1.608-3.808-3.287-7.73-6.449-11.285-10.021a48.136,48.136,0,0,1-7.151-8.6,16.738,16.738,0,0,1-2.7-9.082,12.366,12.366,0,0,1,8.247-11.369,12.273,12.273,0,0,1,14.54,5.192C-28.537,130.43-28.458,130.526-28.357,130.667Z" transform="translate(51.392 -124.452)" fill="#365462"/>
+				</g>
+				<rect id="Rectangle_903" data-name="Rectangle 903" width="109.985" height="3.316" transform="translate(3.168 85.309) rotate(-45)" fill="#365462"/>
+          	  </g>
+			</g>
+			<g id="Group_3539" data-name="Group 3539" transform="translate(93.339 91.342)">
+    		  <g id="Group_3538" data-name="Group 3538">
+    			<path id="Path_3091" data-name="Path 3091" d="M23.2,193.28H21.1V199.2h-.817V193.28h-2.1v-.738H23.2Z" transform="translate(-18.187 -192.542)" fill="#365462"/>
+				<path id="Path_3092" data-name="Path 3092" d="M28.512,199.2l-.372-5.481L26.2,198.933h-.687l-1.926-5.2-.374,5.473h-.766l.449-6.66h.766v.011l.172-.011,2.031,5.441,2.023-5.441.173.011v-.011h.765l.453,6.66Z" transform="translate(-16.732 -192.542)" fill="#365462"/>
+			  </g>
+    		</g>
+      	  </svg>
+		</div>
+		{%- unless section.settings.title == blank -%}<h3>{{ section.settings.title }}</h3>{%- endunless -%}
+		{%- unless section.settings.content == blank -%}<p>{{ section.settings.content }}</p>{%- endunless -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Text",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Text"
+    }
+  ]
+}
+{% endschema %}

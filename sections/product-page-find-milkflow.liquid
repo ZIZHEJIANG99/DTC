@@ -1,0 +1,156 @@
+{%- unless product.metafields.custom.how_this_helps_moms_content == blank -%}
+<div class="page-width find-milkflow-section">
+  <h2 class="cust-hd text-center">{{ section.settings.title }}</h2>
+  <div class="fm-table-section">
+    <div class="fm-table">
+      {%- comment -%}{{ product.metafields.custom.how_this_helps_moms_content }}{%- endcomment -%}
+      
+      <table class="fm-main-table">
+        <tbody>
+          <tr>
+            <td class="fm-main-td first-td " style="width:25%;">
+              <table style="width:100%;">
+                <tbody>
+                  <tr><th style="height:55px;"></th></tr>
+                  <tr><th></th></tr>
+                  <tr><td>Fenugreek</td></tr>
+                  <tr><td>Blessed Thistle & Anise</td></tr>
+                  <tr><td>Moringa & Fennel</td></tr>
+                  <tr><td>Electrolytes for Replenishment</td></tr>
+                  <tr><td>Vitamins C & D for Immune Support</td></tr>
+                  <tr><td>Energy</td></tr>
+                  <tr><td>No Sugar or Stevia</td></tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="fm-main-td" style="width:50%;">
+              <table style="width:96%; margin:0 auto;">
+                <tbody>
+                  <tr><th colspan="5" style="text-align:center;height:55px;">Drink Mix</th></tr>
+                  <tr>
+                    <th>Berry</th>
+                    <th>Orange Mango</th>
+                    <th>Chocolate</th>
+                    <th>Blueberry Acai</th>
+                    <th>Elderberry Lemonade</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="fm-main-td" style="width:25%;">
+              <table style="width:100%;">
+                <tbody>
+                  <tr><th colspan="2" style="text-align:center;height:55px;">Capsules</th></tr>
+                  <tr>
+                    <th>Fenugreek</th>
+                    <th>Fenugreek Free</th>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-gray"></span></td>
+                    <td><span class="fm-circle-gray"></span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="fm-circle-pink"></span></td>
+                    <td><span class="fm-circle-pink"></span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</div>
+{%- endunless -%}
+  
+{% schema %}
+  {
+    "name": "Find Milkflow",
+    "enabled_on": {
+      "templates": ["product"]
+    },
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Find Milkflow"
+      }
+    ]
+  }
+{% endschema %}
