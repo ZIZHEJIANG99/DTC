@@ -4,7 +4,6 @@
     "description": "Shopify Automatically Minified Theme",
     "main": "gulpfile.js",
     "scripts": {
-        "lint": "gulp lint:css",
         "styles": "gulp styles",
         "scripts": "gulp scripts"
     },
@@ -16,9 +15,6 @@
         "gulp-babel": "^8.0.0",
         "gulp-postcss": "^9.0.1",
         "gulp-rename": "^2.0.0",
-        "gulp-stylelint": "^13.0.0",
-        "gulp-uglify": "^3.0.2",
-        "stylelint": "^16.2.1",
-        "stylelint-config-standard": "^36.0.0"
+        "gulp-uglify": "^3.0.2"
     }
 }
