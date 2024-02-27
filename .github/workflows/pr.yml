@@ -18,4 +18,5 @@ jobs:
           bundler: 'latest'
       - run: npm install -g @shopify/cli @shopify/theme
       - run: npm install
-      - run: npm run styles & npm run scripts
+      - run: npm run scripts
+      # - run: npm run styles & npm run scripts

@@ -18,7 +18,8 @@ jobs:
           bundler: 'latest'
       - run: npm install -g @shopify/cli @shopify/theme
       - run: npm install
-      - run: npm run styles & npm run scripts
+      - run: npm run scripts
+      # - run: npm run styles & npm run scripts
       - env:
           SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
