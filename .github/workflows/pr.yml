@@ -1,11 +1,11 @@
-name: Theme deploy
+name: PR
 on:
-  push:
+  pull_request:
     branches:
       - main
 jobs:
   deploy:
-    name: Deploy
+    name: PR
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -19,8 +19,3 @@ jobs:
       - run: npm install -g @shopify/cli @shopify/theme
       - run: npm install
       - run: npm run styles & npm run scripts
-      - env:
-          SHOPIFY_FLAG_STORE: ${{ secrets.SHOPIFY_STORE }}
-          SHOPIFY_CLI_THEME_TOKEN: ${{ secrets.SHOPIFY_CLI_THEME_TOKEN }}
-          SHOPIFY_CLI_TTY: 0
-        run: shopify theme push --theme ${{ secrets.SHOPIFY_THEME_ID }}

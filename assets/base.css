@@ -79,7 +79,7 @@ product product--small
   --gradient-background: rgb(var(--color-base-text));
 }
 
-.bottom: .js-back-to-top { display: none !important; }
+.bottom .js-back-to-top { display: none !important; }
 
 
 .color-accent-1 {
