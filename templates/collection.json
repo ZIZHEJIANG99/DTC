@@ -328,6 +328,10 @@
     },
     "collection_tabing_J7tgj6": {
       "type": "collectionTabing",
+      "custom_css": [
+        "div#collection-content {padding: 20px 20px 80px !important; margin: 0px auto;}",
+        "div#collection-content h2,div#collection-content h3 {margin: 15px 0px;}"
+      ],
       "settings": {
       }
     }
