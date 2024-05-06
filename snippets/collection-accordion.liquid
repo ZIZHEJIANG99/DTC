@@ -51,45 +51,30 @@
   /* Add more styles as needed */
 </style>
 
-{% assign faq_titles = collection.metafields.custom.collection_faq_question.value %}
-{% assign faq_contents = collection.metafields.custom.collection_faq_answer.value %}
-
-{% for faq_index in (0..faq_titles.size) %}
-  {% assign faq_title = faq_titles[faq_index] %}
-  {% assign faq_content = faq_contents[faq_index] %}
-  
-  <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_{{ faq_index }})">
-      <path d="M17.5 35C27.165 35 35 27.165 35 17.5C35 7.83502 27.165 0 17.5 0C7.83502 0 0 7.83502 0 17.5C0 27.165 7.83502 35 17.5 35Z" fill="#365462"></path>
-      <mask id="mask0_{{ faq_index }}" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="11" y="11" width="14" height="14">
-        <path d="M25 11H11V25H25V11Z" fill="white"></path>
-      </mask>
-      <g mask="url(#mask0_{{ faq_index }})">
-        <path d="M23.8894 12.9846C23.1647 12.1986 22.1702 11.7656 21.0891 11.7656C20.281 11.7656 19.5409 12.0211 18.8893 12.5249C18.5605 12.7792 18.2627 13.0904 18 13.4536C17.7374 13.0905 17.4395 12.7792 17.1106 12.5249C16.4591 12.0211 15.719 11.7656 14.9109 11.7656C13.8298 11.7656 12.8352 12.1986 12.1105 12.9846C11.3945 13.7614 11 14.8227 11 15.973C11 17.157 11.4412 18.2409 12.3886 19.384C13.236 20.4064 14.454 21.4445 15.8644 22.6464C16.3461 23.0569 16.8919 23.5221 17.4588 24.0177C17.6085 24.149 17.8007 24.2211 18 24.2211C18.1992 24.2211 18.3915 24.149 18.541 24.018C19.1079 23.5223 19.6541 23.0568 20.1359 22.6461C21.5461 21.4444 22.7641 20.4064 23.6116 19.3838C24.5588 18.2409 25 17.157 25 15.973C25 14.8227 24.6055 13.7614 23.8894 12.9846Z" fill="white"></path>
-      </g>
-    </g>
-    <defs>
-      <clipPath id="clip0_{{ faq_index }}">
-        <rect width="35" height="35" fill="white"></rect>
-      </clipPath>
-    </defs>
-  </svg>
-
-  <details class="asd accordion {% if size %} accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if open %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
-    <summary>
-      <span class="accordion__toggle text-lg">
-        <span class="text-with-icon gap-4">
-          {{ faq_title }}
-        </span>
-        {%- if show_arrow -%}
-          {%- render 'icon' with 'chevron-down', class: 'group-expanded:rotate' -%}
-        {%- else -%}
-          <span class="animated-plus group-expanded:rotate" aria-hidden="true"></span>
-        {%- endif -%}
-      </span>
-    </summary>
-    <div class="accordion__content {% if prose_content %}prose{% endif %}">
-      {{ faq_content }}  
-    </div>
-  </details>
+{% assign faq_title = collection.metafields.custom.collection_faq_question.value %}
+ {% assign faq_content = collection.metafields.custom.collection_faq_answer.value %}      
+  {% for title in faq_title %}
+    {% assign final_index  = forloop.index  %}
+        {% for content in faq_content %}
+             {% if final_index == forloop.index %}
+              <details class="asd accordion {% if size %} accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if open %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
+                <summary>
+                  <span class="accordion__toggle text-lg">
+                     <span class="text-with-icon gap-4">
+                          {{ title }}
+                    </span>
+                    {%- if show_arrow -%}
+                      {%- render 'icon' with 'chevron-down', class: 'group-expanded:rotate' -%}
+                    {%- else -%}
+                      <span class="animated-plus group-expanded:rotate" aria-hidden="true"></span>
+                    {%- endif -%}
+                  </span>
+                </summary>
+              
+                <div class="accordion__content {% if prose_content %}prose{% endif %}">
+                    {{ content }}  
+                </div>
+              </details>
+          {% endif %}
+    {% endfor %}
 {% endfor %}
