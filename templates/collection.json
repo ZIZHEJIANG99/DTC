@@ -335,6 +335,38 @@
       ],
       "settings": {
       }
+    },
+    "collection_faq_KmNEU4": {
+      "type": "Collection_FAQ",
+      "blocks": {
+        "category_wigehB": {
+          "type": "category",
+          "settings": {
+            "title": "Order",
+            "icon": "none",
+            "icon_width": 16
+          }
+        },
+        "question_ADJGR8": {
+          "type": "question",
+          "settings": {
+            "question": "Question",
+            "answer": "<p>Write a clear and concise answer to guide your customers.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_wigehB",
+        "question_ADJGR8"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "Frequently Asked Questions",
+        "content": ""
+      }
     }
   },
   "order": [
@@ -348,6 +380,7 @@
     "banner",
     "product-grid",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
-    "collection_tabing_J7tgj6"
+    "collection_tabing_J7tgj6",
+    "collection_faq_KmNEU4"
   ]
 }
