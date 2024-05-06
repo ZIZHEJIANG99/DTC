@@ -1,34 +1,9 @@
-{%- assign color_scheme_hash = section.settings.color_scheme.settings.background_gradient | default: section.settings.color_scheme.settings.background | md5 -%}
-   {% if collection.metafields.custom.collection_faq_que.value != blank %}
-  <div class="section-spacing color-scheme color-scheme--{{ section.settings.color_scheme.id }} color-scheme--bg-{{ color_scheme_hash }} {% if section.settings.separate_section_with_border %}bordered-section{% endif %}">
-    <div class="container container--md">
-      <div class="section-stack">
-       {% comment %} {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, content: section.settings.content -%}{% endcomment %}
-
-      
-          <h3 class="h2" style="text-align:center;">FAQ's</h3>
-       
-        
-        <div class="faq">
-          {%- assign categories_blocks = section.blocks | where: 'type', 'category' -%}
-
-          {%- if section.settings.show_categories and categories_blocks.size > 0 -%}
-            <faq-toc class="faq__toc hidden md:grid">
-              {%- for block in categories_blocks -%}
-                <a class="faq__toc-item {% if forloop.first %}is-active{% endif %}" href="#block-{{ block.id }}">{{ block.settings.title }}</a>
-              {%- endfor -%}
-            </faq-toc>
-          {%- endif -%}
 
           <div class="faq__content">
               {%- render 'collection-accordion' -%}
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
- {% endif %}
-  {%- comment -%}We also output the content with JSON microdata for SEO{%- endcomment -%}
+       
+
 
   <script type="application/ld+json">
     {%- assign question_blocks = section.blocks | where: 'type', 'question' -%}
