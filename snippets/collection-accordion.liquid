@@ -87,14 +87,14 @@ section#faq_sec{
     margin-right: 10px; /* Adjust as needed */
   }
 </style>
- {% assign title = collection.metafields.custom.faq_title.value %}
+ <h2>{% assign title = collection.metafields.custom.faq_title.value %}</h2>
 {% assign faq_title = collection.metafields.custom.collection_faq_question.value %}
 {% assign faq_content = collection.metafields.custom.collection_faq_answer.value %}
 
 {% for title in faq_title %}
   {% assign final_index = forloop.index0 %}
   {% assign content = faq_content[final_index] %}
-   <h2></h2>
+  
   <details class="asd accordion {% if size %}accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if open %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
     <summary>
       <span class="accordion__toggle text-lg">
