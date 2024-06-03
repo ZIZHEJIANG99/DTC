@@ -1,1 +1,342 @@
-{"sections":{"bfdde060-486d-4ee7-9239-e7f011b5a220":{"type":"image-banner","blocks":{"template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-0":{"type":"heading","settings":{"heading":"{{ collection.title }}","heading_size":"h1"}},"template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-1":{"type":"text","settings":{"text":"","text_style":"subtitle"}},"template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-2":{"type":"buttons","settings":{"button_label_1":"","button_link_1":"","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-0","template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-1","template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-2"],"settings":{"image":"{{ collection.image }}","mobimg":"{{ collection.metafields.custom.mobile_image.value }}","section_css_class":"shopall-banner","image_overlay_opacity":0,"image_height":"adapt","desktop_content_position":"middle-left","show_text_box":true,"desktop_content_alignment":"center","color_scheme":"background-1","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"f19b359c-d0e3-4649-abce-3d0c303e6c7c":{"type":"image-banner","blocks":{"template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-0":{"type":"heading","settings":{"heading":"","heading_size":"h1"}},"template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-1":{"type":"text","settings":{"text":"","text_style":"body"}},"template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-2":{"type":"buttons","settings":{"button_label_1":"","button_link_1":"","button_style_secondary_1":false,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-0","template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-1","template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-2"],"disabled":true,"settings":{"image":"shopify:\/\/shop_images\/1920x720.png","mobimg":"shopify:\/\/shop_images\/fedding-bnr-mob.jpg","section_css_class":"shopall-banner feeding-bnr coll-banner","image_overlay_opacity":0,"image_height":"large","desktop_content_position":"middle-left","show_text_box":true,"desktop_content_alignment":"center","color_scheme":"background-1","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"b36985df-3914-48fc-8940-ce764c8d765b":{"type":"image-banner","blocks":{"template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-0":{"type":"heading","settings":{"heading":"","heading_size":"h1"}},"template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-1":{"type":"text","settings":{"text":"Know your supply is strong and ready with our Milkscreen and Milkflow products.","text_style":"body"}},"template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-2":{"type":"buttons","disabled":true,"settings":{"button_label_1":"Button label","button_link_1":"","button_style_secondary_1":false,"button_label_2":"Button label","button_link_2":"","button_style_secondary_2":false}}},"block_order":["template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-0","template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-1","template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-2"],"disabled":true,"settings":{"image":"shopify:\/\/shop_images\/1920x720.png","section_css_class":"shopall-banner carrying-bnr coll-banner","image_overlay_opacity":0,"image_height":"adapt","desktop_content_position":"middle-left","show_text_box":true,"desktop_content_alignment":"left","color_scheme":"background-1","image_behavior":"none","mobile_content_alignment":"center","stack_images_on_mobile":true,"show_text_below":true}},"538f00c2-0443-4292-9fa5-8b6fdcd88d33":{"type":"collection-multicolumn","settings":{"padding_top":36,"padding_bottom":36}},"multicolumn_3rKWrm":{"type":"multicolumn","blocks":{"column_dHMpmx":{"type":"column","settings":{"section_css_class":"shop-box-2","svgcode":"<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>","title":"Feeding your<br>baby","text":"<p><a href=\"\/collections\/lactation-supplements-vitamins\" title=\"Feeding your baby\">Know your supply is strong and ready with our Milkscreen and Milkflow products.<\/a><\/p>","link_label":"","link":""}},"column_NmLckb":{"type":"column","settings":{"section_css_class":"shop-box-1","svgcode":"<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>","title":"Carrying your<br>baby","text":"<p><a href=\"\/collections\/pregnancy\" title=\"Carrying your baby\">Relieve occasional nausea during pregnancy with our Stomach Settle drops.<br\/><\/a><\/p>","link_label":"","link":"shopify:\/\/collections\/pregnancy"}},"column_nhgc3k":{"type":"column","settings":{"section_css_class":"shop-box-3","svgcode":"<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>","title":"Recovering<br>after birth","text":"<p><a href=\"\/collections\/postpartum-care-products\" title=\"Recovering after birth\">Feel restored after giving birth with our daily postpartum wear.<\/a><\/p>","link_label":"","link":"shopify:\/\/collections\/postpartum-care-products"}}},"block_order":["column_NmLckb","column_dHMpmx","column_nhgc3k"],"disabled":true,"settings":{"section_css_class":"shop-all-box","title":"","heading_size":"h1","image_width":"full","image_ratio":"adapt","columns_desktop":3,"column_alignment":"left","background_style":"primary","button_label":"","button_link":"","color_scheme":"background-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"6ce35cb3-e65e-4519-b520-134e63c2d243":{"type":"image-banner","blocks":{"template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-0":{"type":"heading","settings":{"heading":"","heading_size":"h1"}},"template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-1":{"type":"text","settings":{"text":"","text_style":"body"}},"template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-2":{"type":"buttons","disabled":true,"settings":{"button_label_1":"Button label","button_link_1":"","button_style_secondary_1":false,"button_label_2":"Button label","button_link_2":"","button_style_secondary_2":false}}},"block_order":["template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-0","template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-1","template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-2"],"disabled":true,"settings":{"image":"shopify:\/\/shop_images\/1920x720.png","section_css_class":"shopall-banner recovering-bnr coll-banner","image_overlay_opacity":0,"image_height":"adapt","desktop_content_position":"middle-left","show_text_box":true,"desktop_content_alignment":"left","color_scheme":"background-1","image_behavior":"none","mobile_content_alignment":"left","stack_images_on_mobile":true,"show_text_below":true}},"00274b77-2deb-4292-9613-17958abff1bb":{"type":"custom-liquid","disabled":true,"settings":{"custom_liquid":"<div class=\"page-width\"> \n    <div class=\"sub-colllist\">\n     \t<a href=\"#\">Drink Mixes<\/a>\n     \t<a href=\"#\">Alcohol Test Strips<\/a>\n     \t<a href=\"#\">Capsules<\/a>\n     <\/div>\n <\/div>","color_scheme":"background-1","padding_top":40,"padding_bottom":52}},"banner":{"type":"main-collection-banner","disabled":true,"settings":{"show_collection_description":false,"show_collection_image":true,"color_scheme":"background-1"}},"product-grid":{"type":"main-collection-product-grid","settings":{"products_per_page":24,"columns_desktop":4,"image_ratio":"adapt","show_secondary_image":true,"show_vendor":false,"show_rating":false,"enable_quick_add":true,"enable_filtering":false,"filter_type":"horizontal","enable_sorting":false,"columns_mobile":"2","padding_top":0,"padding_bottom":60}},"f5a2839b-9747-4dfc-ac8e-645ba3defe8b":{"type":"featured-blog","disabled":true,"settings":{"heading":"Related Articles","heading_size":"h1","blog":"meet-the-inventors","post_limit":3,"columns_desktop":3,"color_scheme":"background-1","show_image":true,"show_date":false,"show_author":false,"show_view_all":false,"padding_top":36,"padding_bottom":36}}},"order":["bfdde060-486d-4ee7-9239-e7f011b5a220","f19b359c-d0e3-4649-abce-3d0c303e6c7c","b36985df-3914-48fc-8940-ce764c8d765b","538f00c2-0443-4292-9fa5-8b6fdcd88d33","multicolumn_3rKWrm","6ce35cb3-e65e-4519-b520-134e63c2d243","00274b77-2deb-4292-9613-17958abff1bb","banner","product-grid","f5a2839b-9747-4dfc-ac8e-645ba3defe8b"]}
+{
+  "sections": {
+    "bfdde060-486d-4ee7-9239-e7f011b5a220": {
+      "type": "image-banner",
+      "blocks": {
+        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ collection.title }}",
+            "heading_size": "h1"
+          }
+        },
+        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "subtitle"
+          }
+        },
+        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-0",
+        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-1",
+        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-2"
+      ],
+      "settings": {
+        "image": "{{ collection.image }}",
+        "mobimg": "{{ collection.metafields.custom.mobile_image.value }}",
+        "section_css_class": "shopall-banner",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "f19b359c-d0e3-4649-abce-3d0c303e6c7c": {
+      "type": "image-banner",
+      "blocks": {
+        "template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-0",
+        "template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-1",
+        "template--14566747799624__f19b359c-d0e3-4649-abce-3d0c303e6c7c-1684725303d151c7cd-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1920x720.png",
+        "mobimg": "shopify:\/\/shop_images\/fedding-bnr-mob.jpg",
+        "section_css_class": "shopall-banner feeding-bnr coll-banner",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "b36985df-3914-48fc-8940-ce764c8d765b": {
+      "type": "image-banner",
+      "blocks": {
+        "template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-1": {
+          "type": "text",
+          "settings": {
+            "text": "Know your supply is strong and ready with our Milkscreen and Milkflow products.",
+            "text_style": "body"
+          }
+        },
+        "template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-2": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-0",
+        "template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-1",
+        "template--14566747799624__b36985df-3914-48fc-8940-ce764c8d765b-1684729271badae6c4-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1920x720.png",
+        "section_css_class": "shopall-banner carrying-bnr coll-banner",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "538f00c2-0443-4292-9fa5-8b6fdcd88d33": {
+      "type": "collection-multicolumn",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_3rKWrm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_dHMpmx": {
+          "type": "column",
+          "settings": {
+            "section_css_class": "shop-box-2",
+            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>",
+            "title": "Feeding your<br>baby",
+            "text": "<p><a href=\"\/collections\/lactation-supplements-vitamins\" title=\"Feeding your baby\">Know your supply is strong and ready with our Milkscreen and Milkflow products.<\/a><\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_NmLckb": {
+          "type": "column",
+          "settings": {
+            "section_css_class": "shop-box-1",
+            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>",
+            "title": "Carrying your<br>baby",
+            "text": "<p><a href=\"\/collections\/pregnancy-nausea-remedies\" title=\"Carrying your baby\">Relieve occasional nausea during pregnancy with our Stomach Settle drops.<br\/><\/a><\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/pregnancy-nausea-remedies"
+          }
+        },
+        "column_nhgc3k": {
+          "type": "column",
+          "settings": {
+            "section_css_class": "shop-box-3",
+            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>",
+            "title": "Recovering<br>after birth",
+            "text": "<p><a href=\"\/collections\/postpartum-care-products\" title=\"Recovering after birth\">Feel restored after giving birth with our daily postpartum wear.<\/a><\/p>",
+            "link_label": "",
+            "link": "shopify:\/\/collections\/postpartum-care-products"
+          }
+        }
+      },
+      "block_order": [
+        "column_NmLckb",
+        "column_dHMpmx",
+        "column_nhgc3k"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_css_class": "shop-all-box",
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "6ce35cb3-e65e-4519-b520-134e63c2d243": {
+      "type": "image-banner",
+      "blocks": {
+        "template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-2": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-0",
+        "template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-1",
+        "template--14566747799624__6ce35cb3-e65e-4519-b520-134e63c2d243-1684731449a1d29594-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1920x720.png",
+        "section_css_class": "shopall-banner recovering-bnr coll-banner",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "00274b77-2deb-4292-9613-17958abff1bb": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\"> \n    <div class=\"sub-colllist\">\n     \t<a href=\"#\">Drink Mixes<\/a>\n     \t<a href=\"#\">Alcohol Test Strips<\/a>\n     \t<a href=\"#\">Capsules<\/a>\n     <\/div>\n <\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": true,
+        "color_scheme": "background-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "f5a2839b-9747-4dfc-ac8e-645ba3defe8b": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "heading": "Related Articles",
+        "heading_size": "h1",
+        "blog": "meet-the-inventors",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "bfdde060-486d-4ee7-9239-e7f011b5a220",
+    "f19b359c-d0e3-4649-abce-3d0c303e6c7c",
+    "b36985df-3914-48fc-8940-ce764c8d765b",
+    "538f00c2-0443-4292-9fa5-8b6fdcd88d33",
+    "multicolumn_3rKWrm",
+    "6ce35cb3-e65e-4519-b520-134e63c2d243",
+    "00274b77-2deb-4292-9613-17958abff1bb",
+    "banner",
+    "product-grid",
+    "f5a2839b-9747-4dfc-ac8e-645ba3defe8b"
+  ]
+}
