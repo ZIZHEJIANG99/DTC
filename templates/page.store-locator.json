@@ -5,6 +5,7 @@
       "blocks": {
         "template--14579883540552__d17f682f-e8a9-4e67-99ce-272e855d9217-168624562589adf767-0": {
           "type": "heading",
+          "disabled": true,
           "settings": {
             "heading": "Contact Us",
             "heading_size": "h0"
@@ -14,6 +15,7 @@
       "block_order": [
         "template--14579883540552__d17f682f-e8a9-4e67-99ce-272e855d9217-168624562589adf767-0"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify:\/\/shop_images\/Group_3870.png",
         "mobimg": "shopify:\/\/shop_images\/Group_3871.png",
@@ -32,6 +34,7 @@
     },
     "main": {
       "type": "contact-page",
+      "disabled": true,
       "settings": {
         "page": "contact",
         "contact_email": "info@myupspring.com",
@@ -40,6 +43,16 @@
     },
     "17180552412b68de76": {
       "type": "apps",
+      "blocks": {
+        "s_store_locator_storeify_storelocator_hqKQ6d": {
+          "type": "shopify:\/\/apps\/s-store-locator\/blocks\/storeify-storelocator\/e7003487-cc51-4321-9488-2c47c07a5b17",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "s_store_locator_storeify_storelocator_hqKQ6d"
+      ],
       "settings": {
         "include_margins": true
       }
