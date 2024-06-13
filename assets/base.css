@@ -3428,7 +3428,7 @@ details-disclosure > details {
     overflow: hidden;}
   .home-tab-section .card--standard>.card__content .card__information{padding-bottom:0;}
 }
-@media(max-width: 749px){
+@media(max-width: 767px){
   #faq_sec{
     padding-left:0!important;
     padding-right:0!important;
