@@ -1,1 +1,31 @@
-"use strict";jQuery(function(){try{var t=jQuery("#m-1559311283625").children(".module"),r=t.attr("data-single"),a=t.attr("data-openDefault"),d=t.attr("data-openTab"),o=jQuery(".gryffeditor").hasClass("editing")?"dev":"production",e=(0!=a&&"0"!=a||(d="0"),t.gfAccordion({single:r,openTab:d,mode:o}),t.attr("data-borderColor")),c=t.attr("data-borderSize");t.children("[data-accordion]").children("[data-control]").css("border-bottom",c+" solid "+e),t.children("[data-accordion]").children("[data-content]").children().css("border-bottom",c+" solid "+e)}catch(t){}});
+
+
+    
+  
+        jQuery(function() {
+            try {
+                var $module = jQuery('#m-1559311283625').children('.module');
+                var single   = $module.attr('data-single');
+                var openDefault  = $module.attr('data-openDefault');
+                var openTab  = $module.attr('data-openTab');
+                var mode     = jQuery('.gryffeditor').hasClass('editing') ? 'dev' : 'production';
+    
+                if(openDefault == 0 || openDefault == '0') {
+                    openTab = '0';
+                }
+    
+                $module.gfAccordion({
+                    single: single,
+                    openTab: openTab,
+                    mode: mode
+                });
+    
+                var borderColor = $module.attr('data-borderColor');
+                var borderSize = $module.attr('data-borderSize');
+    
+                $module.children('[data-accordion]').children('[data-control]').css('border-bottom', borderSize + ' solid ' + borderColor);
+                $module.children('[data-accordion]').children('[data-content]').children().css('border-bottom', borderSize + ' solid ' + borderColor);
+                
+            } catch(err) {}
+        });
+    

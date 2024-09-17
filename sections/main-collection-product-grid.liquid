@@ -1,3 +1,10 @@
+<style>
+  .custom-product-class ul#product-grid {
+    padding-top: 92px !important;
+}
+</style>
+
+
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
@@ -126,7 +133,7 @@
         </aside>
       {%- endif -%}
 
-      <div class="product-grid-container" id="ProductGridContainer">
+      <div class="product-grid-container custom-product-class" id="ProductGridContainer">
         {%- if collection.products.size == 0 -%}
           <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
             <div class="loading-overlay gradient"></div>

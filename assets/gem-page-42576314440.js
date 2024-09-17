@@ -1,1 +1,113 @@
-"use strict";jQuery(function(){var i=jQuery("#m-1561992616759").children(".module"),t=parseInt(i.attr("data-activeTab"))-1,o=jQuery(".gryffeditor").hasClass("editing")?"dev":"production";i.gfV3ResTabs({activeTab:t,mode:o,tabSelected:function(t){var o=i.attr("data-inactiveTabBgColor"),r=i.attr("data-inactiveTabColor"),e=i.attr("data-tabBgColor"),s=i.attr("data-tabColor"),a=i.attr("data-borderColor"),u=i.attr("data-borderSize"),c=i.find(">ul>li.gf_tab"),l=i.find(">ul>li.gf_tab-active"),d=i.find(">.gf_tab-panel");i.hasClass("style1")?(c.css("margin-left","-"+u).css("border",u+" solid "+a).css("border-bottom",u+" solid "+a),i.find(">ul>li.gf_tab:first").css("margin-left","0px")):i.hasClass("style3")&&c.css("border-bottom",u+" solid "+e),i.hasClass("style3")||(c.css("background-color",o),l.css("background-color",e)),c.css("color",r),l.css("color",s),i.hasClass("style1")?l.children(".gf_tab-bottom").css("backgroundColor",e).css("height",u).css("bottom","-"+u):i.hasClass("style3")&&l.children(".gf_tab-bottom").css("backgroundColor",a).css("height",u).css("bottom","-"+u),d.css("top","-"+u).css("background-color",e).css("border","1px solid "+a),i.hasClass("style1")?d.css("border",u+" solid "+a):d.css("border","none")}}),"dev"==o&&"1561992616759"=="1561992616759".toString().replace(/-/g,"")&&(window.getTab1561992616759=function(){return i.data("gfv3restabs")})}),jQuery(function(){var t=jQuery("#m-1561998533984").children(".module");jQuery().gfYoutube&&t.gfYoutube()}),jQuery(function(){var t=jQuery("#m-1561998576432").children(".module");jQuery().gfYoutube&&t.gfYoutube()}),jQuery(function(){var t=jQuery("#m-1561998575613").children(".module");jQuery().gfYoutube&&t.gfYoutube()}),jQuery(function(){var t=jQuery("#m-1561998574601").children(".module");jQuery().gfYoutube&&t.gfYoutube()}),jQuery(function(){var t=jQuery("#m-1561998573703").children(".module");jQuery().gfYoutube&&t.gfYoutube()});
+
+
+    
+  
+        jQuery(function() {
+            var $module = jQuery('#m-1561992616759').children('.module');
+            var activeTab = parseInt($module.attr('data-activeTab')) - 1;
+            var mode = jQuery('.gryffeditor').hasClass('editing') ? 'dev' : 'production';
+
+            $module.gfV3ResTabs({
+                'activeTab': activeTab,
+                'mode': mode,
+                tabSelected: function(index) {
+                    var tabInactiveBgColor = $module.attr('data-inactiveTabBgColor');
+                    var tabInactiveColor = $module.attr('data-inactiveTabColor');
+                    var tabBgColor = $module.attr('data-tabBgColor');
+                    var tabColor = $module.attr('data-tabColor');
+                    var borderColor = $module.attr('data-borderColor');
+                    var borderSize = $module.attr('data-borderSize');
+
+                    var $gfTabs = $module.find('>ul>li.gf_tab');
+                    var $gfTabActive = $module.find('>ul>li.gf_tab-active');
+                    var $gfTabPanels = $module.find('>.gf_tab-panel');
+
+                    if($module.hasClass('style1')) {
+                        $gfTabs
+                        .css('margin-left', '-' + borderSize)
+                        .css('border', borderSize + ' solid ' + borderColor)
+                        .css('border-bottom', borderSize + ' solid ' + borderColor);
+
+                        $module.find('>ul>li.gf_tab:first').css('margin-left', '0px');
+
+                    } else if($module.hasClass('style3')) {
+                        $gfTabs.css('border-bottom', borderSize + ' solid ' + tabBgColor);
+                    }
+
+                    if(!$module.hasClass('style3')) {
+                        $gfTabs.css('background-color', tabInactiveBgColor);
+                        $gfTabActive.css('background-color', tabBgColor);
+                    }
+
+                    $gfTabs.css('color', tabInactiveColor);
+                    $gfTabActive.css('color', tabColor);
+
+                    if($module.hasClass('style1')) {
+                        $gfTabActive.children('.gf_tab-bottom')
+                        .css('backgroundColor', tabBgColor)
+                        .css('height', borderSize)
+                        .css('bottom', '-' + borderSize);
+                    } else if($module.hasClass('style3')) {
+                        $gfTabActive.children('.gf_tab-bottom')
+                        .css('backgroundColor', borderColor)
+                        .css('height', borderSize)
+                        .css('bottom', '-' + borderSize);
+                    }
+                    $gfTabPanels
+                    .css('top', '-' + borderSize)
+                    .css('background-color', tabBgColor)
+                    .css('border', '1px solid ' + borderColor);
+
+                    if($module.hasClass('style1')) {
+                        $gfTabPanels.css('border', borderSize + ' solid ' + borderColor);
+                    } else {
+                        $gfTabPanels.css('border', 'none');
+                    }
+                }
+            });
+            if(mode == 'dev') {
+                var moduleId = "1561992616759";
+                var moduleIdSlug = moduleId.toString().replace(/-/g, '');
+                if (moduleIdSlug == "1561992616759") {
+                    window.getTab1561992616759 = function() {
+                        return $module.data('gfv3restabs');
+                    }
+                }
+            }
+        });
+    
+        jQuery(function() {
+            var $module = jQuery('#m-1561998533984').children('.module');
+            if(jQuery().gfYoutube) {
+                $module.gfYoutube();
+            }
+        });
+    
+        jQuery(function() {
+            var $module = jQuery('#m-1561998576432').children('.module');
+            if(jQuery().gfYoutube) {
+                $module.gfYoutube();
+            }
+        });
+    
+        jQuery(function() {
+            var $module = jQuery('#m-1561998575613').children('.module');
+            if(jQuery().gfYoutube) {
+                $module.gfYoutube();
+            }
+        });
+    
+        jQuery(function() {
+            var $module = jQuery('#m-1561998574601').children('.module');
+            if(jQuery().gfYoutube) {
+                $module.gfYoutube();
+            }
+        });
+    
+        jQuery(function() {
+            var $module = jQuery('#m-1561998573703').children('.module');
+            if(jQuery().gfYoutube) {
+                $module.gfYoutube();
+            }
+        });
+    
