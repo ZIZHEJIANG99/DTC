@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "bfdde060-486d-4ee7-9239-e7f011b5a220": {
@@ -50,6 +59,49 @@
         "show_text_below": true
       }
     },
+    "rich_text_TKNp8a": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YzpAJH": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_QfU9Uc": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": ""
+          }
+        },
+        "button_f9MKLn": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_YzpAJH",
+        "text_QfU9Uc",
+        "button_f9MKLn"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
     "f19b359c-d0e3-4649-abce-3d0c303e6c7c": {
       "type": "image-banner",
       "blocks": {
@@ -86,8 +138,8 @@
       ],
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/1920x720.png",
-        "mobimg": "shopify:\/\/shop_images\/fedding-bnr-mob.jpg",
+        "image": "shopify://shop_images/1920x720.png",
+        "mobimg": "shopify://shop_images/fedding-bnr-mob.jpg",
         "section_css_class": "shopall-banner feeding-bnr coll-banner",
         "image_overlay_opacity": 0,
         "image_height": "large",
@@ -138,7 +190,7 @@
       ],
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/1920x720.png",
+        "image": "shopify://shop_images/1920x720.png",
         "section_css_class": "shopall-banner carrying-bnr coll-banner",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -166,20 +218,20 @@
           "type": "column",
           "settings": {
             "section_css_class": "shop-box-1",
-            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>",
+            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"></path></g></svg>\n<div class=\"shop-dots\">\n<span></span>\n<span></span>\n<span></span>\n</div>",
             "title": "Carrying your<br>baby",
-            "text": "<p><a href=\"\/collections\/pregnancy\" title=\"Carrying your baby\">Relieve occasional nausea during pregnancy with our Stomach Settle drops.<br\/><\/a><\/p>",
+            "text": "<p><a href=\"/collections/pregnancy\" title=\"Carrying your baby\">Relieve occasional nausea during pregnancy with our Stomach Settle drops.<br/></a></p>",
             "link_label": "",
-            "link": "shopify:\/\/collections\/pregnancy-nausea-remedies"
+            "link": "shopify://collections/pregnancy-nausea-remedies"
           }
         },
         "column_dHMpmx": {
           "type": "column",
           "settings": {
             "section_css_class": "shop-box-2",
-            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>",
+            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"></path></g></svg>\n<div class=\"shop-dots\">\n<span></span>\n<span></span>\n<span></span>\n</div>",
             "title": "Feeding your<br>baby",
-            "text": "<p><a href=\"\/collections\/lactation-supplements-vitamins\" title=\"Feeding your baby\">Know your supply is strong and ready with our Milkscreen and Milkflow products.<\/a><\/p>",
+            "text": "<p><a href=\"/collections/lactation-supplements-vitamins\" title=\"Feeding your baby\">Know your supply is strong and ready with our Milkscreen and Milkflow products.</a></p>",
             "link_label": "",
             "link": ""
           }
@@ -188,11 +240,11 @@
           "type": "column",
           "settings": {
             "section_css_class": "shop-box-3",
-            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xml:space=\"preserve\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"><\/path><\/g><\/svg>\n<div class=\"shop-dots\">\n<span><\/span>\n<span><\/span>\n<span><\/span>\n<\/div>",
+            "svgcode": "<svg baseprofile=\"tiny\" height=\"13px\" id=\"Layer_1\" version=\"1.2\" viewbox=\"0 0 24 24\" width=\"13px\" xmlns=\"http://www.w3.org/2000/svg\" xml:space=\"preserve\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"><g><path d=\"M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375\"></path></g></svg>\n<div class=\"shop-dots\">\n<span></span>\n<span></span>\n<span></span>\n</div>",
             "title": "Recovering<br>after birth",
-            "text": "<p><a href=\"\/collections\/postpartum-care-products\" title=\"Recovering after birth\">Feel restored after giving birth with our daily postpartum wear.<\/a><\/p>",
+            "text": "<p><a href=\"/collections/postpartum-care-products\" title=\"Recovering after birth\">Feel restored after giving birth with our daily postpartum wear.</a></p>",
             "link_label": "",
-            "link": "shopify:\/\/collections\/postpartum-care-products"
+            "link": "shopify://collections/postpartum-care-products"
           }
         }
       },
@@ -257,7 +309,7 @@
       ],
       "disabled": true,
       "settings": {
-        "image": "shopify:\/\/shop_images\/1920x720.png",
+        "image": "shopify://shop_images/1920x720.png",
         "section_css_class": "shopall-banner recovering-bnr coll-banner",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
@@ -275,7 +327,7 @@
       "type": "custom-liquid",
       "disabled": true,
       "settings": {
-        "custom_liquid": "<div class=\"page-width\"> \n    <div class=\"sub-colllist\">\n     \t<a href=\"#\">Drink Mixes<\/a>\n     \t<a href=\"#\">Alcohol Test Strips<\/a>\n     \t<a href=\"#\">Capsules<\/a>\n     <\/div>\n <\/div>",
+        "custom_liquid": "<div class=\"page-width\"> \n    <div class=\"sub-colllist\">\n     \t<a href=\"#\">Drink Mixes</a>\n     \t<a href=\"#\">Alcohol Test Strips</a>\n     \t<a href=\"#\">Capsules</a>\n     </div>\n </div>",
         "color_scheme": "background-1",
         "padding_top": 40,
         "padding_bottom": 52
@@ -304,7 +356,7 @@
         "filter_type": "horizontal",
         "enable_sorting": false,
         "columns_mobile": "2",
-        "padding_top": 150,
+        "padding_top": 0,
         "padding_bottom": 60
       }
     },
@@ -333,7 +385,8 @@
         "div#collection-content {padding: 20px 40px 80px !important; margin: 0px auto;}",
         "div#collection-content h2,div#collection-content h3 {margin: 15px 0px;}"
       ],
-      "settings": {}
+      "settings": {
+      }
     },
     "collection_faq_KmNEU4": {
       "type": "Collection_FAQ",
@@ -350,7 +403,7 @@
           "type": "question",
           "settings": {
             "question": "Question",
-            "answer": "<p>Write a clear and concise answer to guide your customers.<\/p>"
+            "answer": "<p>Write a clear and concise answer to guide your customers.</p>"
           }
         }
       },
@@ -370,6 +423,7 @@
   },
   "order": [
     "bfdde060-486d-4ee7-9239-e7f011b5a220",
+    "rich_text_TKNp8a",
     "f19b359c-d0e3-4649-abce-3d0c303e6c7c",
     "b36985df-3914-48fc-8940-ce764c8d765b",
     "538f00c2-0443-4292-9fa5-8b6fdcd88d33",
