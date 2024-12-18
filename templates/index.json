@@ -35,10 +35,35 @@
             "color_scheme": "background-2",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_8Xyt4r": {
+          "type": "slide",
+          "settings": {
+            "background": "",
+            "background_mobile": "",
+            "text_color": "",
+            "text_color_mobile": "",
+            "image": "shopify://shop_images/Group_1_1.jpg",
+            "mob_image": "shopify://shop_images/Path_3121.jpg",
+            "section_css_class": "Type your own CSS class",
+            "heading": "glow with the flow",
+            "heading_size": "h1",
+            "subheading": "Better wellness for the next generation of mamas",
+            "button_label": "Shop Now",
+            "link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "box_align": "middle-right",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-2",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
-        "template--14671783133256__7626d8fd-4688-4509-95d8-fc4b18df7fb2-slide-1"
+        "template--14671783133256__7626d8fd-4688-4509-95d8-fc4b18df7fb2-slide-1",
+        "slide_8Xyt4r"
       ],
       "settings": {
         "slideclass": "main-banner",
@@ -309,10 +334,11 @@
     },
     "0933f46e-2567-4d18-bd6c-eb8484e8eac0": {
       "type": "image-text",
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/Group_3778.png",
-        "title": "Made with love.<br>Backed by science",
-        "content": "At UpSpring, we nurture the nurturers™ so, you will feel cared for, too. All our wellness solutions are made with love and backed by science.",
+        "title": "Better wellness for your best, every day",
+        "content": "Since 2005, upSpring has been dedicated to empowering women with natural, high-quality health solutions that actually work. We’re passionate about creating products that make life easier and healthier for women and their families.",
         "padding_top": 40,
         "padding_bottom": 52
       }
