@@ -382,7 +382,7 @@
         "2e014bd9-4133-4df8-af7b-766bdd7cfe2d": {
           "type": "image_column",
           "settings": {
-            "image": "shopify://shop_images/iStock-1030349054.jpg"
+            "image": "shopify://shop_images/1.png"
           }
         },
         "737da841-41ba-49f6-8281-1fdcf3af7331": {
@@ -396,7 +396,7 @@
         "21f3aa01-2b98-410d-a66b-6b0dafefa743": {
           "type": "image_column",
           "settings": {
-            "image": "shopify://shop_images/image_3.jpg"
+            "image": "shopify://shop_images/3.png"
           }
         },
         "64f132bd-8a0f-4b33-b7ae-6365e7c5ad28": {
@@ -410,7 +410,7 @@
         "37fa8992-a1dc-4a1c-80c1-a41a5f58d423": {
           "type": "image_column",
           "settings": {
-            "image": "shopify://shop_images/TARGET_milkflow_berry_06.jpg"
+            "image": "shopify://shop_images/2.png"
           }
         },
         "48b263ea-ce86-480e-8819-3837328c4a87": {
