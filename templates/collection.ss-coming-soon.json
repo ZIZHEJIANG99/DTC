@@ -360,6 +360,33 @@
         "padding_bottom": 60
       }
     },
+    "featured_collection_NFXXEb": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "COMING SOON!",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "stomach-settle-gummies",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b": {
       "type": "featured-blog",
       "disabled": true,
@@ -431,6 +458,7 @@
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "product-grid",
+    "featured_collection_NFXXEb",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
     "collection_tabing_J7tgj6",
     "collection_faq_KmNEU4"
