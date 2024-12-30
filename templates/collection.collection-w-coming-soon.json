@@ -377,8 +377,16 @@
             "heading_size": "h1"
           }
         },
+        "text_JQTTYz": {
+          "type": "text",
+          "settings": {
+            "text": "$19.99 COMING SOON!",
+            "text_style": "body"
+          }
+        },
         "price_VWCYEC": {
           "type": "price",
+          "disabled": true,
           "settings": {}
         },
         "variant_picker_AAJnBp": {
@@ -409,6 +417,7 @@
       "block_order": [
         "text_Uz4A87",
         "title_cUx8dk",
+        "text_JQTTYz",
         "price_VWCYEC",
         "variant_picker_AAJnBp",
         "quantity_selector_Jc6pEr",
