@@ -360,6 +360,76 @@
         "padding_bottom": 60
       }
     },
+    "featured_product_qjTQqk": {
+      "type": "featured-product",
+      "blocks": {
+        "text_Uz4A87": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}<strong>UpSpring Stomach Settle® Morning Sickness Gummies</strong>",
+            "text_style": "subtitle"
+          }
+        },
+        "title_cUx8dk": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_VWCYEC": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_AAJnBp": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector_Jc6pEr": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons_itHjtg": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "share_d3jyCP": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_Uz4A87",
+        "title_cUx8dk",
+        "price_VWCYEC",
+        "variant_picker_AAJnBp",
+        "quantity_selector_Jc6pEr",
+        "buy_buttons_itHjtg",
+        "share_d3jyCP"
+      ],
+      "settings": {
+        "product": "upspring-stomach-settle-morning-sickness-gummies",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b": {
       "type": "featured-blog",
       "disabled": true,
@@ -431,6 +501,7 @@
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "product-grid",
+    "featured_product_qjTQqk",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
     "collection_tabing_J7tgj6",
     "collection_faq_KmNEU4"
