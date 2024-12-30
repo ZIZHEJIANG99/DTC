@@ -366,7 +366,7 @@
         "text_Uz4A87": {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}<strong> Stomach Settle® Morning Sickness Gummies</strong>",
+            "text": "<strong>{{ section.settings.product.vendor }}</strong><strong> Stomach Settle® Morning Sickness Gummies</strong>",
             "text_style": "subtitle"
           }
         },
@@ -388,6 +388,13 @@
           "type": "price",
           "disabled": true,
           "settings": {}
+        },
+        "text_6BzX73": {
+          "type": "text",
+          "settings": {
+            "text": "These gummies are specially formulated for moms-to-be and postpartum recovery, combining ginger, spearmint, lemon, and Vitamin B6 for fast, effective relief. And the best part? They’re delicious enough to suit even the most sensitive pregnancy taste buds, offering a drug-free solution you can trust.",
+            "text_style": "body"
+          }
         },
         "variant_picker_AAJnBp": {
           "type": "variant_picker",
@@ -419,6 +426,7 @@
         "title_cUx8dk",
         "text_JQTTYz",
         "price_VWCYEC",
+        "text_6BzX73",
         "variant_picker_AAJnBp",
         "quantity_selector_Jc6pEr",
         "buy_buttons_itHjtg",
