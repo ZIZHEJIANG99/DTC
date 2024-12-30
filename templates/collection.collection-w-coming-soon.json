@@ -366,7 +366,7 @@
         "text_Uz4A87": {
           "type": "text",
           "settings": {
-            "text": "{{ section.settings.product.vendor }}<strong>UpSpring Stomach Settle® Morning Sickness Gummies</strong>",
+            "text": "{{ section.settings.product.vendor }}<strong> Stomach Settle® Morning Sickness Gummies</strong>",
             "text_style": "subtitle"
           }
         },
