@@ -271,8 +271,9 @@
     },
     "85c28829-054d-4375-aafe-40e9ff7e745a": {
       "type": "also-like-products",
+      "disabled": true,
       "settings": {
-        "title": "Mamas Also Love",
+        "title": "Girls Also Love",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
