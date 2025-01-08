@@ -344,6 +344,7 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 24,
         "columns_desktop": 4,
@@ -360,11 +361,88 @@
         "padding_bottom": 60
       }
     },
+    "featured_product_UnRyH4": {
+      "type": "featured-product",
+      "blocks": {
+        "text_YHXxJp": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_kAq7Vd": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "price_DhtVAm": {
+          "type": "price",
+          "settings": {}
+        },
+        "text_MknFir": {
+          "type": "text",
+          "settings": {
+            "text": "Experience soothing relief from early morning pregnancy nausea, gas, bloating, motion sickness, and occasional stomach upset with Stomach Settle drops. Curated with love and backed by science, it contains a unique blend of 4 natural remedies that offer gentle yet effective relief during the first trimester of pregnancy.",
+            "text_style": "body"
+          }
+        },
+        "variant_picker_j4W7Ra": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector_fhCTL6": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_EggAth": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true
+          }
+        },
+        "share_6UC9c8": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_YHXxJp",
+        "title_kAq7Vd",
+        "price_DhtVAm",
+        "text_MknFir",
+        "variant_picker_j4W7Ra",
+        "quantity_selector_fhCTL6",
+        "buy_buttons_EggAth",
+        "share_6UC9c8"
+      ],
+      "settings": {
+        "product": "stomach-settle-morning-sickness-nausea-relief-drops",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_product_qjTQqk": {
       "type": "featured-product",
       "blocks": {
         "text_Uz4A87": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<strong>{{ section.settings.product.vendor }}</strong><strong> Stomach Settle® Morning Sickness Gummies</strong>",
             "text_style": "subtitle"
@@ -372,7 +450,6 @@
         },
         "title_cUx8dk": {
           "type": "title",
-          "disabled": true,
           "settings": {
             "heading_size": "h1"
           }
@@ -436,7 +513,7 @@
         "product": "upspring-stomach-settle-morning-sickness-gummies",
         "color_scheme": "background-1",
         "secondary_background": false,
-        "media_size": "medium",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "media_position": "left",
@@ -518,6 +595,7 @@
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "product-grid",
+    "featured_product_UnRyH4",
     "featured_product_qjTQqk",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
     "collection_tabing_J7tgj6",
