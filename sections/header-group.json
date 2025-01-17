@@ -25,6 +25,7 @@
         },
         "announcement_UnefYE": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "Welcome to our store",
             "text_alignment": "center",
