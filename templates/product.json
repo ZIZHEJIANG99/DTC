@@ -87,6 +87,12 @@
           "settings": {
             "custom_liquid": "{{product.metafield.custom}}"
           }
+        },
+        "83016afc-57c4-49e5-afd9-86a16128b089": {
+          "type": "shopify://apps/yotpo-product-reviews/blocks/star-rating/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+          "settings": {
+            "product": "{{product}}"
+          }
         }
       },
       "block_order": [
@@ -96,6 +102,7 @@
         "title",
         "rating",
         "price",
+        "83016afc-57c4-49e5-afd9-86a16128b089",
         "custom_liquid_bAWGD9",
         "caec9db5-4dea-4433-add2-7044c132a03d",
         "variant_picker",
