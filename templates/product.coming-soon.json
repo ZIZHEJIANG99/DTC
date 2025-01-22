@@ -315,6 +315,7 @@
     },
     "c5dad714-5804-4572-9fae-570c18cb4b48": {
       "type": "custom-liquid",
+      "disabled": true,
       "settings": {
         "custom_liquid": "<div class=\"page-width\"><div data-bv-show=\"reviews\" data-bv-product-id=\"{{product.id}}\"> </div></div>",
         "color_scheme": "background-1",
