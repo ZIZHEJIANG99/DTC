@@ -313,16 +313,6 @@
         "padding_top": 0,
         "padding_bottom": 60
       }
-    },
-    "c5dad714-5804-4572-9fae-570c18cb4b48": {
-      "type": "custom-liquid",
-      "disabled": true,
-      "settings": {
-        "custom_liquid": "<div class=\"page-width\"><div data-bv-show=\"reviews\" data-bv-product-id=\"{{product.id}}\"> </div></div>",
-        "color_scheme": "background-1",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
@@ -333,7 +323,6 @@
     "bd2cc7eb-ca73-4fe6-8d56-79fa328c4905",
     "f966e413-4cd5-4eca-a149-e67b7c908e2a",
     "85c28829-054d-4375-aafe-40e9ff7e745a",
-    "related-products",
-    "c5dad714-5804-4572-9fae-570c18cb4b48"
+    "related-products"
   ]
 }
