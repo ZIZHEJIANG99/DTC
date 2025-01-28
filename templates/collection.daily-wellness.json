@@ -360,8 +360,72 @@
         "padding_bottom": 60
       }
     },
+    "featured_product_weqn44": {
+      "type": "featured-product",
+      "blocks": {
+        "text_3GXLU7": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_b6BWxd": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "text_kAVABP": {
+          "type": "text",
+          "settings": {
+            "text": "Coming Soon!",
+            "text_style": "body"
+          }
+        },
+        "price_ncx3BX": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_zJMbYy": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "share_Hhe8rP": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_3GXLU7",
+        "title_b6BWxd",
+        "text_kAVABP",
+        "price_ncx3BX",
+        "variant_picker_zJMbYy",
+        "share_Hhe8rP"
+      ],
+      "settings": {
+        "product": "upspring-stomach-settle-fiber-gummies",
+        "color_scheme": "background-1",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "featured_collection_NFXXEb": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "COMING SOON!",
         "heading_size": "h1",
@@ -458,6 +522,7 @@
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "product-grid",
+    "featured_product_weqn44",
     "featured_collection_NFXXEb",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
     "collection_tabing_J7tgj6",

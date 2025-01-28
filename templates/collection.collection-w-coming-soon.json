@@ -344,7 +344,6 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "disabled": true,
       "settings": {
         "products_per_page": 24,
         "columns_desktop": 4,
@@ -422,6 +421,7 @@
         "buy_buttons_EggAth",
         "share_6UC9c8"
       ],
+      "disabled": true,
       "settings": {
         "product": "stomach-settle-morning-sickness-nausea-relief-drops",
         "color_scheme": "background-1",
@@ -510,7 +510,7 @@
         "share_d3jyCP"
       ],
       "settings": {
-        "product": "upspring-stomach-settle-morning-sickness-gummies",
+        "product": "upspring-stomach-settle-fiber-gummies",
         "color_scheme": "background-1",
         "secondary_background": false,
         "media_size": "small",
