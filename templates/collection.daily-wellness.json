@@ -365,6 +365,7 @@
       "blocks": {
         "text_3GXLU7": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ section.settings.product.vendor }}",
             "text_style": "uppercase"
