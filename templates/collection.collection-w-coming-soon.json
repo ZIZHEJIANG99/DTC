@@ -360,6 +360,29 @@
         "padding_bottom": 60
       }
     },
+    "rich_text_Bq6kaG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_zr9mYE": {
+          "type": "heading",
+          "settings": {
+            "heading": "Coming Soon!",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_zr9mYE"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "featured_product_UnRyH4": {
       "type": "featured-product",
       "blocks": {
@@ -595,6 +618,7 @@
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "product-grid",
+    "rich_text_Bq6kaG",
     "featured_product_UnRyH4",
     "featured_product_qjTQqk",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
