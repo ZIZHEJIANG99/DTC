@@ -45,7 +45,7 @@
       ],
       "settings": {
         "image": "{{ collection.image }}",
-        "mobimg": "shopify://shop_images/Path_31211.png",
+        "mobimg": "{{ collection.metafields.custom.mobile_image.value }}",
         "section_css_class": "shopall-banner",
         "image_overlay_opacity": 0,
         "image_height": "adapt",

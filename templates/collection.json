@@ -45,7 +45,7 @@
       ],
       "settings": {
         "image": "{{ collection.image }}",
-        "mobimg": "shopify://shop_images/Home_-_Carrying_Mobile_1_95762e14-8a77-4865-a299-dbd4833686e3.png",
+        "mobimg": "{{ collection.metafields.custom.mobile_image.value }}",
         "section_css_class": "shopall-banner",
         "image_overlay_opacity": 0,
         "image_height": "adapt",
