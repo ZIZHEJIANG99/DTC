@@ -102,6 +102,24 @@
         "padding_bottom": 100
       }
     },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns_desktop": 4,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
     "f19b359c-d0e3-4649-abce-3d0c303e6c7c": {
       "type": "image-banner",
       "blocks": {
@@ -344,13 +362,14 @@
     },
     "featured_collection_ekHrVX": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Coming Soon!",
         "heading_size": "h1",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "stomach-settle-gummies-1",
+        "collection": "daily-wellness-coming-soon",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
@@ -367,25 +386,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "product-grid": {
-      "type": "main-collection-product-grid",
-      "disabled": true,
-      "settings": {
-        "products_per_page": 24,
-        "columns_desktop": 4,
-        "image_ratio": "adapt",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": true,
-        "enable_filtering": false,
-        "filter_type": "horizontal",
-        "enable_sorting": false,
-        "columns_mobile": "2",
-        "padding_top": 0,
-        "padding_bottom": 60
       }
     },
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b": {
@@ -451,6 +451,7 @@
   "order": [
     "bfdde060-486d-4ee7-9239-e7f011b5a220",
     "rich_text_TKNp8a",
+    "product-grid",
     "f19b359c-d0e3-4649-abce-3d0c303e6c7c",
     "b36985df-3914-48fc-8940-ce764c8d765b",
     "538f00c2-0443-4292-9fa5-8b6fdcd88d33",
@@ -459,7 +460,6 @@
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "featured_collection_ekHrVX",
-    "product-grid",
     "f5a2839b-9747-4dfc-ac8e-645ba3defe8b",
     "collection_tabing_J7tgj6",
     "collection_faq_KmNEU4"
