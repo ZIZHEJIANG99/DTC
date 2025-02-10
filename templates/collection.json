@@ -350,7 +350,7 @@
         "image_ratio": "adapt",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
+        "show_rating": true,
         "enable_quick_add": true,
         "enable_filtering": false,
         "filter_type": "horizontal",
