@@ -484,14 +484,14 @@
         "90e0c095-9a94-43eb-b024-d077ba874a2b": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/walmart_logo.png",
+            "logo": "shopify://shop_images/H-E-B.png",
             "logo_link": "https://www.walmart.com/search?q=upspring"
           }
         },
         "829e5520-c1da-4c80-9865-bb483fe2e4b1": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/target_logo.png",
+            "logo": "shopify://shop_images/Target_cd981073-a18d-4f1a-9b08-49f3ecf6760c.png",
             "logo_link": "https://www.target.com/s?searchTerm=upspring"
           }
         },
@@ -505,7 +505,7 @@
         "49fdb064-85e6-4f30-b2a1-99c3ff79a882": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/Walgreens-emblem_95.jpg",
+            "logo": "shopify://shop_images/Walgreens.png",
             "logo_link": "https://www.walgreens.com/search/results.jsp?Ntt=upspring"
           }
         }
