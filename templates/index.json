@@ -549,7 +549,14 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/Kroger.png",
-            "logo_link": "https://www.walgreens.com/search/results.jsp?Ntt=upspring"
+            "logo_link": ""
+          }
+        },
+        "logo_9TcGmD": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/H-E-B.png",
+            "logo_link": ""
           }
         }
       },
@@ -557,7 +564,8 @@
         "logo_jjbHwy",
         "logo_GhPy8x",
         "logo_LTyDqn",
-        "logo_Cnj6CJ"
+        "logo_Cnj6CJ",
+        "logo_9TcGmD"
       ],
       "settings": {
         "padding_top": 40,
