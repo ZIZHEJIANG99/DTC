@@ -520,6 +520,49 @@
         "padding_top": 40,
         "padding_bottom": 48
       }
+    },
+    "logo_list_zqBd7U": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_jjbHwy": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/TikTok.png",
+            "logo_link": "https://www.walmart.com/search?q=upspring"
+          }
+        },
+        "logo_GhPy8x": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Meijer.png",
+            "logo_link": "https://www.target.com/s?searchTerm=upspring"
+          }
+        },
+        "logo_LTyDqn": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/CVS.png",
+            "logo_link": "https://www.amazon.com/stores/Upspring/page/632A58C5-C7B8-41DB-AD1F-A31C5F6B07DD?ref_=ast_bln"
+          }
+        },
+        "logo_Cnj6CJ": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Kroger.png",
+            "logo_link": "https://www.walgreens.com/search/results.jsp?Ntt=upspring"
+          }
+        }
+      },
+      "block_order": [
+        "logo_jjbHwy",
+        "logo_GhPy8x",
+        "logo_LTyDqn",
+        "logo_Cnj6CJ"
+      ],
+      "settings": {
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
     }
   },
   "order": [
@@ -537,6 +580,7 @@
     "e41aa7dc-d3e4-482c-a465-e9c223f3a4dd",
     "2983e778-f793-4c1b-af75-09cd50321d37",
     "af70eb6b-83a6-4c31-9a0e-74bd8e090687",
-    "b937d5ee-2759-443f-8628-d0a31d1790a8"
+    "b937d5ee-2759-443f-8628-d0a31d1790a8",
+    "logo_list_zqBd7U"
   ]
 }
