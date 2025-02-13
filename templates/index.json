@@ -484,7 +484,7 @@
         "90e0c095-9a94-43eb-b024-d077ba874a2b": {
           "type": "logo",
           "settings": {
-            "logo": "shopify://shop_images/H-E-B.png",
+            "logo": "shopify://shop_images/Walmart.png",
             "logo_link": "https://www.walmart.com/search?q=upspring"
           }
         },
@@ -499,7 +499,7 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/TikTok.png",
-            "logo_link": "https://www.walgreens.com/search/results.jsp?Ntt=upspring"
+            "logo_link": "https://www.tiktok.com/t/ZT2A6PYGy/"
           }
         },
         "0c2f8a17-ba34-4534-ac7b-8bae6433d713": {
@@ -528,7 +528,7 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/CVS.png",
-            "logo_link": ""
+            "logo_link": "https://www.cvs.com/search?searchTerm=upspring"
           }
         },
         "logo_GhPy8x": {
@@ -542,7 +542,7 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/Meijer.png",
-            "logo_link": ""
+            "logo_link": "https://www.meijer.com/shopping/search.html?text=upspring"
           }
         },
         "logo_Cnj6CJ": {
@@ -556,7 +556,7 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/H-E-B.png",
-            "logo_link": ""
+            "logo_link": "https://www.heb.com/search?q=upspring"
           }
         }
       },
