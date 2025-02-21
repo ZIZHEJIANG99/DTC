@@ -68,8 +68,30 @@
             "menu": "dummy-menu"
           }
         },
+        "link_list_w9BWWk": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop by Life",
+            "menu": "main-menu-2"
+          }
+        },
+        "link_list_AfbgB3": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop by Category",
+            "menu": "shop-by-category"
+          }
+        },
+        "link_list_qhHUBb": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop by Format",
+            "menu": "shop-by-format"
+          }
+        },
         "link_list_eA7VBW": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "",
             "menu": "main-menu"
@@ -94,6 +116,9 @@
         "brand_information_dW8YkA",
         "406a10c7-0008-4196-8247-44738f785d6b",
         "link_list_H6FRWb",
+        "link_list_w9BWWk",
+        "link_list_AfbgB3",
+        "link_list_qhHUBb",
         "link_list_eA7VBW",
         "0ee32867-f474-4768-a1e2-19e89082b474",
         "link_list_zbqwTL"

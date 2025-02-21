@@ -547,6 +547,7 @@
         },
         "logo_Cnj6CJ": {
           "type": "logo",
+          "disabled": true,
           "settings": {
             "logo": "shopify://shop_images/Kroger.png",
             "logo_link": ""
