@@ -70,6 +70,7 @@
         },
         "link_list_w9BWWk": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Shop by Life",
             "menu": "main-menu-2"
@@ -77,6 +78,7 @@
         },
         "link_list_AfbgB3": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Shop by Category",
             "menu": "shop-by-category"
@@ -84,6 +86,7 @@
         },
         "link_list_qhHUBb": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "Shop by Format",
             "menu": "shop-by-format"
@@ -91,7 +94,6 @@
         },
         "link_list_eA7VBW": {
           "type": "link_list",
-          "disabled": true,
           "settings": {
             "heading": "",
             "menu": "main-menu"
