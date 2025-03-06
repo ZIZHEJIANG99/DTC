@@ -1,0 +1,10 @@
+/* Move slideshow button to top right */
+.slideshow__slide .link.underlined-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  z-index: 10;
+}
