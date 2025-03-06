@@ -8,3 +8,15 @@
   transform: none;
   z-index: 10;
 }
+/* Target only the homepage hero slideshow */
+.homepage-hero-slideshow .link.underlined-link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+/* Ensure proper positioning context */
+.homepage-hero-slideshow .slideshow__slide {
+  position: relative;
+}
