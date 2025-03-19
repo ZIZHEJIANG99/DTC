@@ -206,6 +206,7 @@
     },
     "538f00c2-0443-4292-9fa5-8b6fdcd88d33": {
       "type": "collection-multicolumn",
+      "disabled": true,
       "settings": {
         "padding_top": 36,
         "padding_bottom": 36
