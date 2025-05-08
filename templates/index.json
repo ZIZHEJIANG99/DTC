@@ -531,11 +531,25 @@
     "b937d5ee-2759-443f-8628-d0a31d1790a8": {
       "type": "logo-list",
       "blocks": {
+        "0c2f8a17-ba34-4534-ac7b-8bae6433d713": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Amazon.png",
+            "logo_link": "https://www.amazon.com/stores/Upspring/page/632A58C5-C7B8-41DB-AD1F-A31C5F6B07DD?ref_=ast_bln"
+          }
+        },
         "90e0c095-9a94-43eb-b024-d077ba874a2b": {
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/Walmart.png",
             "logo_link": "https://www.walmart.com/search?q=upspring"
+          }
+        },
+        "49fdb064-85e6-4f30-b2a1-99c3ff79a882": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/CVS.png",
+            "logo_link": "https://www.tiktok.com/t/ZT2A6PYGy/"
           }
         },
         "829e5520-c1da-4c80-9865-bb483fe2e4b1": {
@@ -544,27 +558,13 @@
             "logo": "shopify://shop_images/Target_cd981073-a18d-4f1a-9b08-49f3ecf6760c.png",
             "logo_link": "https://www.target.com/s?searchTerm=upspring"
           }
-        },
-        "49fdb064-85e6-4f30-b2a1-99c3ff79a882": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/TikTok.png",
-            "logo_link": "https://www.tiktok.com/t/ZT2A6PYGy/"
-          }
-        },
-        "0c2f8a17-ba34-4534-ac7b-8bae6433d713": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/Amazon.png",
-            "logo_link": "https://www.amazon.com/stores/Upspring/page/632A58C5-C7B8-41DB-AD1F-A31C5F6B07DD?ref_=ast_bln"
-          }
         }
       },
       "block_order": [
+        "0c2f8a17-ba34-4534-ac7b-8bae6433d713",
         "90e0c095-9a94-43eb-b024-d077ba874a2b",
-        "829e5520-c1da-4c80-9865-bb483fe2e4b1",
         "49fdb064-85e6-4f30-b2a1-99c3ff79a882",
-        "0c2f8a17-ba34-4534-ac7b-8bae6433d713"
+        "829e5520-c1da-4c80-9865-bb483fe2e4b1"
       ],
       "settings": {
         "padding_top": 40,
@@ -574,13 +574,6 @@
     "logo_list_zqBd7U": {
       "type": "logo-list",
       "blocks": {
-        "logo_jjbHwy": {
-          "type": "logo",
-          "settings": {
-            "logo": "shopify://shop_images/CVS.png",
-            "logo_link": "https://www.cvs.com/search?searchTerm=upspring"
-          }
-        },
         "logo_GhPy8x": {
           "type": "logo",
           "settings": {
@@ -588,19 +581,25 @@
             "logo_link": "https://www.walgreens.com/search/results.jsp?Ntt=upspring"
           }
         },
+        "logo_jjbHwy": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/TikTok.png",
+            "logo_link": "https://www.cvs.com/search?searchTerm=upspring"
+          }
+        },
+        "logo_Cnj6CJ": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/0525_Website_Assets_iHerb_logo.png",
+            "logo_link": ""
+          }
+        },
         "logo_LTyDqn": {
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/Meijer.png",
             "logo_link": "https://www.meijer.com/shopping/search.html?text=upspring"
-          }
-        },
-        "logo_Cnj6CJ": {
-          "type": "logo",
-          "disabled": true,
-          "settings": {
-            "logo": "shopify://shop_images/Kroger.png",
-            "logo_link": ""
           }
         },
         "logo_9TcGmD": {
@@ -612,10 +611,10 @@
         }
       },
       "block_order": [
-        "logo_jjbHwy",
         "logo_GhPy8x",
-        "logo_LTyDqn",
+        "logo_jjbHwy",
         "logo_Cnj6CJ",
+        "logo_LTyDqn",
         "logo_9TcGmD"
       ],
       "settings": {
