@@ -340,5 +340,11 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "/* Target the exact sale badge in your theme */.badge.badge--bottom-left.color-accent-2,.card__badge .badge.color-accent-2,span.badge.badge--bottom-left.color-accent-2 {background-color: #ee2938 !important; color: white !important; border-color: #ee2938 !important;}",
+      "/* Additional selector to ensure we catch all instances */.card__badge .badge {background-color: #ee2938 !important; color: white !important; border-color: #ee2938 !important;}"
+    ]
   }
 }
