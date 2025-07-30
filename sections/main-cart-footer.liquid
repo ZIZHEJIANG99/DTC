@@ -95,13 +95,43 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // IE 兼容性处理
     function isIE() {
       const ua = window.navigator.userAgent;
-      const msie = ua.indexOf('MSIE ');
-      const trident = ua.indexOf('Trident/');
-
-      return msie > 0 || trident > 0;
+      return ua.indexOf('MSIE ') > 0 || ua.indexOf('Trident/') > 0;
     }
+    if (isIE()) {
+      const cartSubmitInput = document.createElement('input');
+      cartSubmitInput.name = 'checkout';
+      cartSubmitInput.type = 'hidden';
+      document.querySelector('#cart').appendChild(cartSubmitInput);
+      document.querySelector('#checkout').addEventListener('click', function () {
+        document.querySelector('#cart').submit();
+      });
+    }
+    // TikTok InitiateCheckout 事件
+    const checkoutBtn = document.querySelector('.checkout-button, [name="checkout"]');
+    if (checkoutBtn && window.ttq) {
+      checkoutBtn.addEventListener('click', function () {
+        ttq.track('InitiateCheckout', {
+          contents: [
+            {% for item in cart.items %}
+            {
+              content_id: '{{ item.variant_id }}',
+              content_name: '{{ item.product.title | escape }}',
+              quantity: {{ item.quantity }},
+              price: {{ item.price | money_without_currency }}
+            }{% unless forloop.last %},{% endunless %}
+            {% endfor %}
+          ],
+          value: {{ cart.total_price | money_without_currency }},
+          currency: '{{ shop.currency }}'
+        });
+      });
+    }
+  });
+</script>
+
 
     if (!isIE()) return;
     const cartSubmitInput = document.createElement('input');
