@@ -69,6 +69,19 @@
               assign quantity_rule_soldout = true
             endif
           -%}
+          <script>
+            document.querySelector('#ProductSubmitButton-{{ section_id }}')
+              .addEventListener('click', function() {
+                ttq.track('AddToCart', {
+                  content_type: 'product',
+                  content_id: '{{ product.selected_or_first_available_variant.id }}',
+                  content_name: '{{ product.title | escape }}',
+                  price: {{ product.selected_or_first_available_variant.price | money_without_currency }},
+                  quantity: 1,
+                  currency: '{{ shop.currency }}'
+                });
+              });
+          </script>
           <button
             id = "ProductSubmitButton-{{ section_id }}"
             type="submit"
