@@ -3,6 +3,16 @@
   class="page-width cust-main-prodt section-{{ section.id }}-padding"
   data-section="{{ section.id }}"
 >
+<script>
+  ttq.track('ViewContent', {
+    content_type: 'product',
+    content_id: '{{ product.id }}',
+    content_name: '{{ product.title | escape }}',
+    content_category: '{{ product.type | escape }}',
+    price: {{ product.price | money_without_currency }},
+    currency: '{{ shop.currency }}'
+  });
+</script>
   {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
   {{ 'component-accordion.css' | asset_url | stylesheet_tag }}
   {{ 'component-price.css' | asset_url | stylesheet_tag }}
