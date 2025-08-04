@@ -1,0 +1,209 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+
+<article class="article-template" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="page-width">
+    
+    <div id="article-post">
+    <div class="article-grid">
+
+<div class="article-content">
+      <div class="hide-mobile article-bread-m"><p class="article-breadcrumb"><a href="{{ blog.url }}">All Blogs</a> | {{ article.title | escape }}</p></div>
+
+
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+
+      {%- when 'featured_image' -%}
+        {%- if article.image -%}
+          <div class="article-template__hero-container" {{ block.shopify_attributes }} style="background-image: url('{{ article.image | image_url: width: 1500 }}')">
+
+          </div>
+        {%- endif -%}
+
+      {%- when 'title' -%}
+      <div class="article-head ">
+        <header>
+           <p class="hide-desk article-breadcrumb"><a href="{{ blog.url }}">All Blogs</a> | {{ article.title | escape }}</p>
+             
+          <h1 class="article-template__title" itemprop="headline">{{ article.title | escape }}</h1>
+          
+        </header></div>
+
+      {%- when 'content' -%}
+        <div
+          class="article-template__content rte"
+          itemprop="articleBody"
+          {{ block.shopify_attributes }}
+        >
+
+          {%- if block.settings.blog_show_author -%}
+            <span class="caption-with-letter-spacing" itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <a class="author" href="/blogs/authors/{{ article.author | handleize }}" itemprop="name">{{ article.author }}{% if article.author == 'Lisa Dispensa' %} | MS, RD | Medical Director{% endif %}</a>
+            </span>
+          {%- endif -%}
+
+          
+            <span class="circle-divider caption-with-letter-spacing" itemprop="dateCreated datePublished">
+              {{- article.published_at | time_tag: format: 'date' -}}</span>
+
+          {{ article.content }}
+        </div>
+ {%- when 'share' -%}
+        <div class="article-template__social-sharing" {{ block.shopify_attributes }}>
+          {% assign share_url = request.origin | append: article.url %}
+          {% render 'share-button', block: block, share_link: share_url %}
+        </div>
+
+  
+   {%- endcase -%}
+  {%- endfor -%}
+
+</div>
+
+
+<div class="article-template__next-container">
+  <div class="article-carousel" style="max-width: 90vw; margin: auto;">
+
+    <section class="splide" aria-label="Splide Basic HTML Example">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for art in blogs.upspring-blog.articles limit: 8 %}
+            {% if art.url contains article.handle %}
+              {% continue %}
+            {% else %}
+              <li class="splide__slide">  
+                <div class="article-next-card">
+                  <div class="article-next-image" style="background-image: url('{{ art.image | image_url: width: 800 }}')">
+                  </div>
+                  <div class="article-next-link">
+                    <div class="article-next-date">{{- art.published_at | time_tag: format: 'date' -}}</div>
+                    <div class="article-next-title"><a href="{{ art.url }}">{{ art.title }}</a></div>
+                      <div class="banner__buttons viewall-heart">
+                        <a href="{{ art.url }}" class="link underlined-link">
+                            <span>
+                              <svg baseProfile="tiny" height="13px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="13px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M12,10.375C12,7.959,10.041,6,7.625,6S3.25,7.959,3.25,10.375c0,1.127,0.159,2.784,1.75,4.375S12,20,12,20   s5.409-3.659,7-5.25s1.75-3.248,1.75-4.375C20.75,7.959,18.791,6,16.375,6S12,7.959,12,10.375"></path></g></svg>
+                              <sup style="vertical-align: super; font-size: 125%; position: relative; left: -6px;">&trade;</sup>
+                            </span>Read post</a>
+                      </div>
+                  </div>
+                </div>
+              </li>
+            {% endif %}
+          {% endfor %} 
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
+      
+
+  
+<!-- *** Comments section removed. Original code in /sections/main-blog-old.liquid *** -->
+  </div>
+    
+    
+    </div></div>
+</article>
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if article.image %}
+      "image": [
+        {{ article | image_url: width: 1920 | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": {{ shop.name | json }}
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "featured_image",
+      "name": "t:sections.main-article.blocks.featured_image.name",
+      "limit": 1
+    },
+    {
+      "type": "title",
+      "name": "t:sections.main-article.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "content",
+      "name": "t:sections.main-article.blocks.content.name",
+      "limit": 1,
+      "settings": [
+                {
+          "type": "checkbox",
+          "id": "blog_show_date",
+          "default": true,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "blog_show_author",
+          "default": false,
+          "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+        }
+      ]
+    },
+    {
+      "type": "share",
+      "name": "t:sections.main-article.blocks.share.name",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "share_label",
+          "label": "t:sections.main-article.blocks.share.settings.text.label",
+          "default": "Share"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.featured_image_info.content"
+        },
+        {
+          "type": "paragraph",
+          "content": "t:sections.main-article.blocks.share.settings.title_info.content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+<script>
+  var splide = new Splide( '.splide',{
+    type  : 'fade',
+    rewind: true,
+  })
+  splide.mount();
+</script>

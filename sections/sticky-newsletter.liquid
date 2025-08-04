@@ -1,0 +1,403 @@
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'newsletter-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .sticky-newsletter.center {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 5000000000;
+    border-top: 3px solid #AFD57F;
+    transition: all 250ms ease;
+  }
+
+  .sticky-newsletter__wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
+    height: 100%;
+ }
+  .sticky-newsletter-form__field-wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
+  }
+
+
+
+  .sticky-newsletter-form__field-wrapper .field:before,
+  .sticky-newsletter-form__field-wrapper .field:after,
+  .sticky-newsletter-form__field-wrapper .field:hover.field:after,
+  .sticky-newsletter-form__field-wrapper .field__input:focus{
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+   .sticky-newsletter-form__field-wrapper .field__label, 
+   .sticky-newsletter-form__field-wrapper .field__label, .sticky-newsletter-form__field-wrapper .field__input:not(:placeholder-shown)~.field__label {
+    left: 0;
+    color: #365462;
+  }
+   .sticky-newsletter-form__field-wrapper .field__input:focus~.field__label {
+    left: 0;
+  }
+  .sticky-newsletter-form__field-wrapper .field:nth-child(2) {
+    margin-left: 20px;
+  }
+  .sticky-newsletter__subheading.rte p {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0;
+    margin-left: 15px;
+    margin-top: 0;
+  }
+   .sticky-newsletter-form__field-wrapper .field__input {
+    border-bottom: 3px solid #AFD57F;
+    border-radius: 0;
+    transition: all 250ms ease;
+    height: 45px;
+    padding: 12px 8px 0px 0;
+  }
+  .sticky-newsletter-form__field-wrapper .field__input:focus {
+    border-bottom-color: #365462;
+  }
+
+  .sticky-newsletter-form__field-wrapper .field__button:hover {
+    background-color: #365462;
+    color: #fff;
+}
+
+
+  .sticky-newsletter-form__field-wrapper .field__button {
+    position: relative;
+    padding: 15px 55px;
+    margin-left: 40px;
+    font-size: 18px;
+    color: #365462;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: #AFD57F;
+    transition: all 250ms ease;
+  }
+
+  .sticky-newsletter__subheading.rte {
+    display: flex;
+    align-items: center;
+  }
+
+  .sticky-newsletter__subheading.rte img {
+    height: 35px;
+    border-radius: 0;
+    border: none;
+  }
+  .sticky-newsletter .form__message {
+    margin-bottom: 0;
+  }
+
+  .sticky-newsletter.center.hide-sticky {
+    transform: translateY(100%);
+}
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .sticky-newsletter__subheading.rte {
+      margin-right: 15px;
+    }
+    .sticky-newsletter__subheading.rte p {
+      line-height: 20px;
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .sticky-newsletter__subheading.rte img {
+        display: none;
+    }
+    .sticky-newsletter-form__field-wrapper .field__label, .sticky-newsletter-form__field-wrapper .field__label, .sticky-newsletter-form__field-wrapper .field__input:not(:placeholder-shown)~.field__label {
+        font-size: 14px;
+        bottom: 5px;
+        top: auto;
+    }
+    .sticky-newsletter__subheading.rte p {
+      font-size: 16px;
+      line-height: 1.4;
+      margin-left: 0;
+    }
+    .sticky-newsletter__subheading.rte {
+      margin-top: 12px;
+    }
+    .sticky-newsletter__wrapper {
+      padding: 0 20px;
+      flex-direction: column;
+    }
+    .sticky-newsletter.center {
+      height: auto;
+    }
+    .sticky-newsletter-form__field-wrapper {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      flex-flow: wrap;
+      padding: 10px;
+      justify-content: space-between;
+    }
+
+    .sticky-newsletter-form__field-wrapper  .field {
+      width: calc(50% - 10px);
+      display: flex;
+      margin-bottom: 12px;
+    }
+    .sticky-newsletter-form__field-wrapper .field:nth-child(2) {
+      margin-left: 0;
+    }
+
+    .sticky-newsletter-form__field-wrapper .field__input {
+      font-size: 14px;
+    }
+    .sticky-newsletter-form__field-wrapper .field__button {
+      width: 60%;
+      margin: auto;
+    }
+  }
+
+ .sticky-newsletter-form__field-wrapper input {
+    border: none !important;
+    border-bottom: 3px solid #AFD57F !important;
+    border-radius: 0 !important;
+}
+{%- endstyle -%}
+
+<div class="sticky-newsletter center {% if section.settings.full_width == false %}sticky-newsletter--narrow page-width{% endif %}">
+  <div class="sticky-newsletter__wrapper color-{{ section.settings.color_scheme }} gradient content-container isolate{% if section.settings.full_width %} content-container--full-width{% endif %} section-{{ section.id }}-padding">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'paragraph' -%}
+          <div class="sticky-newsletter__subheading rte" {{ block.shopify_attributes }}><img src="https://cdn.shopify.com/s/files/1/0222/3004/0648/files/Image20231009120016.png?v=1696870830">{{ block.settings.text }}</div>
+        {%- when 'email_form' -%}
+          <div {{ block.shopify_attributes }}>
+              <div class="sticky-newsletter-form__field-wrapper">
+                  <div class="klaviyo-form-U6paZr"></div>
+              </div>
+            {% comment %}
+            {% form 'customer', class: 'sticky-newsletter-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="sticky-newsletter-form__field-wrapper">
+                <div class="field">
+                  <input
+                    id="sticky-newsletterForm--{{ section.id }}-name"
+                    type="text"
+                    name="contact[first_name]"
+                    class="field__input"
+                    value=""
+                    aria-required="true"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="field__label" for="sticky-newsletterForm--{{ section.id }}-name">
+                    First Name
+                  </label>
+                </div>
+                <div class="field">
+                  <input
+                    id="sticky-newsletterForm--{{ section.id }}"
+                    type="email"
+                    name="contact[email]"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="newsletter-success--{{ section.id }}"
+                    {% endif %}
+                    placeholder="{{ 'newsletter.label' | t }}"
+                    required
+                  >
+                  <label class="field__label" for="sticky-newsletterForm--{{ section.id }}">
+                    {{ 'newsletter.label' | t }}
+                  </label>
+                </div>
+                  <button
+                    type="submit"
+                    class="sticky-newsletter-form__button field__button"
+                    name="commit"
+                    id="Subscribe"
+                    aria-label="{{ 'newsletter.button_label' | t }}"
+                  >
+                    Join
+                  </button>
+                {%- if form.errors -%}
+                  <small class="sticky-newsletter-form__message form__message" id="sticky-newsletter-error--{{ section.id }}">
+                    {%- render 'icon-error' -%}
+                    {{- form.errors.translated_fields.email | capitalize }}
+                    {{ form.errors.messages.email -}}
+                  </small>
+                {%- endif -%}
+              </div>
+              {%- if form.posted_successfully? -%}
+                <h3
+                  class="sticky-newsletter-form__message sticky-newsletter-form__message--success form__message"
+                  id="sticky-newsletter-success--{{ section.id }}"
+                  tabindex="-1"
+                  autofocus
+                >
+                  {% render 'icon-success' -%}
+                  {{- 'newsletter.success' | t }}
+                </h3>
+              {%- endif -%}
+            {% endform %}
+            {% endcomment %}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+<script>
+    window.addEventListener('scroll', function() {
+      var fixedDiv = document.querySelector('.sticky-newsletter');
+      var scrollHeight = document.documentElement.scrollHeight;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Height of the viewport
+      var clientHeight = document.documentElement.clientHeight;
+
+      // Check if the scroll position is at the bottom of the page
+      console.log('heights: ', scrollHeight, scrollTop, clientHeight)
+      if (scrollHeight - scrollTop  === clientHeight) {
+        // Scroll position is at the bottom, hide the fixed div
+        fixedDiv.classList.add('hide-sticky');
+      } else {
+        // Scroll position is not at the bottom, show the fixed div
+        fixedDiv.classList.remove('hide-sticky');
+      }
+    });
+  </script>
+
+{% schema %}
+{
+  "name": "Sticky Newsletter",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.sticky-newsletter.settings.full_width.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.sticky-newsletter.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "t:sections.sticky-newsletter.blocks.paragraph.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Be the first to know about new collections and exclusive offers.</p>",
+          "label": "t:sections.sticky-newsletter.blocks.paragraph.settings.paragraph.label"
+        }
+      ]
+    },
+    {
+      "type": "email_form",
+      "name": "t:sections.sticky-newsletter.blocks.email_form.name",
+      "limit": 1
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sticky Newsletter",
+      "blocks": [
+        {
+          "type": "paragraph"
+        },
+        {
+          "type": "email_form"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

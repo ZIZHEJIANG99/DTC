@@ -1,0 +1,111 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+{%- if section.blocks.size > 0 -%}
+<div class="logo-list section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="logo-as-seen-slider" data-show="{% if section.blocks.size > 5 %}6{% else %}{{ section.blocks.size }}{% endif %}">
+      {%- for block in section.blocks -%}
+        <div class="seen-item"><a aria-label="{{ block.settings.logo.alt }}" href="{{ block.settings.logo_link }}" target="_blank"><img src="{{ block.settings.logo | img_url:'master' }}" alt="{{ block.settings.logo.alt }}"></a></div>
+      {%- endfor -%}
+	</div>
+  </div>
+</div>
+{%- endif -%}
+
+
+<script>
+// Set the interval for automatic sliding (in milliseconds)
+var slideInterval = 3000; // Adjust this value as needed
+
+// Find the carousel element and initiate the automatic sliding
+var carousel = document.querySelector('.logo-as-seen-slider'); // Replace '.your-carousel-class' with the actual class or identifier of your carousel
+var slides = carousel.querySelectorAll('.seen-item'); // Replace '.carousel-slide' with the class or identifier of your individual slides
+var currentSlideIndex = 0;
+
+function slideToNext() {
+  // Hide the current slide
+  slides[currentSlideIndex].classList.remove('active');
+
+  // Increment the slide index
+  currentSlideIndex++;
+  if (currentSlideIndex >= slides.length) {
+    currentSlideIndex = 0; // Reset to the first slide when reaching the end
+  }
+
+  // Show the next slide
+  slides[currentSlideIndex].classList.add('active');
+}
+
+// Start the automatic sliding
+setInterval(slideToNext, slideInterval);
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Logo List",
+  "class": "section",
+  "max_blocks": 16,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings":[
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Select Logo"
+        },
+        {
+          "type": "url",
+          "id": "logo_link",
+          "label": "Logo Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo List"
+    }
+  ]
+}
+{% endschema %}
