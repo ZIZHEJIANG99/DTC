@@ -6,41 +6,28 @@
 {% endcomment %}
 
 {% assign threshold = threshold | default: 2500 %}
-{% assign cart_total = cart.total_price | default: 0 %}
-{% assign remaining = threshold | minus: cart_total %}
-{% assign percent = cart_total | times: 100 | divided_by: threshold %}
+{% assign total = cart.total_price | default: 0 %}
+{% assign percent = total | times: 100 | divided_by: threshold | at_most: 100 %}
 
 <div class="shipping-progress">
-  {% if cart_total < threshold %}
-    <div class="shipping-progress__track">
-      <div class="shipping-progress__fill" style="width:{{ percent }}%;"></div>
-    </div>
-    <p class="shipping-progress__text">You're {{ remaining | money }} away from free shipping</p>
+  {% if total < threshold %}
+    {% assign remaining = threshold | minus: total %}
+    <p class="shipping-progress-text" style="font-size: 16px;">
+      再加 {{ remaining | money_without_trailing_zeros }} 即可免邮
+    </p>
   {% else %}
-    <div class="shipping-progress__track">
-      <div class="shipping-progress__fill" style="width:100%;"></div>
-    </div>
-    <p class="shipping-progress__text">You've qualified for free shipping!</p>
+    <p class="shipping-progress-text success" style="font-size: 16px;">
+      🎉 Free shipping！
+    </p>
   {% endif %}
+  <div class="shipping-progress-bar" style="height: 8px; background: #f2f2f2;">
+    <div class="shipping-progress-fill" style="width: {{ percent }}%; height: 100%; background: #000;"></div>
+  </div>
 </div>
 
 <style>
-/* 加大进度条高度和文字尺寸，使其更醒目 */
 .shipping-progress{margin:0 0 1rem;}
-.shipping-progress__track{
-  background:#eee;
-  height:24px;            /* 高度由8px增大到24px */
-  border-radius:12px;
-  overflow:hidden;
-}
-.shipping-progress__fill{
-  background:#000;        /* 进度条填充色，可按主题调色 */
-  height:100%;
-  border-radius:12px;
-}
-.shipping-progress__text{
-  text-align:center;
-  font-size:1.25rem;      /* 字体由0.875rem增大到1.25rem */
-  margin-top:.75rem;
-}
+.shipping-progress-text{text-align:center;margin-bottom:.5rem}
+.shipping-progress-bar{border-radius:4px;overflow:hidden}
+.shipping-progress-fill{border-radius:4px}
 </style>
