@@ -69,24 +69,24 @@
           {% render 'icon-close' %}
         </button>
       </div>
-          <!-- 免费配送进度条 (Drawer) Start -->
+          <!-- Free shipping progress bar (drawer) start -->
           {% if cart != empty %}
             <div class="cart-drawer__shipping-goal" style="padding: 8px 16px; text-align: center;">
               {% if cart.total_price < 4000 %}
                 {% assign remaining = 4000 | minus: cart.total_price %}
-                <p class="cart__free-shipping-message">还差 {{ remaining | money }} 即可免运费</p>
+                <p class="cart__free-shipping-message">Spend {{ remaining | money }} more to get free shipping.</p>
                 <div class="free-shipping-bar">
                   <div class="free-shipping-progress" style="width: {{ cart.total_price | times: 100 | divided_by: 4000 | at_most: 100 }}%;"></div>
                 </div>
               {% else %}
-                <p class="cart__free-shipping-message">恭喜！已享受免费配送</p>
+                <p class="cart__free-shipping-message">Congrats! You're getting free shipping.</p>
                 <div class="free-shipping-bar">
                   <div class="free-shipping-progress" style="width: 100%;"></div>
                 </div>
               {% endif %}
             </div>
           {% endif %}
-          <!-- 免费配送进度条 (Drawer) End -->
+          <!-- Free shipping progress bar (drawer) end -->
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -371,7 +371,7 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
-        <!-- 加购推荐：在此新增推荐商品列表 Start -->
+        <!-- Cart suggestions start -->
         {% if cart != empty %}
           <div class="cart-drawer__suggestions" style="padding: 16px 0;">
             <h3 class="h4">You may also like</h3>
@@ -386,9 +386,9 @@
                 {% for product in base_collection.products %}
                   {% unless cart_handles contains product.handle %}
                     <li class="grid__item">
-                      {% render 'card-product', 
-                        card_product: product, 
-                        section_id: 'cartDrawer' 
+                      {% render 'card-product',
+                        card_product: product,
+                        section_id: 'cartDrawer'
                       %}
                     </li>
                     {% assign count = count | plus: 1 %}
@@ -399,7 +399,7 @@
             {% endif %}
           </div>
         {% endif %}
-        <!-- 加购推荐：推荐商品列表 End -->
+        <!-- Cart suggestions end -->
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">

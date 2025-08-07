@@ -1,4 +1,4 @@
-/* 免费配送进度条外层槽 */
+/* Free shipping progress bar track */
 .free-shipping-bar {
   background-color: rgba(var(--color-base-background-2), 1);
   width: 100%;
@@ -7,13 +7,13 @@
   overflow: hidden;
   margin: 8px 0;
 }
-/* 已达成的进度部分 */
+/* Filled portion of the progress bar */
 .free-shipping-progress {
   background-color: rgba(var(--color-base-accent-1), 1);
   height: 100%;
   width: 0;
 }
-/* 提示文字样式 */
+/* Message styling */
 .cart__free-shipping-message {
   text-align: center;
   font-size: 0.875rem;

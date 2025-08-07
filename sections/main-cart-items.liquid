@@ -29,22 +29,22 @@
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
   </div>
-  <!-- 免费配送进度条 Start -->
+  <!-- Free shipping progress bar start -->
   {% if cart != empty %}
     {% if cart.total_price < 4000 %}
       {% assign remaining = 4000 | minus: cart.total_price %}
-      <p class="cart__free-shipping-message">还差 {{ remaining | money }} 即可享受免运费！</p>
+      <p class="cart__free-shipping-message">Spend {{ remaining | money }} more to get free shipping!</p>
       <div class="free-shipping-bar">
         <div class="free-shipping-progress" style="width: {{ cart.total_price | times: 100 | divided_by: 4000 | at_most: 100 }}%;"></div>
       </div>
     {% else %}
-      <p class="cart__free-shipping-message">恭喜！您的订单已获得免运费资格。</p>
+      <p class="cart__free-shipping-message">Congrats! Your order qualifies for free shipping.</p>
       <div class="free-shipping-bar">
         <div class="free-shipping-progress" style="width: 100%;"></div>
       </div>
     {% endif %}
   {% endif %}
-  <!-- 免费配送进度条 End -->
+  <!-- Free shipping progress bar end -->
 
   <div class="cart__warnings">
     <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
