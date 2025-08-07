@@ -1,0 +1,49 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  /* Section 内边距，保持与主题一致的上下留白 */
+  .section-{{ section.id }}-padding {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width section-{{ section.id }}-padding">
+  <h2 class="h4">You may also like</h2>
+  {%- assign first_item = cart.items | first -%}
+  {%- if first_item -%}
+    {%- assign base_collection = first_item.product.collections | first -%}
+  {%- endif -%}
+  {% if base_collection %}
+    {%- assign cart_handles = cart.items | map: "product" | map: "handle" -%}
+    <ul class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--4-col-desktop grid--2-col-tablet-down">
+      {%- assign count = 0 -%}
+      {%- for product in base_collection.products -%}
+        {%- unless cart_handles contains product.handle -%}
+          <li class="grid__item">
+            {% render 'card-product', 
+              card_product: product, 
+              section_id: section.id 
+            %}
+          </li>
+          {%- assign count = count | plus: 1 -%}
+          {%- if count == 4 -%}{%- break -%}{%- endif -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    </ul>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart Suggestions",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

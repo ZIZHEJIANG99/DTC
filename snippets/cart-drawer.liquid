@@ -13,6 +13,9 @@
   }
 </style>
 
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-free-shipping.css' | asset_url | stylesheet_tag }}
 <cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
@@ -66,6 +69,22 @@
           {% render 'icon-close' %}
         </button>
       </div>
+        <!-- 免费配送进度条 (Drawer) Start -->
+        {% if cart != empty %}
+          {% if cart.total_price < 4000 %}
+            {% assign remaining = 4000 | minus: cart.total_price %}
+            <p class="cart__free-shipping-message">还差 {{ remaining | money }} 即可免运费</p>
+            <div class="free-shipping-bar">
+              <div class="free-shipping-progress" style="width: {{ cart.total_price | times: 100 | divided_by: 4000 | at_most: 100 }}%;"></div>
+            </div>
+          {% else %}
+            <p class="cart__free-shipping-message">恭喜！已享受免费配送</p>
+            <div class="free-shipping-bar">
+              <div class="free-shipping-progress" style="width: 100%;"></div>
+            </div>
+          {% endif %}
+        {% endif %}
+        <!-- 免费配送进度条 (Drawer) End -->
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -350,6 +369,35 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+        <!-- 加购推荐：在此新增推荐商品列表 Start -->
+        {% if cart != empty %}
+          <div class="cart-drawer__suggestions" style="padding: 16px 0;">
+            <h3 class="h4">You may also like</h3>
+            {% assign first_item = cart.items | first %}
+            {% if first_item %}
+              {% assign base_collection = first_item.product.collections | first %}
+            {% endif %}
+            {% if base_collection %}
+              {% assign cart_handles = cart.items | map: "product" | map: "handle" %}
+              <ul class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--2-col-tablet-down grid--2-col-desktop">
+                {% assign count = 0 %}
+                {% for product in base_collection.products %}
+                  {% unless cart_handles contains product.handle %}
+                    <li class="grid__item">
+                      {% render 'card-product', 
+                        card_product: product, 
+                        section_id: 'cartDrawer' 
+                      %}
+                    </li>
+                    {% assign count = count | plus: 1 %}
+                    {% if count == 4 %}{% break %}{% endif %}
+                  {% endunless %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        {% endif %}
+        <!-- 加购推荐：推荐商品列表 End -->
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
