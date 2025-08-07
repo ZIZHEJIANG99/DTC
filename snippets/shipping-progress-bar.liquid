@@ -1,31 +1,28 @@
 {% comment %}
-  Renders a progress bar showing how close the cart is to free shipping.
-  Usage:
-  {% render 'shipping-progress-bar', threshold: 2500 %}
-  threshold is the free shipping requirement in cents (default 2500 = $25.00)
+  Render free‑shipping progress bar
+  Usage : {% render 'shipping-progress-bar' %}
+  Optional threshold param in cents (default = 4000 => $40)
 {% endcomment %}
-{% assign threshold = threshold | default: 2500 %}
-{% assign cart_total = cart.total_price %}
-{% if cart_total >= threshold %}
-  <div class="shipping-progress">
-    <div class="shipping-progress__track">
-      <div class="shipping-progress__fill" style="width:100%"></div>
-    </div>
-    <p class="shipping-progress__text">You've qualified for free shipping!</p>
-  </div>
-{% else %}
+{% assign threshold = threshold | default: 4000 %}
+{% assign cart_total = cart.total_price | default: 0 %}
+{% if cart_total < threshold %}
   {% assign remaining = threshold | minus: cart_total %}
-  {% assign percent = cart_total | times: 100 | divided_by: threshold | at_most: 100 %}
+  {% assign percent = cart_total | times: 100 | divided_by: threshold %}
   <div class="shipping-progress">
-    <div class="shipping-progress__track">
-      <div class="shipping-progress__fill" style="width: {{ percent }}%"></div>
-    </div>
+    <div class="shipping-progress__track"><div class="shipping-progress__fill" style="width:{{ percent }}%;"></div></div>
     <p class="shipping-progress__text">You're {{ remaining | money }} away from free shipping</p>
   </div>
+{% else %}
+  <div class="shipping-progress">
+    <div class="shipping-progress__track"><div class="shipping-progress__fill" style="width:100%;"></div></div>
+    <p class="shipping-progress__text">You've qualified for free shipping!</p>
+  </div>
 {% endif %}
+
 <style>
-.shipping-progress{margin-bottom:1rem;}
-.shipping-progress__track{background:#eee;height:24px;position:relative;border-radius:12px;overflow:hidden;}
-.shipping-progress__fill{background:#000;height:100%;border-radius:12px;}
-.shipping-progress__text{margin-top:0.75rem;font-size:1.25rem;}
+.shipping-progress{margin-bottom:1rem}
+.shipping-progress__track{background:#eee;height:8px;border-radius:4px;overflow:hidden}
+.shipping-progress__fill{background:#000;height:100%;border-radius:4px}
+.shipping-progress__text{text-align:center;font-size:.875rem;margin-top:.5rem}
 </style>
+

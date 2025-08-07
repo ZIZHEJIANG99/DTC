@@ -5,6 +5,7 @@
 
 <div class="page-width{% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
   <div>
+    {% render 'shipping-progress-bar', threshold: 4000 %}
     <div class="cart__footer">
       {%- if settings.show_cart_note -%}
         <cart-note class="cart__note field">
