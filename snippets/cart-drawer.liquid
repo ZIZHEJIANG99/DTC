@@ -66,6 +66,7 @@
           {% render 'icon-close' %}
         </button>
       </div>
+      {% render 'shipping-progress-bar', threshold: 2500 %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -371,8 +372,6 @@
           </details>
         {%- endif -%}
 
-        <!-- Start blocks -->
-        {% render 'shipping-progress-bar', threshold: 2500 %}
         <!-- Subtotals -->
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
