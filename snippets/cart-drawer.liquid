@@ -55,6 +55,7 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {% render 'shipping-progress-bar', threshold: 2500 %}
       <div class="drawer__header">
         <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
         <button
@@ -371,7 +372,6 @@
           </details>
         {%- endif -%}
 
-        <!-- Start blocks -->
         <!-- Subtotals -->
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
