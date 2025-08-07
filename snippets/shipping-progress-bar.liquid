@@ -15,7 +15,7 @@
   </div>
 {% else %}
   {% assign remaining = threshold | minus: cart_total %}
-  {% assign percent = cart_total | divided_by: 25 %}
+  {% assign percent = cart_total | times: 100 | divided_by: threshold | at_most: 100 %}
   <div class="shipping-progress">
     <div class="shipping-progress__track">
       <div class="shipping-progress__fill" style="width: {{ percent }}%"></div>
