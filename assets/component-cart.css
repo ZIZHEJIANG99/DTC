@@ -221,3 +221,18 @@ cart-items {
     gap: 1rem;
   }
 }
+
+.free-shipping-bar {
+  background-color: rgba(var(--color-foreground), 0.1);
+  border-radius: 4px;
+  height: 0.8rem;
+  margin: 1rem 0 1.5rem 0;
+  overflow: hidden;
+}
+
+.free-shipping-bar__fill {
+  background-color: rgb(var(--color-button));
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+}
