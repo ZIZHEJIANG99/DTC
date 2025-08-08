@@ -55,6 +55,7 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {% render 'shipping-progress-bar', threshold: 2500 %}
       <div class="drawer__header">
         <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
         <button
@@ -66,7 +67,6 @@
           {% render 'icon-close' %}
         </button>
       </div>
-      {% render 'shipping-progress-bar', threshold: 2500 %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
