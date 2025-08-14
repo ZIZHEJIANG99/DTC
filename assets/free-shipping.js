@@ -8,11 +8,15 @@ const THRESHOLD_CENTS = 2500; // $25 in cents
 class FreeShippingBanner {
   constructor() {
     this.banner = document.querySelector('.free-shipping-banner');
+    this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
     this.init();
   }
 
   init() {
-    if (!this.banner) return;
+    if (!this.banner && !this.cartDrawerProgress) return;
+    
+    // Ensure cart drawer styles are loaded
+    this.ensureCartDrawerStyles();
     
     // Listen for cart updates
     document.addEventListener('cart:updated', this.handleCartUpdate.bind(this));
@@ -22,6 +26,12 @@ class FreeShippingBanner {
       subscribe(window.PUB_SUB_EVENTS.cartUpdate, this.handleCartUpdate.bind(this));
       subscribe(window.PUB_SUB_EVENTS.quantityUpdate, this.handleCartUpdate.bind(this));
     }
+    
+    // Listen for cart drawer updates
+    document.addEventListener('cart-drawer:updated', this.handleCartDrawerUpdate.bind(this));
+    
+    // Observe cart drawer for dynamic content changes
+    this.observeCartDrawer();
     
     // Initial load
     this.updateBanner();
@@ -54,7 +64,7 @@ class FreeShippingBanner {
   }
 
   updateBannerContent(cart) {
-    if (!this.banner || !cart) return;
+    if (!cart) return;
 
     const cartSubtotalCents = cart.total_price;
     const remainingCents = Math.max(0, THRESHOLD_CENTS - cartSubtotalCents);
@@ -63,24 +73,28 @@ class FreeShippingBanner {
     // Format remaining amount
     const remainingAmount = this.formatMoney(remainingCents);
     
-    // Update threshold data attribute
-    this.banner.dataset.threshold = THRESHOLD_CENTS;
-    
-    // Generate content based on cart state
-    let content = '';
-    
-    if (cart.item_count === 0) {
-      content = this.getEmptyCartContent();
-    } else if (cartSubtotalCents < THRESHOLD_CENTS) {
-      content = this.getProgressContent(remainingAmount, progressPercent);
-    } else {
-      content = this.getUnlockedContent();
+    // Update banner if exists
+    if (this.banner) {
+      this.banner.dataset.threshold = THRESHOLD_CENTS;
+      
+      let content = '';
+      if (cart.item_count === 0) {
+        content = this.getEmptyCartContent();
+      } else if (cartSubtotalCents < THRESHOLD_CENTS) {
+        content = this.getProgressContent(remainingAmount, progressPercent);
+      } else {
+        content = this.getUnlockedContent();
+      }
+      
+      const contentElement = this.banner.querySelector('.free-shipping-banner__content');
+      if (contentElement) {
+        contentElement.innerHTML = content;
+      }
     }
     
-    // Update banner content
-    const contentElement = this.banner.querySelector('.free-shipping-banner__content');
-    if (contentElement) {
-      contentElement.innerHTML = content;
+    // Update cart drawer progress if exists
+    if (this.cartDrawerProgress) {
+      this.updateCartDrawerProgress(cart, remainingAmount, progressPercent);
     }
     
     // Announce changes to screen readers
@@ -121,6 +135,143 @@ class FreeShippingBanner {
         </span>
       </div>
     `;
+  }
+
+  updateCartDrawerProgress(cart, remainingAmount, progressPercent) {
+    const cartSubtotalCents = cart.total_price;
+    
+    // Update threshold data attribute
+    this.cartDrawerProgress.dataset.threshold = THRESHOLD_CENTS;
+    
+    let content = '';
+    
+    if (cart.item_count === 0) {
+      // Hide progress section when cart is empty
+      this.cartDrawerProgress.style.display = 'none';
+      return;
+    } else {
+      this.cartDrawerProgress.style.display = 'block';
+    }
+    
+    if (cartSubtotalCents < THRESHOLD_CENTS) {
+      content = `
+        <div class="cart-drawer__free-shipping-message">
+          <span class="cart-drawer__free-shipping-icon">💝</span>
+          <span class="cart-drawer__free-shipping-text">
+            You're only ${remainingAmount} away from free shipping!
+          </span>
+        </div>
+        <div class="cart-drawer__free-shipping-progress" role="progressbar" aria-valuenow="${progressPercent}" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
+          <div class="cart-drawer__free-shipping-track">
+            <div class="cart-drawer__free-shipping-fill" style="width: ${progressPercent}%;"></div>
+          </div>
+        </div>
+      `;
+    } else {
+      content = `
+        <div class="cart-drawer__free-shipping-message cart-drawer__free-shipping-message--unlocked">
+          <span class="cart-drawer__free-shipping-icon">🎉</span>
+          <span class="cart-drawer__free-shipping-text">
+            Congrats! You've unlocked FREE shipping!
+          </span>
+        </div>
+      `;
+    }
+    
+    this.cartDrawerProgress.innerHTML = content;
+  }
+
+  observeCartDrawer() {
+    // Watch for cart drawer element changes (when it gets re-rendered)
+    const cartDrawer = document.querySelector('cart-drawer');
+    if (cartDrawer) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'childList') {
+            // Re-find the progress element when drawer content changes
+            this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
+            if (this.cartDrawerProgress) {
+              this.updateBanner();
+            }
+          }
+        });
+      });
+      
+      observer.observe(cartDrawer, {
+        childList: true,
+        subtree: true
+      });
+    }
+  }
+
+  async handleCartDrawerUpdate(event) {
+    // Re-find cart drawer progress element
+    this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
+    await this.handleCartUpdate(event);
+  }
+
+  ensureCartDrawerStyles() {
+    // Check if cart drawer styles are loaded, if not, inject fallback styles
+    const existingStyle = document.getElementById('cart-drawer-progress-fallback');
+    if (existingStyle) return;
+
+    const style = document.createElement('style');
+    style.id = 'cart-drawer-progress-fallback';
+    style.textContent = `
+      .cart-drawer__free-shipping {
+        padding: 1rem 0 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+        margin-bottom: 1rem !important;
+        display: block !important;
+      }
+      .cart-drawer__free-shipping-message {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        margin-bottom: 0.8rem !important;
+        font-size: 1.4rem !important;
+        font-weight: 500 !important;
+        line-height: 1.4 !important;
+      }
+      .cart-drawer__free-shipping-icon {
+        font-size: 1.6rem !important;
+        flex-shrink: 0 !important;
+      }
+      .cart-drawer__free-shipping-text {
+        color: #333333 !important;
+      }
+      .cart-drawer__free-shipping-progress {
+        width: 100% !important;
+      }
+      .cart-drawer__free-shipping-track {
+        width: 100% !important;
+        height: 8px !important;
+        background-color: rgba(0, 0, 0, 0.15) !important;
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        position: relative !important;
+        border: 1px solid rgba(0, 0, 0, 0.08) !important;
+      }
+      .cart-drawer__free-shipping-fill {
+        height: 100% !important;
+        background: linear-gradient(90deg, #10b981, #059669) !important;
+        border-radius: 20px !important;
+        transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        position: relative !important;
+        min-width: 4px !important;
+        display: block !important;
+      }
+      .cart-drawer__free-shipping-message--unlocked {
+        margin-bottom: 0 !important;
+        animation: celebration 0.6s ease-out !important;
+      }
+      @keyframes celebration {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
   }
 
   formatMoney(cents) {
