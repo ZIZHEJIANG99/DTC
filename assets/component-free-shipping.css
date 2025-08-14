@@ -51,18 +51,20 @@
 .free-shipping-banner__progress-track {
   width: 100%;
   height: 0.6rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .free-shipping-banner__progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #4ade80, #22c55e);
+  background: linear-gradient(90deg, #10b981, #059669);
   border-radius: 2rem;
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  min-width: 2px; /* Ensure visibility even at 0% */
 }
 
 .free-shipping-banner__progress-fill::after {
