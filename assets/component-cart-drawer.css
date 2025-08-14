@@ -383,3 +383,117 @@ cart-drawer-items::-webkit-scrollbar-thumb {
 cart-drawer-items::-webkit-scrollbar-track-piece {
   margin-top: 31px;
 }
+
+/* Free Shipping Progress in Cart Drawer */
+.cart-drawer__free-shipping {
+  padding: 1rem 0;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  margin-bottom: 1rem;
+}
+
+.cart-drawer__free-shipping-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.cart-drawer__free-shipping-message--unlocked {
+  margin-bottom: 0;
+  animation: celebration 0.6s ease-out;
+}
+
+.cart-drawer__free-shipping-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.cart-drawer__free-shipping-text {
+  color: rgb(var(--color-foreground));
+}
+
+.cart-drawer__free-shipping-progress {
+  width: 100%;
+}
+
+.cart-drawer__free-shipping-track {
+  width: 100%;
+  height: 0.6rem;
+  background-color: rgba(var(--color-foreground), 0.1);
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.cart-drawer__free-shipping-fill {
+  height: 100%;
+  background: linear-gradient(90deg, rgb(var(--color-base-accent-1)), rgb(var(--color-base-accent-2)));
+  border-radius: 2rem;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.cart-drawer__free-shipping-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite ease-in-out;
+}
+
+@keyframes celebration {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* Responsive adjustments for cart drawer free shipping */
+@media screen and (max-width: 749px) {
+  .cart-drawer__free-shipping {
+    padding: 0.8rem 0;
+  }
+  
+  .cart-drawer__free-shipping-message {
+    font-size: 1.3rem;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .cart-drawer__free-shipping-icon {
+    font-size: 1.4rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .cart-drawer__free-shipping-fill,
+  .cart-drawer__free-shipping-message--unlocked {
+    animation: none;
+    transition: none;
+  }
+  
+  .cart-drawer__free-shipping-fill::after {
+    animation: none;
+  }
+}

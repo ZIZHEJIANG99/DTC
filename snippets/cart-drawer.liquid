@@ -66,6 +66,40 @@
           {% render 'icon-close' %}
         </button>
       </div>
+      
+      {%- if cart != empty -%}
+        {%- assign threshold_cents = 25 | times: 100 -%}
+        {%- assign cart_subtotal_cents = cart.total_price -%}
+        {%- assign remaining_cents = threshold_cents | minus: cart_subtotal_cents -%}
+        {%- assign remaining_amount = remaining_cents | money -%}
+        {%- assign progress_percent = cart_subtotal_cents | times: 100 | divided_by: threshold_cents -%}
+        {%- if progress_percent > 100 -%}
+          {%- assign progress_percent = 100 -%}
+        {%- endif -%}
+        
+        <div class="cart-drawer__free-shipping" data-threshold="{{ threshold_cents }}">
+          {%- if cart_subtotal_cents < threshold_cents -%}
+            <div class="cart-drawer__free-shipping-message">
+              <span class="cart-drawer__free-shipping-icon">💝</span>
+              <span class="cart-drawer__free-shipping-text">
+                You're only {{ remaining_amount }} away from free shipping!
+              </span>
+            </div>
+            <div class="cart-drawer__free-shipping-progress" role="progressbar" aria-valuenow="{{ progress_percent }}" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
+              <div class="cart-drawer__free-shipping-track">
+                <div class="cart-drawer__free-shipping-fill" style="width: {{ progress_percent }}%;"></div>
+              </div>
+            </div>
+          {%- else -%}
+            <div class="cart-drawer__free-shipping-message cart-drawer__free-shipping-message--unlocked">
+              <span class="cart-drawer__free-shipping-icon">🎉</span>
+              <span class="cart-drawer__free-shipping-text">
+                Congrats! You've unlocked FREE shipping!
+              </span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
