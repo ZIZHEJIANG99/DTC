@@ -89,6 +89,11 @@ class FreeShippingBanner {
       const contentElement = this.banner.querySelector('.free-shipping-banner__content');
       if (contentElement) {
         contentElement.innerHTML = content;
+        
+        // Handle celebration animation timing for unlocked state
+        if (cartSubtotalCents >= THRESHOLD_CENTS) {
+          this.handleCelebrationAnimation(contentElement);
+        }
       }
     }
     
@@ -117,11 +122,6 @@ class FreeShippingBanner {
         <span class="free-shipping-banner__text">
           Woohoo! You're only ${remainingAmount} away from free shipping!
         </span>
-      </div>
-      <div class="free-shipping-banner__progress" role="progressbar" aria-valuenow="${progressPercent}" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
-        <div class="free-shipping-banner__progress-track">
-          <div class="free-shipping-banner__progress-fill" style="width: ${progressPercent}%;"></div>
-        </div>
       </div>
     `;
   }
@@ -208,6 +208,20 @@ class FreeShippingBanner {
     // Re-find cart drawer progress element
     this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
     await this.handleCartUpdate(event);
+  }
+
+  handleCelebrationAnimation(contentElement) {
+    // Find the unlocked message element
+    const unlockedMessage = contentElement.querySelector('.free-shipping-banner__message--unlocked');
+    if (!unlockedMessage) return;
+    
+    // Add flashing class for 2-second animation
+    unlockedMessage.classList.add('celebration-flashing');
+    
+    // Remove flashing class after 2 seconds
+    setTimeout(() => {
+      unlockedMessage.classList.remove('celebration-flashing');
+    }, 2000);
   }
 
   ensureCartDrawerStyles() {

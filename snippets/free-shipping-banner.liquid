@@ -30,11 +30,6 @@
           Woohoo! You're only {{ remaining_amount }} away from free shipping!
         </span>
       </div>
-      <div class="free-shipping-banner__progress" role="progressbar" aria-valuenow="{{ progress_percent }}" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
-        <div class="free-shipping-banner__progress-track">
-          <div class="free-shipping-banner__progress-fill" style="width: {{ progress_percent }}%;"></div>
-        </div>
-      </div>
     {%- else -%}
       <div class="free-shipping-banner__message free-shipping-banner__message--unlocked">
         <span class="free-shipping-banner__icon">🎉</span>
