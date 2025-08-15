@@ -116,12 +116,20 @@ class FreeShippingBanner {
           textElement.textContent = `Woohoo! You're only ${remainingAmount} away from free shipping!`;
         }
         
-        // 更新进度条进度
-        const progressBar = contentElement.querySelector('.free-shipping-banner__progress');
-        const progressFill = contentElement.querySelector('.free-shipping-banner__progress-fill');
-        if (progressBar && progressFill) {
-          progressBar.setAttribute('aria-valuenow', progressPercent);
-          progressFill.style.width = `${progressPercent}%`;
+        // 更新进度条
+        const progressElement = contentElement.querySelector('.free-shipping-banner__progress');
+        const fillElement = contentElement.querySelector('.free-shipping-banner__progress-fill');
+        if (progressElement && fillElement) {
+          progressElement.setAttribute('aria-valuenow', progressPercent);
+          fillElement.style.width = `${progressPercent}%`;
+        }
+      } else if (stateKey === 'empty') {
+        // 空购物车状态下确保进度条为0%
+        const progressElement = contentElement.querySelector('.free-shipping-banner__progress');
+        const fillElement = contentElement.querySelector('.free-shipping-banner__progress-fill');
+        if (progressElement && fillElement) {
+          progressElement.setAttribute('aria-valuenow', '0');
+          fillElement.style.width = '0%';
         }
       }
     }

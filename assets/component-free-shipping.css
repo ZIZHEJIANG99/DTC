@@ -68,7 +68,7 @@
   border-radius: 2rem;
   transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  min-width: 2px; /* Ensure visibility even at 0% */
+  min-width: 4px; /* Ensure visibility even at 0% */
 }
 
 .free-shipping-banner__progress-fill::after {
