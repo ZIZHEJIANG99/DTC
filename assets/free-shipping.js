@@ -110,10 +110,18 @@ class FreeShippingBanner {
           this.handleCelebrationAnimation(contentElement);
         }
       } else if (stateKey === 'below') {
-        // 仅在"未达标"时更新数值文本，不重写整个容器
+        // 仅在"未达标"时更新数值文本和进度条，不重写整个容器
         const textElement = contentElement.querySelector('.free-shipping-banner__text');
         if (textElement) {
           textElement.textContent = `Woohoo! You're only ${remainingAmount} away from free shipping!`;
+        }
+        
+        // 更新进度条进度
+        const progressBar = contentElement.querySelector('.free-shipping-banner__progress');
+        const progressFill = contentElement.querySelector('.free-shipping-banner__progress-fill');
+        if (progressBar && progressFill) {
+          progressBar.setAttribute('aria-valuenow', progressPercent);
+          progressFill.style.width = `${progressPercent}%`;
         }
       }
     }
@@ -133,6 +141,11 @@ class FreeShippingBanner {
         <span class="free-shipping-banner__icon">🚚</span>
         <span class="free-shipping-banner__text">Free Shipping on Orders $25+</span>
       </div>
+      <div class="free-shipping-banner__progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
+        <div class="free-shipping-banner__progress-track">
+          <div class="free-shipping-banner__progress-fill" style="width: 0%;"></div>
+        </div>
+      </div>
     `;
   }
 
@@ -143,6 +156,11 @@ class FreeShippingBanner {
         <span class="free-shipping-banner__text">
           Woohoo! You're only ${remainingAmount} away from free shipping!
         </span>
+      </div>
+      <div class="free-shipping-banner__progress" role="progressbar" aria-valuenow="${progressPercent}" aria-valuemin="0" aria-valuemax="100" aria-label="Free shipping progress">
+        <div class="free-shipping-banner__progress-track">
+          <div class="free-shipping-banner__progress-fill" style="width: ${progressPercent}%;"></div>
+        </div>
       </div>
     `;
   }
