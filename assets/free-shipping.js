@@ -9,6 +9,9 @@ class FreeShippingBanner {
   constructor() {
     this.banner = document.querySelector('.free-shipping-banner');
     this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
+    this.isUpdatingCartDrawer = false;        // 写入保护
+    this.observerDebounceTimer = null;        // 去抖
+    this.lastCelebrationAt = 0;               // 动画冷却
     this.init();
   }
 
@@ -77,22 +80,40 @@ class FreeShippingBanner {
     if (this.banner) {
       this.banner.dataset.threshold = THRESHOLD_CENTS;
       
-      let content = '';
-      if (cart.item_count === 0) {
-        content = this.getEmptyCartContent();
-      } else if (cartSubtotalCents < THRESHOLD_CENTS) {
-        content = this.getProgressContent(remainingAmount, progressPercent);
-      } else {
-        content = this.getUnlockedContent();
-      }
-      
+      // 确定当前状态
+      const prevState = this.banner.dataset.stateKey;
+      const stateKey = 
+        cart.item_count === 0 ? 'empty' :
+        cartSubtotalCents < THRESHOLD_CENTS ? 'below' :
+        'unlocked';
+
       const contentElement = this.banner.querySelector('.free-shipping-banner__content');
-      if (contentElement) {
+      if (!contentElement) return;
+
+      if (prevState !== stateKey) {
+        // 状态变了才重写整个容器
+        this.banner.dataset.stateKey = stateKey;
+        
+        let content = '';
+        if (stateKey === 'empty') {
+          content = this.getEmptyCartContent();
+        } else if (stateKey === 'below') {
+          content = this.getProgressContent(remainingAmount, progressPercent);
+        } else {
+          content = this.getUnlockedContent();
+        }
+        
         contentElement.innerHTML = content;
         
-        // Handle celebration animation timing for unlocked state
-        if (cartSubtotalCents >= THRESHOLD_CENTS) {
+        // 只在首次进入解锁状态时触发动画
+        if (stateKey === 'unlocked') {
           this.handleCelebrationAnimation(contentElement);
+        }
+      } else if (stateKey === 'below') {
+        // 仅在"未达标"时更新数值文本，不重写整个容器
+        const textElement = contentElement.querySelector('.free-shipping-banner__text');
+        if (textElement) {
+          textElement.textContent = `Woohoo! You're only ${remainingAmount} away from free shipping!`;
         }
       }
     }
@@ -178,30 +199,37 @@ class FreeShippingBanner {
       `;
     }
     
+    // 写入保护：防止自触发Observer
+    this.isUpdatingCartDrawer = true;
     this.cartDrawerProgress.innerHTML = content;
+    // 延迟重置保护标志，确保DOM更新完成
+    setTimeout(() => {
+      this.isUpdatingCartDrawer = false;
+    }, 50);
   }
 
   observeCartDrawer() {
     // Watch for cart drawer element changes (when it gets re-rendered)
     const cartDrawer = document.querySelector('cart-drawer');
-    if (cartDrawer) {
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === 'childList') {
-            // Re-find the progress element when drawer content changes
-            this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
-            if (this.cartDrawerProgress) {
-              this.updateBanner();
-            }
-          }
-        });
-      });
-      
-      observer.observe(cartDrawer, {
-        childList: true,
-        subtree: true
-      });
-    }
+    if (!cartDrawer) return;
+
+    const observer = new MutationObserver((mutations) => {
+      if (this.isUpdatingCartDrawer) return;  // 我们自己改的 DOM 不触发更新
+
+      // 仅在确实需要时触发，并做去抖
+      clearTimeout(this.observerDebounceTimer);
+      this.observerDebounceTimer = setTimeout(() => {
+        this.cartDrawerProgress = document.querySelector('.cart-drawer__free-shipping');
+        if (this.cartDrawerProgress) {
+          this.updateBanner();
+        }
+      }, 120);
+    });
+
+    observer.observe(cartDrawer, {
+      childList: true,
+      subtree: true
+    });
   }
 
   async handleCartDrawerUpdate(event) {
@@ -214,7 +242,12 @@ class FreeShippingBanner {
     // Find the unlocked message element
     const unlockedMessage = contentElement.querySelector('.free-shipping-banner__message--unlocked');
     if (!unlockedMessage) return;
-    
+
+    const now = Date.now();
+    if (now - this.lastCelebrationAt < 2500) return; // 冷却：2.5s 内不重复触发
+
+    this.lastCelebrationAt = now;
+
     // Add flashing class for 2-second animation
     unlockedMessage.classList.add('celebration-flashing');
     

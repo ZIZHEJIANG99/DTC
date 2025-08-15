@@ -33,8 +33,7 @@
 }
 
 .free-shipping-banner__message--unlocked.celebration-flashing {
-  animation: celebration 0.5s ease-out infinite;
-  animation-duration: 0.5s;
+  animation: celebration 0.5s ease-out 4; /* 2s 左右：0.5s * 4 次 */
 }
 
 .free-shipping-banner__icon {
