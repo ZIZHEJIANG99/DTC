@@ -9,54 +9,43 @@
  */
 {
   "sections": {
-    "bfdde060-486d-4ee7-9239-e7f011b5a220": {
-      "type": "image-banner",
+    "image_with_text_T6gRBG": {
+      "type": "image-with-text",
       "blocks": {
-        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-0": {
+        "heading_PATmHW": {
           "type": "heading",
           "settings": {
-            "heading": "{{ collection.title }}",
-            "heading_size": "h1"
+            "heading": "Hydration",
+            "heading_size": "h0"
           }
         },
-        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-1": {
+        "text_WFzp6G": {
           "type": "text",
           "settings": {
-            "text": "",
-            "text_style": "subtitle"
-          }
-        },
-        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-2": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "text": "<h3>A groundbreaking new UpSpring hydration line coming soon!</h3>",
+            "text_style": "body"
           }
         }
       },
       "block_order": [
-        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-0",
-        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-1",
-        "template--14566747799624__bfdde060-486d-4ee7-9239-e7f011b5a220-16845695402f86046e-2"
+        "heading_PATmHW",
+        "text_WFzp6G"
       ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "{{ collection.image }}",
-        "mobimg": "{{ collection.metafields.custom.mobile_image.value }}",
-        "section_css_class": "shopall-banner",
-        "image_overlay_opacity": 0,
-        "image_height": "adapt",
-        "desktop_content_position": "middle-left",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
+        "image": "shopify://shop_images/Hydration_Coming_Soon-min.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
         "color_scheme": "background-1",
         "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "rich_text_TKNp8a": {
@@ -71,9 +60,8 @@
         },
         "text_QfU9Uc": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": ""
+            "text": "<h3>Products Coming soon!</h3>"
           }
         },
         "button_f9MKLn": {
@@ -345,6 +333,7 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "disabled": true,
       "settings": {
         "products_per_page": 24,
         "columns_desktop": 4,
@@ -422,7 +411,7 @@
     }
   },
   "order": [
-    "bfdde060-486d-4ee7-9239-e7f011b5a220",
+    "image_with_text_T6gRBG",
     "rich_text_TKNp8a",
     "f19b359c-d0e3-4649-abce-3d0c303e6c7c",
     "b36985df-3914-48fc-8940-ce764c8d765b",
