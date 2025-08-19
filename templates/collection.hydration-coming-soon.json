@@ -9,44 +9,34 @@
  */
 {
   "sections": {
-    "image_with_text_T6gRBG": {
-      "type": "image-with-text",
+    "175562634604cacaeb": {
+      "type": "_blocks",
       "blocks": {
-        "heading_PATmHW": {
-          "type": "heading",
+        "ai_gen_block_7a3a393_Y3wX4q": {
+          "type": "ai_gen_block_7a3a393",
           "settings": {
+            "image": "shopify://shop_images/Hydration_Coming_Soon_paddings-min.png",
+            "layout": "text_first",
+            "mobile_layout": "column",
+            "image_border_radius": 8,
             "heading": "Hydration",
-            "heading_size": "h0"
-          }
-        },
-        "text_WFzp6G": {
-          "type": "text",
-          "settings": {
-            "text": "<h3>A groundbreaking new UpSpring hydration line coming soon!</h3>",
-            "text_style": "body"
-          }
+            "heading_size": 60,
+            "body_text": "<p>A groundbreaking new UpSpring hydration line coming soon!</p>",
+            "body_size": 24,
+            "button_text": "Learn more",
+            "button_link": "",
+            "button_color": "#0460d9",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#034ba8",
+            "button_border_radius": 6
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "heading_PATmHW",
-        "text_WFzp6G"
+        "ai_gen_block_7a3a393_Y3wX4q"
       ],
-      "custom_css": [],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Hydration_Coming_Soon-min.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
+      "settings": {}
     },
     "rich_text_TKNp8a": {
       "type": "rich-text",
@@ -81,6 +71,7 @@
         "text_QfU9Uc",
         "button_f9MKLn"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -411,7 +402,7 @@
     }
   },
   "order": [
-    "image_with_text_T6gRBG",
+    "175562634604cacaeb",
     "rich_text_TKNp8a",
     "f19b359c-d0e3-4649-abce-3d0c303e6c7c",
     "b36985df-3914-48fc-8940-ce764c8d765b",
