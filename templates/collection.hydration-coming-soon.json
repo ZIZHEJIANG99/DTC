@@ -42,7 +42,7 @@
             "mobile_content_padding_left": 20,
             "mobile_content_padding_right": 20,
             "mobile_content_bg": "#ffffff",
-            "heading_size": 48,
+            "heading_size": 80,
             "body_size": 16,
             "button_color": "#0460d9",
             "button_hover_color": "#034ba8",
