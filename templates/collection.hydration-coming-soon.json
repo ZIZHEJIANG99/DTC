@@ -9,54 +9,44 @@
  */
 {
   "sections": {
-    "1755637395934eb9c4": {
-      "type": "_blocks",
+    "image_banner_WE6XfU": {
+      "type": "image-banner",
       "blocks": {
-        "ai_gen_block_76b8c8a_fFCPBt": {
-          "type": "ai_gen_block_76b8c8a",
+        "heading_LbaGyy": {
+          "type": "heading",
           "settings": {
-            "desktop_image": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Desktop.jpg",
-            "mobile_image": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Mobile.jpg",
-            "banner_height": 550,
-            "mobile_banner_height": 400,
-            "overlay_opacity": 30,
-            "heading": "{{ closest.collection.title }}",
-            "body_text": "A groundbreaking new UpSpring hydration line coming soon!",
-            "button_text": "",
-            "button_link": "",
-            "text_alignment": "left",
-            "padding_top": 48,
-            "padding_bottom": 44,
-            "padding_left": 0,
-            "padding_right": 0,
-            "mobile_padding_top": 60,
-            "mobile_padding_bottom": 44,
-            "mobile_padding_left": 0,
-            "mobile_padding_right": 0,
-            "content_padding_top": 20,
-            "content_padding_bottom": 20,
-            "content_padding_left": 100,
-            "content_padding_right": 20,
-            "mobile_content_padding_top": 24,
-            "mobile_content_padding_bottom": 24,
-            "mobile_content_padding_left": 20,
-            "mobile_content_padding_right": 20,
-            "mobile_content_bg": "#ffffff",
-            "heading_size": 70,
-            "body_size": 20,
-            "button_color": "#0460d9",
-            "button_hover_color": "#034ba8",
-            "button_text_color": "#ffffff",
-            "button_border_radius": 8,
-            "border_radius": 0
-          },
-          "blocks": {}
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_e9JBrU": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
         }
       },
       "block_order": [
-        "ai_gen_block_76b8c8a_fFCPBt"
+        "heading_LbaGyy",
+        "text_e9JBrU"
       ],
-      "settings": {}
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Desktop.jpg",
+        "mobimg": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Mobile.jpg",
+        "section_css_class": "shopall-banner",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
     },
     "00274b77-2deb-4292-9613-17958abff1bb": {
       "type": "custom-liquid",
@@ -139,7 +129,7 @@
     }
   },
   "order": [
-    "1755637395934eb9c4",
+    "image_banner_WE6XfU",
     "00274b77-2deb-4292-9613-17958abff1bb",
     "banner",
     "product-grid",
