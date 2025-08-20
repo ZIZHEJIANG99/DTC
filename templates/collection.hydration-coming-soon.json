@@ -38,7 +38,7 @@
         "mobimg": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Mobile.jpg",
         "section_css_class": "shopall-banner",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "desktop_content_position": "middle-left",
         "show_text_box": true,
         "desktop_content_alignment": "left",
