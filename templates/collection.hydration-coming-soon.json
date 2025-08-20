@@ -15,7 +15,7 @@
         "heading_LbaGyy": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "{{ collection.metafields.custom.column_1_title.value }}",
             "heading_size": "h1"
           }
         },
@@ -31,6 +31,7 @@
         "heading_LbaGyy",
         "text_e9JBrU"
       ],
+      "custom_css": [],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
         "image": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Desktop.jpg",
