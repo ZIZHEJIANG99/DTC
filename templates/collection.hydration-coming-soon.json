@@ -15,7 +15,7 @@
         "heading_LbaGyy": {
           "type": "heading",
           "settings": {
-            "heading": "{{ collection.metafields.custom.column_1_title.value }}",
+            "heading": "{{ collection.title }}",
             "heading_size": "h1"
           }
         },
