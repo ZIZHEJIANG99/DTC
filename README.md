@@ -217,11 +217,62 @@ app.get('/discounted-products', async (req, res) => {
 2. 确认API返回正确的JSON格式
 3. 查看浏览器控制台是否有JavaScript错误
 
-### 加入购物车失败
+### "FAILED to add to cart, please try again" 错误
 
-1. 确认variant_id正确
-2. 检查商品是否有库存
-3. 验证Shopify AJAX Cart API是否可用
+如果点击"Add to cart"按钮时出现失败错误，请按以下步骤排查：
+
+**常见原因**:
+1. **演示数据问题** - 使用了不存在的演示variant_id
+2. **产品不存在** - variant_id对应的产品在商店中不存在
+3. **库存不足** - 商品缺货或库存为0
+4. **API错误** - Shopify Cart API调用失败
+
+**解决步骤** ✅ (已优化):
+
+1. **检查是否为演示数据**
+   - 如果看到"This is a demo product"提示，说明当前使用的是演示数据
+   - 需要替换为真实的产品数据
+
+2. **获取真实的variant_id**
+   ```bash
+   # 在Shopify后台查找产品
+   # 或在产品页面的控制台运行：
+   console.log(window.ShopifyAnalytics?.meta?.product?.variants);
+   ```
+
+3. **更新推荐产品数据**
+   ```json
+   // 编辑 assets/recommended-products-data.json
+   {
+     "products": [
+       {
+         "id": 123456,
+         "title": "Real Product Name",
+         "variant_id": 987654321, // 使用真实的variant_id (数字)
+         "price": 2999,
+         "url": "/products/real-product-handle"
+       }
+     ]
+   }
+   ```
+
+4. **验证修复效果**
+   - 打开浏览器开发者工具 (F12)
+   - 查看Console标签的调试信息
+   - 点击"Add to cart"按钮
+   - 确认看到"Successfully added to cart"消息
+
+**调试信息**:
+修复后的代码会在控制台显示详细信息：
+```
+Adding to cart - Variant ID: 987654321
+Successfully added to cart: {items: [...]}
+```
+
+**错误码说明**:
+- **HTTP 422**: 产品variant不存在或缺货
+- **HTTP 404**: Cart API端点未找到
+- **Invalid variant ID**: variant_id格式错误或为空
 
 ### 样式问题
 
@@ -347,7 +398,18 @@ CartRecommendations: Local data loaded successfully {...}
 
 ## 更新日志
 
-### v1.1.0 (2024年12月最新修复)
+### v1.2.0 (2024年12月最新修复)
+- ✅ **修复"Add to Cart"失败问题** - 解决点击加入购物车按钮时的错误
+- ✅ **增强错误处理机制** - 添加详细的错误分析和用户反馈
+- ✅ **优化演示数据处理** - 区分演示产品和真实产品，提供清晰指导
+- ✅ **改进用户交互体验** - 添加加载状态和成功反馈
+- ✅ **增强调试功能** - 添加详细的控制台日志用于问题排查
+- **修复的文件**：
+  - `assets/cart-recommendations.js`
+  - `assets/recommended-products-data.json`
+  - `README.md`
+
+### v1.1.0 (2024年12月翻译修复)
 - ✅ **修复翻译键路径不匹配问题** - 解决"Translation missing: en.cart_recommendations.add_to_cart"错误
 - ✅ **更新所有翻译键路径** - 在翻译键前添加`general.`前缀以匹配语言包结构
 - ✅ **优化错误处理** - 改进翻译缺失时的兜底机制

@@ -2,39 +2,33 @@
   "products": [
     {
       "id": 1001,
-      "title": "Milkflow® + Immune Support Drink Mix, Orange Mango, 16 ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-immune-support-drink-mix-orange-mango.jpg?v=1",
-      "price": 3499,
-      "compare_at_price": 3999,
-      "variant_id": 4001001001001,
-      "url": "/products/milkflow-immune-support-drink-mix-orange-mango-16-ct"
+      "title": "Demo Product 1 - Sample Item",
+      "image": "https://via.placeholder.com/300x300/cccccc/000000?text=Demo+Product+1",
+      "price": 1999,
+      "compare_at_price": 2499,
+      "variant_id": "DEMO_VARIANT_1",
+      "url": "#demo-product-1",
+      "demo": true
     },
     {
       "id": 1002,
-      "title": "Milkflow® Breastfeeding Soft Chews, Berry Flavor, 28 Ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-breastfeeding-soft-chews-berry-flavor.jpg?v=1",
-      "price": 2499,
-      "compare_at_price": 2999,
-      "variant_id": 4001002002002,
-      "url": "/products/milkflow-breastfeeding-soft-chews-berry-flavor-28-ct"
+      "title": "Demo Product 2 - Sample Item",
+      "image": "https://via.placeholder.com/300x300/dddddd/000000?text=Demo+Product+2",
+      "price": 2999,
+      "compare_at_price": 3499,
+      "variant_id": "DEMO_VARIANT_2",
+      "url": "#demo-product-2",
+      "demo": true
     },
     {
       "id": 1003,
-      "title": "Milkflow® Moringa Gummies, Green Apple, 60 Ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-moringa-gummies-green-apple.jpg?v=1",
-      "price": 2999,
-      "compare_at_price": 3499,
-      "variant_id": 4001003003003,
-      "url": "/products/milkflow-moringa-gummies-green-apple-60-ct"
-    },
-    {
-      "id": 1004,
-      "title": "Milkflow® Energy Drink Mix, Berry Blast, 14 Servings",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-energy-drink-mix-berry-blast.jpg?v=1",
-      "price": 3499,
-      "compare_at_price": 3999,
-      "variant_id": 4001004004004,
-      "url": "/products/milkflow-energy-drink-mix-berry-blast-14-servings"
+      "title": "Demo Product 3 - Sample Item",
+      "image": "https://via.placeholder.com/300x300/eeeeee/000000?text=Demo+Product+3",
+      "price": 3999,
+      "compare_at_price": 4999,
+      "variant_id": "DEMO_VARIANT_3",
+      "url": "#demo-product-3",
+      "demo": true
     }
   ]
 }

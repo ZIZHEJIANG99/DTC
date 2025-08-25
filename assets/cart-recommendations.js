@@ -60,19 +60,81 @@
       list.addEventListener('click', async (e) => {
         const btn = e.target.closest('.recos-add');
         if (!btn) return;
+        
+        const variantId = btn.dataset.vid;
+        const originalText = btn.textContent;
+        
+        // 检查是否为演示数据
+        if (typeof variantId === 'string' && variantId.startsWith('DEMO_')) {
+          console.log('Demo product detected:', variantId);
+          alert('This is a demo product. To enable real "Add to Cart" functionality, please:\n\n1. Replace demo data in assets/recommended-products-data.json with real product data\n2. Use actual variant IDs from your Shopify products\n3. Configure the API endpoint in theme settings');
+          return;
+        }
+        
+        // 输入验证
+        if (!variantId || isNaN(Number(variantId))) {
+          console.error('Invalid variant ID:', variantId);
+          alert('Product variant ID is invalid. Please check the product data.');
+          return;
+        }
+        
         btn.disabled = true;
+        btn.textContent = settings.strings?.adding || 'Adding...';
+        
         try {
-          await fetch(`${window.Shopify?.routes?.root || '/'}cart/add.js`, {
+          console.log('Adding to cart - Variant ID:', variantId);
+          
+          const response = await fetch(`${window.Shopify?.routes?.root || '/'}cart/add.js`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: [{ id: Number(btn.dataset.vid), quantity: 1 }] })
-          }).then(r => (r.ok ? r.json() : Promise.reject(r)));
-          // 触发你的 Drawer 刷新逻辑；简单方案：
+            body: JSON.stringify({ 
+              items: [{ 
+                id: Number(variantId), 
+                quantity: 1 
+              }] 
+            })
+          });
+          
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Cart API Error:', response.status, errorText);
+            throw new Error(`HTTP ${response.status}: ${errorText}`);
+          }
+          
+          const result = await response.json();
+          console.log('Successfully added to cart:', result);
+          
+          // 成功反馈
+          btn.textContent = settings.strings?.success || 'Added!';
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.disabled = false;
+          }, 2000);
+          
+          // 触发购物车更新事件
           document.dispatchEvent(new CustomEvent('cart:updated'));
+          
+          // 如果有购物车抽屉，尝试更新
+          if (window.cartDrawer && window.cartDrawer.refresh) {
+            window.cartDrawer.refresh();
+          }
+          
         } catch (err) {
-          console.error('Add to cart failed', err);
+          console.error('Add to cart failed:', err);
           btn.disabled = false;
-          alert('Failed to add to cart, please try again.');
+          btn.textContent = originalText;
+          
+          // 更详细的错误信息
+          let errorMessage = 'Failed to add to cart. ';
+          if (err.message.includes('422')) {
+            errorMessage += 'This product variant may not exist or be out of stock.';
+          } else if (err.message.includes('404')) {
+            errorMessage += 'The cart API endpoint was not found.';
+          } else {
+            errorMessage += 'Please try again.';
+          }
+          
+          alert(errorMessage);
         }
       });
 
