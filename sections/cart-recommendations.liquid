@@ -1,38 +1,30 @@
 {{ 'component-cart-recommendations.css' | asset_url | stylesheet_tag }}
 
-<div class="cart-recommendations" data-section-type="cart-recommendations">
-  <div class="container">
-    {% if section.settings.heading != blank %}
-      <h2 class="cart-recommendations__heading">{{ section.settings.heading | escape }}</h2>
-    {% endif %}
-
-    {% if section.settings.subheading != blank %}
-      <p class="cart-recommendations__subheading">{{ section.settings.subheading | escape }}</p>
-    {% endif %}
-
-    <div class="cart-recommendations__loading" id="recommendations-loading">
-      <div class="cart-recommendations__loading-spinner"></div>
-      <p>{{ 'cart_recommendations.loading' | t }}</p>
-    </div>
-
-    <div class="cart-recommendations__error" id="recommendations-error" style="display: none;">
-      <p>{{ 'cart_recommendations.error_message' | t }}</p>
-      <button type="button" class="cart-recommendations__retry-button" id="recommendations-retry">
-        {{ 'cart_recommendations.retry_button' | t }}
-      </button>
-    </div>
-
-    <div class="cart-recommendations__list" id="recommendations-list" style="display: none;">
-      <!-- 推荐商品将通过JavaScript动态插入 -->
-    </div>
+<div id="cart-recos" class="cart-recommendations" data-section-id="{{ section.id }}">
+  <div id="recommendations-loading">Loading…</div>
+  <div id="recommendations-error" style="display:none;">
+    <p>{{ 'cart_recommendations.error_message' | t }}</p>
+    <button id="recommendations-retry">{{ 'cart_recommendations.retry_button' | t }}</button>
   </div>
+  <div id="recommendations-empty" style="display:none;">
+    {{ 'cart_recommendations.empty_message' | t }}
+  </div>
+  <div id="recommendations-list" class="recommended-list"></div>
 </div>
 
 <script>
   window.cartRecommendationsSettings = {
-    apiUrl: {{ section.settings.api_endpoint | json }},
-    maxProducts: {{ section.settings.max_products | json }},
-    sectionId: {{ section.id | json }}
+    // 主题编辑器里的接口地址，可为空：
+    apiUrl: {{ section.settings.api_endpoint | default: '' | json }},
+    // 本地 JSON 兜底数据的 **CDN 正确地址**（关键！）
+    fallbackUrl: {{ 'recommended-products-data.json' | asset_url | json }},
+    maxProducts: {{ section.settings.max_products | default: 6 | json }},
+    strings: {
+      addToCart: {{ 'cart_recommendations.add_to_cart' | t | json }},
+      error: {{ 'cart_recommendations.error_message' | t | json }},
+      retry: {{ 'cart_recommendations.retry_button' | t | json }},
+      empty: {{ 'cart_recommendations.empty_message' | t | json }}
+    }
   };
 </script>
 

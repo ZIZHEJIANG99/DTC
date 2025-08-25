@@ -45,11 +45,13 @@
       "view_empty_cart": "查看购物车"
     },
     "cart_recommendations": {
-      "loading": "正在加载推荐商品...",
-      "error_message": "无法加载推荐商品，请重试。",
+      "heading": "为你推荐",
+      "subheading": "这些折扣不要错过",
+      "error_message": "推荐商品加载失败。\n请重试。",
       "retry_button": "重试",
-      "empty_message": "暂时没有推荐商品。",
+      "empty_message": "当前暂无推荐商品。",
       "add_to_cart": "加入购物车",
+      "loading": "正在加载推荐商品...",
       "adding": "正在添加...",
       "success_message": "商品已成功加入购物车！"
     },

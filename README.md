@@ -248,9 +248,19 @@ app.get('/discounted-products', async (req, res) => {
 如果看到这个错误，请检查：
 
 1. **确认配置正确** - 确保 `window.cartRecommendationsSettings` 已正确设置
-2. **检查数据文件** - 确认 `assets/recommended-products-data.json` 存在且格式正确
-3. **验证路径** - 确保fetch请求的路径 `/assets/recommended-products-data.json` 正确
-4. **查看控制台** - 打开浏览器控制台查看详细的调试信息
+2. **检查CDN地址** - 确保 `fallbackUrl` 使用 `{{ 'recommended-products-data.json' | asset_url }}` 生成的CDN地址
+3. **检查数据文件** - 确认 `assets/recommended-products-data.json` 存在且格式正确
+4. **验证路径** - 确保fetch请求使用CDN地址而不是 `/assets/...` 路径
+5. **查看控制台** - 打开浏览器控制台查看详细的调试信息
+
+### 数据请求失败 (404/CORS)
+
+如果数据请求失败：
+
+1. **检查网络请求** - 在浏览器开发者工具的Network标签中查看请求
+2. **验证CDN地址** - 确认 `fallbackUrl` 指向正确的CDN地址
+3. **检查CORS** - 如果使用外部API，确保设置了正确的CORS头
+4. **验证JSON格式** - 确保返回的数据格式为 `{ "products": [...] }`
 
 ### 调试步骤
 
@@ -316,6 +326,51 @@ CartRecommendations: Local data loaded successfully {...}
 本项目遵循Shopify主题开发规范。
 
 ---
+
+## 最新修复方案 (2024)
+
+### 核心问题修复
+
+根据用户反馈，我们实施了以下关键修复：
+
+1. **CDN地址问题修复**
+   - 使用 `{{ 'recommended-products-data.json' | asset_url }}` 生成正确的CDN地址
+   - 避免使用 `/assets/...` 路径导致的404错误
+
+2. **语言包补齐**
+   - 添加了所有缺失的翻译key
+   - 修复了 "Translation missing" 错误
+
+3. **简化JS架构**
+   - 重写JavaScript代码为更简洁的IIFE模式
+   - 直接使用settings中的翻译字符串
+   - 优化错误处理和重试逻辑
+
+4. **数据格式标准化**
+   - 确保推荐产品数据格式正确
+   - 提供示例数据用于快速验证
+
+### 验证修复效果
+
+运行以下测试来验证修复：
+
+```javascript
+// 1. 检查配置
+console.log(window.cartRecommendationsSettings);
+
+// 2. 手动测试数据加载
+fetch(window.cartRecommendationsSettings.fallbackUrl)
+  .then(r => r.json())
+  .then(d => console.log('数据加载成功:', d))
+  .catch(e => console.error('数据加载失败:', e));
+
+// 3. 检查翻译
+console.log({
+  error: window.cartRecommendationsSettings.strings.error,
+  retry: window.cartRecommendationsSettings.strings.retry,
+  addToCart: window.cartRecommendationsSettings.strings.addToCart
+});
+```
 
 ## 测试指南
 

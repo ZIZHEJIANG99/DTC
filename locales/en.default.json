@@ -45,11 +45,13 @@
       "item_added": "Item added to your cart"
     },
     "cart_recommendations": {
-      "loading": "Loading recommendations...",
-      "error_message": "Unable to load recommendations. Please try again.",
+      "heading": "Recommended for you",
+      "subheading": "Don't miss these deals",
+      "error_message": "Unable to load recommendations.\nPlease try again.",
       "retry_button": "Retry",
-      "empty_message": "No recommendations available at this time.",
-      "add_to_cart": "Add to Cart",
+      "empty_message": "No recommendations at this time.",
+      "add_to_cart": "Add to cart",
+      "loading": "Loading recommendations...",
       "adding": "Adding...",
       "success_message": "Item added to cart successfully!"
     },

@@ -1,58 +1,22 @@
 {
   "products": [
     {
-      "id": 123456789,
-      "title": "Milkflow® Breastfeeding Soft Chews, Berry Flavor, 28 Ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-berry-chews.jpg",
-      "price": 2499,
-      "compare_at_price": 2999,
-      "variant_id": 987654321,
-      "url": "/products/milkflow-breastfeeding-soft-chews-berry-flavor-28-ct"
+      "id": 111,
+      "title": "Sample Product A",
+      "image": "https://cdn.shopify.com/s/files/1/0000/0001/files/sample-a.jpg?v=1",
+      "price": 1599,
+      "compare_at_price": 1999,
+      "variant_id": 44411111111111,
+      "url": "/products/sample-product-a"
     },
     {
-      "id": 234567890,
-      "title": "Milkflow® Chocolate Drink Mix, 14 Servings",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-chocolate-mix.jpg",
-      "price": 3499,
-      "compare_at_price": 3999,
-      "variant_id": 876543210,
-      "url": "/products/milkflow-chocolate-drink-mix"
-    },
-    {
-      "id": 345678901,
-      "title": "Milkflow® Moringa Gummies, Green Apple, 60 Ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-gummies-green-apple.jpg",
-      "price": 2999,
-      "compare_at_price": 3499,
-      "variant_id": 765432109,
-      "url": "/products/milkflow-moringa-gummies-green-apple"
-    },
-    {
-      "id": 456789012,
-      "title": "Milkflow® Energy Drink Mix, Berry Blast, 14 Servings",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-energy-berry.jpg",
-      "price": 3499,
-      "compare_at_price": 3999,
-      "variant_id": 654321098,
-      "url": "/products/milkflow-energy-drink-mix-berry-blast"
-    },
-    {
-      "id": 567890123,
-      "title": "Milkscreen™ Breast Milk Alcohol Test Strips, 10 Ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkscreen-test-strips.jpg",
-      "price": 1999,
-      "compare_at_price": 2499,
-      "variant_id": 543210987,
-      "url": "/products/milkscreen-breast-milk-alcohol-test-strips"
-    },
-    {
-      "id": 678901234,
-      "title": "UpSpring Prenatal Vitamin Gummies, Mixed Berry, 90 Ct",
-      "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/prenatal-vitamin-gummies.jpg",
-      "price": 3999,
-      "compare_at_price": 4499,
-      "variant_id": 432109876,
-      "url": "/products/upspring-prenatal-vitamin-gummies-mixed-berry"
+      "id": 222,
+      "title": "Sample Product B",
+      "image": "https://cdn.shopify.com/s/files/1/0000/0001/files/sample-b.jpg?v=1",
+      "price": 1299,
+      "compare_at_price": null,
+      "variant_id": 44422222222222,
+      "url": "/products/sample-product-b"
     }
   ]
 }

@@ -14,9 +14,17 @@
 <script>
   // Cart Recommendations Configuration for Drawer
   window.cartRecommendationsSettings = {
-    apiUrl: '', // Leave empty to use local demo data
+    // 主题编辑器里的接口地址，可为空：
+    apiUrl: '',
+    // 本地 JSON 兜底数据的 **CDN 正确地址**（关键！）
+    fallbackUrl: {{ 'recommended-products-data.json' | asset_url | json }},
     maxProducts: 3, // Show fewer products in drawer for better UX
-    sectionId: 'drawer-recommendations'
+    strings: {
+      addToCart: {{ 'cart_recommendations.add_to_cart' | t | json }},
+      error: {{ 'cart_recommendations.error_message' | t | json }},
+      retry: {{ 'cart_recommendations.retry_button' | t | json }},
+      empty: {{ 'cart_recommendations.empty_message' | t | json }}
+    }
   };
 </script>
 
@@ -400,32 +408,16 @@
 
       <!-- Cart Recommendations Section -->
       {%- if cart != empty -%}
-        <div class="cart-recommendations-drawer" data-section-type="cart-recommendations">
-          <div class="container">
-            {% if section.settings.heading != blank %}
-              <h3 class="cart-recommendations__heading">{{ section.settings.heading | escape }}</h3>
-            {% endif %}
-
-            {% if section.settings.subheading != blank %}
-              <p class="cart-recommendations__subheading">{{ section.settings.subheading | escape }}</p>
-            {% endif %}
-
-            <div class="cart-recommendations__loading" id="drawer-recommendations-loading">
-              <div class="cart-recommendations__loading-spinner"></div>
-              <p>{{ 'cart_recommendations.loading' | t }}</p>
-            </div>
-
-            <div class="cart-recommendations__error" id="drawer-recommendations-error" style="display: none;">
-              <p>{{ 'cart_recommendations.error_message' | t }}</p>
-              <button type="button" class="cart-recommendations__retry-button" id="drawer-recommendations-retry">
-                {{ 'cart_recommendations.retry_button' | t }}
-              </button>
-            </div>
-
-            <div class="cart-recommendations__list" id="drawer-recommendations-list" style="display: none;">
-              <!-- 推荐商品将通过JavaScript动态插入 -->
-            </div>
+        <div id="cart-recos-drawer" class="cart-recommendations-drawer" data-section-type="cart-recommendations">
+          <div id="recommendations-loading">Loading…</div>
+          <div id="recommendations-error" style="display:none;">
+            <p>{{ 'cart_recommendations.error_message' | t }}</p>
+            <button id="recommendations-retry">{{ 'cart_recommendations.retry_button' | t }}</button>
           </div>
+          <div id="recommendations-empty" style="display:none;">
+            {{ 'cart_recommendations.empty_message' | t }}
+          </div>
+          <div id="recommendations-list" class="recommended-list"></div>
         </div>
       {%- endif -%}
 
