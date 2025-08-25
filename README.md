@@ -243,6 +243,51 @@ app.get('/discounted-products', async (req, res) => {
 2. **验证CSS优先级** - 抽屉样式可能覆盖推荐栏样式
 3. **测试响应式布局** - 在不同设备上测试抽屉布局
 
+### "API endpoint not configured" 错误
+
+如果看到这个错误，请检查：
+
+1. **确认配置正确** - 确保 `window.cartRecommendationsSettings` 已正确设置
+2. **检查数据文件** - 确认 `assets/recommended-products-data.json` 存在且格式正确
+3. **验证路径** - 确保fetch请求的路径 `/assets/recommended-products-data.json` 正确
+4. **查看控制台** - 打开浏览器控制台查看详细的调试信息
+
+### 调试步骤
+
+1. **打开浏览器开发者工具** (F12)
+2. **查看Console标签** - 寻找 `CartRecommendations:` 开头的调试信息
+3. **查看Network标签** - 检查数据文件是否成功加载
+4. **检查元素** - 确认抽屉中存在推荐栏的HTML元素
+
+**调试信息示例**:
+```
+CartRecommendations: Initializing with settings: {...}
+CartRecommendations: Found elements: {...}
+CartRecommendations: Using local data file
+CartRecommendations: Local data loaded successfully {...}
+```
+
+### 快速测试
+
+1. **直接访问数据文件** - 在浏览器中访问 `https://yourstore.com/assets/recommended-products-data.json` 确认数据可访问
+
+2. **检查HTML元素** - 在抽屉中查找这些元素：
+   - `drawer-recommendations-loading`
+   - `drawer-recommendations-error`
+   - `drawer-recommendations-list`
+
+3. **验证配置** - 在浏览器控制台运行：
+   ```javascript
+   console.log(window.cartRecommendationsSettings);
+   ```
+
+4. **手动测试数据加载** - 在控制台运行：
+   ```javascript
+   fetch('/assets/recommended-products-data.json')
+     .then(r => r.json())
+     .then(d => console.log('Data loaded:', d));
+   ```
+
 ## 性能优化建议
 
 1. **API缓存**: 为API端点添加适当的缓存头
@@ -279,6 +324,7 @@ app.get('/discounted-products', async (req, res) => {
 1. **添加商品到购物车**
    - 访问网站任意商品页面
    - 点击"加入购物车"按钮
+   - **重要**: 推荐栏只在购物车不为空时显示
 
 2. **打开购物车抽屉**
    - 点击购物车图标打开抽屉

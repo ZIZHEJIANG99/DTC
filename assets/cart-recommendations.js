@@ -32,6 +32,14 @@ class CartRecommendations {
   }
 
   init() {
+    console.log('CartRecommendations: Initializing with settings:', this.settings);
+    console.log('CartRecommendations: Found elements:', {
+      loading: !!this.loadingElement,
+      error: !!this.errorElement,
+      list: !!this.listElement,
+      retry: !!this.retryButton
+    });
+
     // 绑定重试按钮事件
     if (this.retryButton) {
       this.retryButton.addEventListener('click', () => {
@@ -44,11 +52,6 @@ class CartRecommendations {
   }
 
   async loadRecommendations() {
-    if (!this.settings.apiUrl) {
-      this.showError('API endpoint not configured');
-      return;
-    }
-
     this.showLoading();
 
     try {
@@ -56,6 +59,7 @@ class CartRecommendations {
 
       // 如果API URL未配置或为空，使用本地数据
       if (!this.settings.apiUrl || this.settings.apiUrl.trim() === '') {
+        console.log('CartRecommendations: Using local data file');
         // 加载本地推荐产品数据
         const response = await fetch('/assets/recommended-products-data.json', {
           method: 'GET',
@@ -69,6 +73,7 @@ class CartRecommendations {
         }
 
         data = await response.json();
+        console.log('CartRecommendations: Local data loaded successfully', data);
       } else {
         // 使用配置的API端点
         const response = await fetch(this.settings.apiUrl, {
@@ -279,8 +284,13 @@ class CartRecommendations {
     }
     if (this.errorElement) {
       const messageElement = this.errorElement.querySelector('p');
-      if (messageElement && customMessage) {
-        messageElement.textContent = customMessage;
+      if (messageElement) {
+        if (customMessage) {
+          messageElement.textContent = customMessage;
+        } else {
+          // 使用默认的翻译文本
+          messageElement.textContent = this.getTranslation('error_message');
+        }
       }
       this.errorElement.style.display = 'block';
     }
