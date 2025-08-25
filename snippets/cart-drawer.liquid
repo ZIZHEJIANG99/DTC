@@ -20,10 +20,10 @@
     fallbackUrl: {{ 'recommended-products-data.json' | asset_url | json }},
     maxProducts: 3, // Show fewer products in drawer for better UX
     strings: {
-      addToCart: {{ 'cart_recommendations.add_to_cart' | t | json }},
-      error: {{ 'cart_recommendations.error_message' | t | json }},
-      retry: {{ 'cart_recommendations.retry_button' | t | json }},
-      empty: {{ 'cart_recommendations.empty_message' | t | json }}
+      addToCart: {{ 'general.cart_recommendations.add_to_cart' | t | json }},
+      error: {{ 'general.cart_recommendations.error_message' | t | json }},
+      retry: {{ 'general.cart_recommendations.retry_button' | t | json }},
+      empty: {{ 'general.cart_recommendations.empty_message' | t | json }}
     }
   };
 </script>
@@ -411,20 +411,20 @@
         <div id="cart-recos-drawer" class="cart-recommendations-drawer" data-section-type="cart-recommendations">
           <div id="recommendations-loading">Loading…</div>
           <div id="recommendations-error" style="display:none;">
-            {% capture __error_msg %}{{ 'cart_recommendations.error_message' | t }}{% endcapture %}
+            {% capture __error_msg %}{{ 'general.cart_recommendations.error_message' | t }}{% endcapture %}
             {% if __error_msg contains 'Translation missing' %}
               {% assign __error_msg = 'Unable to load recommendations. Please try again.' %}
             {% endif %}
             <p>{{ __error_msg }}</p>
 
-            {% capture __retry_text %}{{ 'cart_recommendations.retry_button' | t }}{% endcapture %}
+            {% capture __retry_text %}{{ 'general.cart_recommendations.retry_button' | t }}{% endcapture %}
             {% if __retry_text contains 'Translation missing' %}
               {% assign __retry_text = 'Retry' %}
             {% endif %}
             <button id="recommendations-retry">{{ __retry_text }}</button>
           </div>
           <div id="recommendations-empty" style="display:none;">
-            {% capture __empty_msg %}{{ 'cart_recommendations.empty_message' | t }}{% endcapture %}
+            {% capture __empty_msg %}{{ 'general.cart_recommendations.empty_message' | t }}{% endcapture %}
             {% if __empty_msg contains 'Translation missing' %}
               {% assign __empty_msg = 'No recommendations at this time.' %}
             {% endif %}

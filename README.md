@@ -253,30 +253,45 @@ app.get('/discounted-products', async (req, res) => {
 4. **验证路径** - 确保fetch请求使用CDN地址而不是 `/assets/...` 路径
 5. **查看控制台** - 打开浏览器控制台查看详细的调试信息
 
-### "Translation missing: en.cart_recommendations.retry_button" 错误
+### "Translation missing: en.cart_recommendations.add_to_cart" 错误
 
-如果看到翻译缺失错误，请按以下步骤排查：
+如果看到翻译缺失错误，说明代码中使用的翻译键路径与语言包中的实际位置不匹配。
 
-1. **检查语言文件** - 确保 `locales/en.default.json` 包含完整的 `cart_recommendations` 部分
-2. **验证键名一致性** - 确认为 `cart_recommendations.retry_button` (注意是下划线，不是连字符)
-3. **检查JSON格式** - 确保没有尾逗号、缺少引号或其他语法错误
-4. **确认文件位置** - 翻译键必须在 `en.default.json` 中，不是 `en.json`
-5. **测试兜底方案** - 系统已包含自动兜底，如果翻译缺失会显示默认英文文本
+**问题根因**：
+- 代码中调用：`{{ 'cart_recommendations.add_to_cart' | t }}`
+- 实际位置：`general.cart_recommendations.add_to_cart`
 
-**修复步骤**:
-```json
-// locales/en.default.json 中确保包含：
-{
-  "cart_recommendations": {
-    "heading": "Recommended for you",
-    "subheading": "Don't miss these deals",
-    "error_message": "Unable to load recommendations.\nPlease try again.",
-    "retry_button": "Retry",
-    "empty_message": "No recommendations at this time.",
-    "add_to_cart": "Add to cart"
-  }
-}
+**解决方案** ✅ (已修复):
+1. **修改代码中的翻译键路径** - 在所有翻译键前添加 `general.` 前缀
+2. **修复的文件**：
+   - `sections/cart-recommendations.liquid`
+   - `snippets/cart-drawer.liquid`
+
+**修复后的正确调用方式**:
+```liquid
+// 修复前（错误）
+{{ 'cart_recommendations.add_to_cart' | t }}
+
+// 修复后（正确）
+{{ 'general.cart_recommendations.add_to_cart' | t }}
 ```
+
+**修复的翻译键包括**：
+- `general.cart_recommendations.add_to_cart` - "Add to cart" 按钮文本
+- `general.cart_recommendations.error_message` - 错误消息
+- `general.cart_recommendations.retry_button` - 重试按钮
+- `general.cart_recommendations.empty_message` - 空推荐消息
+
+**验证修复**：
+修复后，推荐商品的"Add to cart"按钮将正确显示翻译文本，而不是"Translation missing"错误。
+
+**测试步骤**：
+1. 清除浏览器缓存
+2. 访问购物车页面或打开购物车抽屉
+3. 确认推荐栏显示正确的翻译文本：
+   - 英文环境：显示"Add to cart"
+   - 中文环境：显示"加入购物车"
+4. 如果还看到错误消息，检查翻译键是否正确使用了`general.`前缀
 
 ### 数据请求失败 (404/CORS)
 
@@ -331,6 +346,16 @@ CartRecommendations: Local data loaded successfully {...}
 4. **CDN**: 使用CDN加速静态资源
 
 ## 更新日志
+
+### v1.1.0 (2024年12月最新修复)
+- ✅ **修复翻译键路径不匹配问题** - 解决"Translation missing: en.cart_recommendations.add_to_cart"错误
+- ✅ **更新所有翻译键路径** - 在翻译键前添加`general.`前缀以匹配语言包结构
+- ✅ **优化错误处理** - 改进翻译缺失时的兜底机制
+- ✅ **更新文档** - 添加详细的故障排除指南和修复步骤
+- **修复的文件**：
+  - `sections/cart-recommendations.liquid`
+  - `snippets/cart-drawer.liquid`
+  - `README.md`
 
 ### v1.0.0
 - 初始版本发布
