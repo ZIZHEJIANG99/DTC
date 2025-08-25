@@ -1,34 +1,31 @@
 {
-  "products": [
-    {
-      "id": 1001,
-      "title": "Demo Product 1 - Sample Item",
-      "image": "https://via.placeholder.com/300x300/cccccc/000000?text=Demo+Product+1",
-      "price": 1999,
-      "compare_at_price": 2499,
-      "variant_id": "DEMO_VARIANT_1",
-      "url": "#demo-product-1",
-      "demo": true
-    },
-    {
-      "id": 1002,
-      "title": "Demo Product 2 - Sample Item",
-      "image": "https://via.placeholder.com/300x300/dddddd/000000?text=Demo+Product+2",
-      "price": 2999,
-      "compare_at_price": 3499,
-      "variant_id": "DEMO_VARIANT_2",
-      "url": "#demo-product-2",
-      "demo": true
-    },
-    {
-      "id": 1003,
-      "title": "Demo Product 3 - Sample Item",
-      "image": "https://via.placeholder.com/300x300/eeeeee/000000?text=Demo+Product+3",
-      "price": 3999,
-      "compare_at_price": 4999,
-      "variant_id": "DEMO_VARIANT_3",
-      "url": "#demo-product-3",
-      "demo": true
-    }
-  ]
-}
+    "products": [
+      {
+        "id": 1001,
+        "title": "Milkflow® + Immune Support Drink Mix, Orange Mango, 16 ct",
+        "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-immune-support-drink-mix-orange-mango.jpg?v=1",
+        "price": 1529,
+        "compare_at_price": 1699,
+        "variant_id": 6761774743624,
+        "url": "/products/milkflow-immune-support-drink-mix-orange-mango-16-ct"
+      },
+      {
+        "id": 1002,
+        "title": "Milkflow® Breastfeeding Soft Chews, Berry Flavor, 28 Ct",
+        "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkflow-breastfeeding-soft-chews-berry-flavor.jpg?v=1",
+        "price": 1599,
+        "compare_at_price": 1999,
+        "variant_id": 6826778460232,
+        "url": "/products/milkflow-breastfeeding-soft-chews-berry-flavor-28-ct"
+      },
+      {
+        "id": 1003,
+        "title": "Milkscreen™ Breast Milk Alcohol Test Strips, 8 Ct",
+        "image": "https://cdn.shopify.com/s/files/1/0222/3004/0648/products/milkscreen-breast-milk-alcohol-test-strips.jpg?v=1",
+        "price": 1699,
+        "compare_at_price": 1799,
+        "variant_id": 3570001870920,
+        "url": "/products/milkscreen"
+      }
+    ]
+  }
