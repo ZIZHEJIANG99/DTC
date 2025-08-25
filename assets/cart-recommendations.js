@@ -6,10 +6,27 @@
 class CartRecommendations {
   constructor(settings) {
     this.settings = settings;
-    this.loadingElement = document.getElementById('recommendations-loading');
-    this.errorElement = document.getElementById('recommendations-error');
-    this.listElement = document.getElementById('recommendations-list');
-    this.retryButton = document.getElementById('recommendations-retry');
+
+    // 根据sectionId动态查找DOM元素，支持不同上下文（页面 vs 抽屉）
+    const sectionId = settings.sectionId || 'recommendations';
+    this.loadingElement = document.getElementById(`${sectionId}-loading`);
+    this.errorElement = document.getElementById(`${sectionId}-error`);
+    this.listElement = document.getElementById(`${sectionId}-list`);
+    this.retryButton = document.getElementById(`${sectionId}-retry`);
+
+    // 如果找不到元素，尝试使用默认的元素ID
+    if (!this.loadingElement) {
+      this.loadingElement = document.getElementById('recommendations-loading');
+    }
+    if (!this.errorElement) {
+      this.errorElement = document.getElementById('recommendations-error');
+    }
+    if (!this.listElement) {
+      this.listElement = document.getElementById('recommendations-list');
+    }
+    if (!this.retryButton) {
+      this.retryButton = document.getElementById('recommendations-retry');
+    }
 
     this.init();
   }
@@ -339,6 +356,17 @@ class CartRecommendations {
 document.addEventListener('DOMContentLoaded', function() {
   if (window.cartRecommendationsSettings) {
     new CartRecommendations(window.cartRecommendationsSettings);
+  }
+});
+
+// 支持抽屉打开时动态初始化推荐栏
+document.addEventListener('cart:drawer:opened', function() {
+  if (window.cartRecommendationsSettings && !window.cartRecommendationsInitialized) {
+    // 延迟初始化，确保DOM元素已准备就绪
+    setTimeout(() => {
+      new CartRecommendations(window.cartRecommendationsSettings);
+      window.cartRecommendationsInitialized = true;
+    }, 100);
   }
 });
 

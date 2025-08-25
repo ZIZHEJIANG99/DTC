@@ -7,6 +7,19 @@
 
 <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
 
+<!-- Cart Recommendations Assets -->
+<link rel="stylesheet" href="{{ 'component-cart-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'cart-recommendations.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  // Cart Recommendations Configuration for Drawer
+  window.cartRecommendationsSettings = {
+    apiUrl: '', // Leave empty to use local demo data
+    maxProducts: 3, // Show fewer products in drawer for better UX
+    sectionId: 'drawer-recommendations'
+  };
+</script>
+
 <style>
   .drawer {
     visibility: hidden;
@@ -384,6 +397,38 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
+
+      <!-- Cart Recommendations Section -->
+      {%- if cart != empty -%}
+        <div class="cart-recommendations-drawer" data-section-type="cart-recommendations">
+          <div class="container">
+            {% if section.settings.heading != blank %}
+              <h3 class="cart-recommendations__heading">{{ section.settings.heading | escape }}</h3>
+            {% endif %}
+
+            {% if section.settings.subheading != blank %}
+              <p class="cart-recommendations__subheading">{{ section.settings.subheading | escape }}</p>
+            {% endif %}
+
+            <div class="cart-recommendations__loading" id="drawer-recommendations-loading">
+              <div class="cart-recommendations__loading-spinner"></div>
+              <p>{{ 'cart_recommendations.loading' | t }}</p>
+            </div>
+
+            <div class="cart-recommendations__error" id="drawer-recommendations-error" style="display: none;">
+              <p>{{ 'cart_recommendations.error_message' | t }}</p>
+              <button type="button" class="cart-recommendations__retry-button" id="drawer-recommendations-retry">
+                {{ 'cart_recommendations.retry_button' | t }}
+              </button>
+            </div>
+
+            <div class="cart-recommendations__list" id="drawer-recommendations-list" style="display: none;">
+              <!-- 推荐商品将通过JavaScript动态插入 -->
+            </div>
+          </div>
+        </div>
+      {%- endif -%}
+
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
