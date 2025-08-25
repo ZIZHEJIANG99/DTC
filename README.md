@@ -59,8 +59,38 @@
 4. 配置以下选项：
    - **Heading**: 推荐栏标题（默认："Recommended for you"）
    - **Subheading**: 推荐栏副标题（默认："You might also like these discounted products"）
-   - **API Endpoint URL**: 推荐商品数据接口URL
+   - **API Endpoint URL**: 推荐商品数据接口URL（留空使用本地演示数据）
    - **Maximum Products**: 最大显示商品数量（1-20，默认6）
+
+### 使用本地演示数据
+
+系统已预配置包含Milkflow系列产品的本地数据，包括：
+- **Milkflow® Breastfeeding Soft Chews, Berry Flavor, 28 Ct** ⭐
+- Milkflow® Chocolate Drink Mix, 14 Servings
+- Milkflow® Moringa Gummies, Green Apple, 60 Ct
+- Milkflow® Energy Drink Mix, Berry Blast, 14 Servings
+- Milkscreen™ Breast Milk Alcohol Test Strips, 10 Ct
+- UpSpring Prenatal Vitamin Gummies, Mixed Berry, 90 Ct
+
+如果API Endpoint URL留空，系统将自动使用这些本地演示数据。
+
+### 获取真实产品信息
+
+要使用真实的产品数据，你需要：
+
+1. **在Shopify后台查找产品ID**：
+   - 进入产品管理页面
+   - 找到"Milkflow® Breastfeeding Soft Chews, Berry Flavor, 28 Ct"
+   - 复制产品URL中的ID或使用浏览器开发者工具查看
+
+2. **更新演示数据**：
+   - 编辑 `assets/recommended-products-data.json`
+   - 将演示数据替换为真实的产品信息
+   - 确保价格格式为分（cents），如：$24.99 = 2499
+
+3. **配置API端点**（推荐）：
+   - 创建后端API返回真实产品数据
+   - 在主题编辑器中配置API Endpoint URL
 
 ## API接口规范
 

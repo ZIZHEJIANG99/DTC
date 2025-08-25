@@ -35,18 +35,39 @@ class CartRecommendations {
     this.showLoading();
 
     try {
-      const response = await fetch(this.settings.apiUrl, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      let data;
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      // 如果API URL未配置或为空，使用本地数据
+      if (!this.settings.apiUrl || this.settings.apiUrl.trim() === '') {
+        // 加载本地推荐产品数据
+        const response = await fetch('/assets/recommended-products-data.json', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to load local data: ${response.status}`);
+        }
+
+        data = await response.json();
+      } else {
+        // 使用配置的API端点
+        const response = await fetch(this.settings.apiUrl, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        data = await response.json();
       }
 
-      const data = await response.json();
       this.renderProducts(data.products || []);
 
     } catch (error) {
