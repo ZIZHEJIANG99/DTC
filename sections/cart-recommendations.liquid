@@ -1,0 +1,135 @@
+{{ 'component-cart-recommendations.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<script src="{{ 'cart-recommendations.js' | asset_url }}" defer="defer"></script>
+
+<div class="cart-recommendations section-{{ section.id }}-padding page-width" data-section-id="{{ section.id }}">
+  <div class="cart-recommendations__header">
+    <h2 class="cart-recommendations__title">{{ section.settings.title }}</h2>
+    <p class="cart-recommendations__subtitle">{{ section.settings.subtitle }}</p>
+  </div>
+
+  <div class="cart-recommendations__loading" id="recommendations-loading">
+    <div class="loading-spinner">
+      <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+  </div>
+
+  <div class="cart-recommendations__container" id="recommendations-container" style="display: none;">
+    <div class="cart-recommendations__list" id="recommendations-list">
+      <!-- 推荐商品将通过JavaScript动态插入 -->
+    </div>
+  </div>
+
+  <div class="cart-recommendations__empty" id="recommendations-empty" style="display: none;">
+    <p>{{ section.settings.empty_message }}</p>
+  </div>
+
+  <div class="cart-recommendations__error" id="recommendations-error" style="display: none;">
+    <p>{{ 'sections.cart_recommendations.error_message' | t }}</p>
+    <button type="button" class="button button--secondary" onclick="loadRecommendations()">
+      {{ 'sections.cart_recommendations.retry_button' | t }}
+    </button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.cart_recommendations.name",
+  "tag": "section",
+  "class": "spaced-section spaced-section--full-width",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.cart_recommendations.content_settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.cart_recommendations.title_label",
+      "default": "优惠商品推荐"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:sections.cart_recommendations.subtitle_label",
+      "default": "为您推荐更多优惠商品"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "t:sections.cart_recommendations.empty_message_label",
+      "default": "暂时没有推荐商品"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.cart_recommendations.api_settings"
+    },
+    {
+      "type": "url",
+      "id": "api_endpoint",
+      "label": "t:sections.cart_recommendations.api_endpoint_label",
+      "info": "t:sections.cart_recommendations.api_endpoint_info"
+    },
+    {
+      "type": "range",
+      "id": "max_products",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "label": "t:sections.cart_recommendations.max_products_label",
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.cart_recommendations.name",
+      "settings": {
+        "title": "优惠商品推荐",
+        "subtitle": "为您推荐更多优惠商品",
+        "empty_message": "暂时没有推荐商品",
+        "max_products": 6
+      }
+    }
+  ]
+}
+{% endschema %}

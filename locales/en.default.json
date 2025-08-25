@@ -288,6 +288,19 @@
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">Log in</a> to check out faster."
       }
     },
+    "cart_recommendations": {
+      "name": "Cart Recommendations",
+      "content_settings": "Content Settings",
+      "title_label": "Title",
+      "subtitle_label": "Subtitle",
+      "empty_message_label": "Empty message",
+      "api_settings": "API Settings",
+      "api_endpoint_label": "API Endpoint URL",
+      "api_endpoint_info": "URL to fetch recommended products from",
+      "max_products_label": "Maximum products to show",
+      "error_message": "Failed to load recommendations. Please try again.",
+      "retry_button": "Retry"
+    },
     "footer": {
       "payment": "Payment methods"
     },

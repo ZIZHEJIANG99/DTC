@@ -288,6 +288,19 @@
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">登录</a>以快速结账。"
       }
     },
+    "cart_recommendations": {
+      "name": "购物车推荐",
+      "content_settings": "内容设置",
+      "title_label": "标题",
+      "subtitle_label": "副标题",
+      "empty_message_label": "空状态消息",
+      "api_settings": "API 设置",
+      "api_endpoint_label": "API 端点 URL",
+      "api_endpoint_info": "获取推荐商品的 URL",
+      "max_products_label": "最大显示商品数量",
+      "error_message": "加载推荐商品失败。请重试。",
+      "retry_button": "重试"
+    },
     "footer": {
       "payment": "付款方式"
     },
