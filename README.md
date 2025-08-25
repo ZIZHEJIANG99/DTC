@@ -253,6 +253,31 @@ app.get('/discounted-products', async (req, res) => {
 4. **验证路径** - 确保fetch请求使用CDN地址而不是 `/assets/...` 路径
 5. **查看控制台** - 打开浏览器控制台查看详细的调试信息
 
+### "Translation missing: en.cart_recommendations.retry_button" 错误
+
+如果看到翻译缺失错误，请按以下步骤排查：
+
+1. **检查语言文件** - 确保 `locales/en.default.json` 包含完整的 `cart_recommendations` 部分
+2. **验证键名一致性** - 确认为 `cart_recommendations.retry_button` (注意是下划线，不是连字符)
+3. **检查JSON格式** - 确保没有尾逗号、缺少引号或其他语法错误
+4. **确认文件位置** - 翻译键必须在 `en.default.json` 中，不是 `en.json`
+5. **测试兜底方案** - 系统已包含自动兜底，如果翻译缺失会显示默认英文文本
+
+**修复步骤**:
+```json
+// locales/en.default.json 中确保包含：
+{
+  "cart_recommendations": {
+    "heading": "Recommended for you",
+    "subheading": "Don't miss these deals",
+    "error_message": "Unable to load recommendations.\nPlease try again.",
+    "retry_button": "Retry",
+    "empty_message": "No recommendations at this time.",
+    "add_to_cart": "Add to cart"
+  }
+}
+```
+
 ### 数据请求失败 (404/CORS)
 
 如果数据请求失败：
@@ -370,6 +395,11 @@ console.log({
   retry: window.cartRecommendationsSettings.strings.retry,
   addToCart: window.cartRecommendationsSettings.strings.addToCart
 });
+
+// 4. 测试翻译兜底（在浏览器控制台中测试Liquid兜底）
+console.log('Testing translation fallback...');
+console.log('Error message:', '{{ 'cart_recommendations.error_message' | t }}');
+console.log('Retry button:', '{{ 'cart_recommendations.retry_button' | t }}');
 ```
 
 ## 测试指南

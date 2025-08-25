@@ -411,11 +411,24 @@
         <div id="cart-recos-drawer" class="cart-recommendations-drawer" data-section-type="cart-recommendations">
           <div id="recommendations-loading">Loading…</div>
           <div id="recommendations-error" style="display:none;">
-            <p>{{ 'cart_recommendations.error_message' | t }}</p>
-            <button id="recommendations-retry">{{ 'cart_recommendations.retry_button' | t }}</button>
+            {% capture __error_msg %}{{ 'cart_recommendations.error_message' | t }}{% endcapture %}
+            {% if __error_msg contains 'Translation missing' %}
+              {% assign __error_msg = 'Unable to load recommendations. Please try again.' %}
+            {% endif %}
+            <p>{{ __error_msg }}</p>
+
+            {% capture __retry_text %}{{ 'cart_recommendations.retry_button' | t }}{% endcapture %}
+            {% if __retry_text contains 'Translation missing' %}
+              {% assign __retry_text = 'Retry' %}
+            {% endif %}
+            <button id="recommendations-retry">{{ __retry_text }}</button>
           </div>
           <div id="recommendations-empty" style="display:none;">
-            {{ 'cart_recommendations.empty_message' | t }}
+            {% capture __empty_msg %}{{ 'cart_recommendations.empty_message' | t }}{% endcapture %}
+            {% if __empty_msg contains 'Translation missing' %}
+              {% assign __empty_msg = 'No recommendations at this time.' %}
+            {% endif %}
+            {{ __empty_msg }}
           </div>
           <div id="recommendations-list" class="recommended-list"></div>
         </div>
