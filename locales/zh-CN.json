@@ -44,6 +44,15 @@
       "item_added": "商品已加入购物车",
       "view_empty_cart": "查看购物车"
     },
+    "cart_recommendations": {
+      "loading": "正在加载推荐商品...",
+      "error_message": "无法加载推荐商品，请重试。",
+      "retry_button": "重试",
+      "empty_message": "暂时没有推荐商品。",
+      "add_to_cart": "加入购物车",
+      "adding": "正在添加...",
+      "success_message": "商品已成功加入购物车！"
+    },
     "share": {
       "copy_to_clipboard": "复制链接",
       "share_url": "链接",
@@ -287,19 +296,6 @@
         "title": "已有账户？",
         "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">登录</a>以快速结账。"
       }
-    },
-    "cart_recommendations": {
-      "name": "购物车推荐",
-      "content_settings": "内容设置",
-      "title_label": "标题",
-      "subtitle_label": "副标题",
-      "empty_message_label": "空状态消息",
-      "api_settings": "API 设置",
-      "api_endpoint_label": "API 端点 URL",
-      "api_endpoint_info": "获取推荐商品的 URL",
-      "max_products_label": "最大显示商品数量",
-      "error_message": "加载推荐商品失败。请重试。",
-      "retry_button": "重试"
     },
     "footer": {
       "payment": "付款方式"

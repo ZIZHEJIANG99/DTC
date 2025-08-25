@@ -1,190 +1,150 @@
 /**
- * 购物车推荐栏功能
- * 负责加载推荐商品数据并处理用户交互
+ * 购物车推荐栏JavaScript功能
+ * 实现AJAX数据加载和加入购物车功能
  */
 
 class CartRecommendations {
-  constructor(section) {
-    this.section = section;
-    this.container = section.querySelector('#recommendations-container');
-    this.list = section.querySelector('#recommendations-list');
-    this.loading = section.querySelector('#recommendations-loading');
-    this.empty = section.querySelector('#recommendations-empty');
-    this.error = section.querySelector('#recommendations-error');
+  constructor(settings) {
+    this.settings = settings;
+    this.loadingElement = document.getElementById('recommendations-loading');
+    this.errorElement = document.getElementById('recommendations-error');
+    this.listElement = document.getElementById('recommendations-list');
+    this.retryButton = document.getElementById('recommendations-retry');
 
-    // 从section设置中获取配置
-    this.apiEndpoint = section.dataset.apiEndpoint;
-    this.maxProducts = parseInt(section.dataset.maxProducts) || 6;
+    this.init();
+  }
 
-    // 加载推荐商品
+  init() {
+    // 绑定重试按钮事件
+    if (this.retryButton) {
+      this.retryButton.addEventListener('click', () => {
+        this.loadRecommendations();
+      });
+    }
+
+    // 开始加载推荐商品
     this.loadRecommendations();
   }
 
-  /**
-   * 加载推荐商品数据
-   */
   async loadRecommendations() {
+    if (!this.settings.apiUrl) {
+      this.showError('API endpoint not configured');
+      return;
+    }
+
+    this.showLoading();
+
     try {
-      this.showLoading();
-
-      // 构建API URL
-      let apiUrl = this.apiEndpoint;
-      if (!apiUrl) {
-        // 默认使用当前域的推荐商品接口
-        apiUrl = '/api/recommendations.json';
-      }
-
-      // 添加查询参数
-      const url = new URL(apiUrl, window.location.origin);
-      url.searchParams.set('limit', this.maxProducts);
-
-      const response = await fetch(url.toString(), {
+      const response = await fetch(this.settings.apiUrl, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
+        },
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-
-      if (data.products && data.products.length > 0) {
-        this.renderProducts(data.products);
-        this.showContainer();
-      } else {
-        this.showEmpty();
-      }
+      this.renderProducts(data.products || []);
 
     } catch (error) {
-      console.error('加载推荐商品失败:', error);
+      console.error('Failed to load recommendations:', error);
       this.showError();
     }
   }
 
-  /**
-   * 渲染商品列表
-   */
   renderProducts(products) {
-    this.list.innerHTML = '';
+    this.hideLoading();
+    this.hideError();
 
-    products.forEach(product => {
+    if (!products || products.length === 0) {
+      this.showEmptyState();
+      return;
+    }
+
+    // 限制商品数量
+    const maxProducts = this.settings.maxProducts || 6;
+    const displayProducts = products.slice(0, maxProducts);
+
+    // 清空现有内容
+    this.listElement.innerHTML = '';
+
+    // 渲染每个商品
+    displayProducts.forEach(product => {
       const productElement = this.createProductElement(product);
-      this.list.appendChild(productElement);
+      this.listElement.appendChild(productElement);
     });
+
+    // 显示列表
+    this.listElement.style.display = 'grid';
   }
 
-  /**
-   * 创建单个商品元素
-   */
   createProductElement(product) {
-    const item = document.createElement('div');
-    item.className = 'cart-recommendations__item';
+    const itemElement = document.createElement('div');
+    itemElement.className = 'cart-recommendations__item';
 
-    // 商品图片
-    const imageContainer = document.createElement('div');
-    imageContainer.className = 'cart-recommendations__item-image-container';
+    // 计算折扣百分比
+    const discountPercent = this.calculateDiscountPercent(product.price, product.compare_at_price);
 
-    const image = document.createElement('img');
-    image.className = 'cart-recommendations__item-image';
-    image.src = product.image || product.featured_image || '';
-    image.alt = product.title || product.name || '';
-    image.loading = 'lazy';
-    imageContainer.appendChild(image);
+    itemElement.innerHTML = `
+      <a href="${product.url || '#'}" class="cart-recommendations__item-link">
+        ${discountPercent > 0 ? `<div class="cart-recommendations__discount-badge">-${discountPercent}%</div>` : ''}
+        <img
+          src="${product.image || '/placeholder-image.jpg'}"
+          alt="${product.title || 'Product'}"
+          class="cart-recommendations__item-image"
+          loading="lazy"
+        >
+        <div class="cart-recommendations__item-content">
+          <h3 class="cart-recommendations__item-title">${product.title || 'Product'}</h3>
+          <div class="cart-recommendations__item-price">
+            <span class="cart-recommendations__current-price">
+              ${this.formatPrice(product.price)}
+            </span>
+            ${product.compare_at_price && product.compare_at_price > product.price ?
+              `<span class="cart-recommendations__original-price">
+                ${this.formatPrice(product.compare_at_price)}
+              </span>` :
+              ''
+            }
+          </div>
+          <button
+            type="button"
+            class="cart-recommendations__add-button"
+            data-variant-id="${product.variant_id || product.id}"
+            data-product-id="${product.id}"
+          >
+            ${this.getTranslation('add_to_cart')}
+          </button>
+        </div>
+      </a>
+    `;
 
-    // 商品名称
-    const name = document.createElement('p');
-    name.className = 'cart-recommendations__item-name';
-    name.textContent = product.title || product.name || '';
+    // 绑定加入购物车按钮事件
+    const addButton = itemElement.querySelector('.cart-recommendations__add-button');
+    addButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.addToCart(product.variant_id || product.id, addButton);
+    });
 
-    // 商品价格
-    const price = document.createElement('p');
-    price.className = 'cart-recommendations__item-price';
-
-    if (product.compare_at_price && product.compare_at_price > product.price) {
-      // 有折扣价格
-      const originalPrice = document.createElement('span');
-      originalPrice.className = 'cart-recommendations__item-original-price';
-      originalPrice.textContent = this.formatPrice(product.compare_at_price);
-
-      const currentPrice = document.createElement('span');
-      currentPrice.textContent = this.formatPrice(product.price);
-
-      price.appendChild(originalPrice);
-      price.appendChild(currentPrice);
-
-      // 显示折扣标签
-      const discount = document.createElement('div');
-      discount.className = 'cart-recommendations__item-discount';
-      const discountPercent = Math.round((1 - product.price / product.compare_at_price) * 100);
-      discount.textContent = `-${discountPercent}%`;
-      item.appendChild(discount);
-    } else {
-      price.textContent = this.formatPrice(product.price);
-    }
-
-    // 加入购物车按钮
-    const button = document.createElement('button');
-    button.className = 'cart-recommendations__item-button';
-    button.textContent = '加入购物车';
-    button.type = 'button';
-    button.addEventListener('click', () => this.addToCart(product, button));
-
-    // 组装商品元素
-    item.appendChild(imageContainer);
-    item.appendChild(name);
-    item.appendChild(price);
-    item.appendChild(button);
-
-    return item;
+    return itemElement;
   }
 
-  /**
-   * 格式化价格显示
-   */
-  formatPrice(price) {
-    if (!price) return '$0.00';
-
-    // 使用Shopify的money格式化
-    if (window.Shopify && window.Shopify.currency) {
-      return window.Shopify.formatMoney(price);
-    }
-
-    // 简单的价格格式化
-    return `$${parseFloat(price / 100).toFixed(2)}`;
-  }
-
-  /**
-   * 添加商品到购物车
-   */
-  async addToCart(product, button) {
-    if (!product.variant_id && !product.variants) {
-      console.error('商品缺少变体ID');
-      alert('商品信息不完整，无法加入购物车');
-      return;
-    }
-
-    // 获取变体ID
-    let variantId = product.variant_id;
-    if (!variantId && product.variants && product.variants.length > 0) {
-      variantId = product.variants[0].id;
-    }
-
+  async addToCart(variantId, buttonElement) {
     if (!variantId) {
-      console.error('无法获取商品变体ID');
-      alert('商品信息不完整，无法加入购物车');
+      alert('Product variant not available');
       return;
     }
+
+    // 更新按钮状态
+    buttonElement.disabled = true;
+    buttonElement.classList.add('adding');
+    buttonElement.textContent = this.getTranslation('adding');
 
     try {
-      // 显示加载状态
-      button.disabled = true;
-      button.classList.add('loading');
-      button.textContent = '添加中...';
-
       const response = await fetch(`${window.Shopify.routes.root}cart/add.js`, {
         method: 'POST',
         headers: {
@@ -198,117 +158,168 @@ class CartRecommendations {
         })
       });
 
-      const data = await response.json();
-
-      if (data.items) {
-        // 添加成功
-        button.textContent = '已加入';
-        button.classList.remove('loading');
-        button.classList.add('success');
-
-        // 更新购物车数量显示
-        this.updateCartCount(data.item_count);
-
-        // 触发Shopify的购物车更新事件
-        document.dispatchEvent(new CustomEvent('cart:updated', {
-          detail: { cart: data }
-        }));
-
-        // 可选：刷新页面以显示更新后的购物车
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
-
-      } else {
-        throw new Error(data.message || '添加失败');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-    } catch (error) {
-      console.error('加入购物车失败:', error);
-      alert('加入购物车时出现问题，请稍后重试');
+      const data = await response.json();
 
+      // 更新购物车UI (如果需要)
+      this.updateCartUI();
+
+      // 显示成功消息
+      this.showSuccessMessage();
+
+    } catch (error) {
+      console.error('Failed to add to cart:', error);
+      alert('Failed to add item to cart. Please try again.');
+    } finally {
       // 恢复按钮状态
-      button.disabled = false;
-      button.classList.remove('loading');
-      button.textContent = '加入购物车';
+      buttonElement.disabled = false;
+      buttonElement.classList.remove('adding');
+      buttonElement.textContent = this.getTranslation('add_to_cart');
     }
   }
 
-  /**
-   * 更新购物车数量显示
-   */
-  updateCartCount(count) {
-    const cartCountElements = document.querySelectorAll('.cart-count, .cart-item-count');
-    cartCountElements.forEach(element => {
-      element.textContent = count;
-    });
+  updateCartUI() {
+    // 更新购物车数量显示
+    if (window.Shopify && window.Shopify.cart) {
+      // 如果有全局购物车对象，更新数量
+      const cartCountElements = document.querySelectorAll('.cart-count, .cart-item-count');
+      cartCountElements.forEach(element => {
+        element.textContent = window.Shopify.cart.item_count || 0;
+      });
+    }
+
+    // 触发购物车更新事件
+    document.dispatchEvent(new CustomEvent('cart:updated'));
   }
 
-  /**
-   * 显示加载状态
-   */
+  showSuccessMessage() {
+    // 可以在这里显示成功消息或刷新页面
+    // 简单起见，我们刷新页面来更新购物车显示
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  }
+
+  calculateDiscountPercent(currentPrice, originalPrice) {
+    if (!originalPrice || originalPrice <= currentPrice) {
+      return 0;
+    }
+    return Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+  }
+
+  formatPrice(price) {
+    // 将价格从分转换为元并格式化
+    const priceInDollars = (price / 100).toFixed(2);
+    return `$${priceInDollars}`;
+  }
+
   showLoading() {
-    this.loading.style.display = 'flex';
-    this.container.style.display = 'none';
-    this.empty.style.display = 'none';
-    this.error.style.display = 'none';
+    if (this.loadingElement) {
+      this.loadingElement.style.display = 'flex';
+    }
+    if (this.listElement) {
+      this.listElement.style.display = 'none';
+    }
+    if (this.errorElement) {
+      this.errorElement.style.display = 'none';
+    }
   }
 
-  /**
-   * 显示商品容器
-   */
-  showContainer() {
-    this.loading.style.display = 'none';
-    this.container.style.display = 'block';
-    this.empty.style.display = 'none';
-    this.error.style.display = 'none';
+  hideLoading() {
+    if (this.loadingElement) {
+      this.loadingElement.style.display = 'none';
+    }
   }
 
-  /**
-   * 显示空状态
-   */
-  showEmpty() {
-    this.loading.style.display = 'none';
-    this.container.style.display = 'none';
-    this.empty.style.display = 'block';
-    this.error.style.display = 'none';
+  showError(customMessage = null) {
+    this.hideLoading();
+    if (this.listElement) {
+      this.listElement.style.display = 'none';
+    }
+    if (this.errorElement) {
+      const messageElement = this.errorElement.querySelector('p');
+      if (messageElement && customMessage) {
+        messageElement.textContent = customMessage;
+      }
+      this.errorElement.style.display = 'block';
+    }
   }
 
-  /**
-   * 显示错误状态
-   */
-  showError() {
-    this.loading.style.display = 'none';
-    this.container.style.display = 'none';
-    this.empty.style.display = 'none';
-    this.error.style.display = 'block';
+  hideError() {
+    if (this.errorElement) {
+      this.errorElement.style.display = 'none';
+    }
+  }
+
+  showEmptyState() {
+    if (this.listElement) {
+      this.listElement.innerHTML = `
+        <div class="cart-recommendations__empty">
+          <div class="cart-recommendations__empty-icon">📦</div>
+          <p>${this.getTranslation('empty_message')}</p>
+        </div>
+      `;
+      this.listElement.style.display = 'block';
+    }
+  }
+
+  getTranslation(key) {
+    // 尝试从Shopify的语言包中获取翻译
+    if (window.Shopify && window.Shopify.locale) {
+      const locale = window.Shopify.locale;
+      // 这里需要根据实际的Shopify语言包结构来调整
+      // 暂时使用默认的英文翻译
+      const translations = {
+        'add_to_cart': 'Add to Cart',
+        'adding': 'Adding...',
+        'empty_message': 'No recommendations available at this time.',
+        'loading': 'Loading recommendations...',
+        'error_message': 'Unable to load recommendations. Please try again.',
+        'retry_button': 'Retry',
+        'success_message': 'Item added to cart successfully!'
+      };
+
+      // 如果是中文，使用中文翻译
+      if (locale && locale.startsWith('zh')) {
+        const chineseTranslations = {
+          'add_to_cart': '加入购物车',
+          'adding': '正在添加...',
+          'empty_message': '暂时没有推荐商品。',
+          'loading': '正在加载推荐商品...',
+          'error_message': '无法加载推荐商品，请重试。',
+          'retry_button': '重试',
+          'success_message': '商品已成功加入购物车！'
+        };
+        return chineseTranslations[key] || translations[key];
+      }
+
+      return translations[key] || key;
+    }
+
+    // 默认翻译
+    const defaultTranslations = {
+      'add_to_cart': 'Add to Cart',
+      'adding': 'Adding...',
+      'empty_message': 'No recommendations available at this time.',
+      'loading': 'Loading recommendations...',
+      'error_message': 'Unable to load recommendations. Please try again.',
+      'retry_button': 'Retry',
+      'success_message': 'Item added to cart successfully!'
+    };
+
+    return defaultTranslations[key] || key;
   }
 }
 
-/**
- * 重试加载推荐商品
- */
-function loadRecommendations() {
-  const section = document.querySelector('.cart-recommendations[data-section-id]');
-  if (section && window.cartRecommendations) {
-    window.cartRecommendations.loadRecommendations();
-  }
-}
-
-// 页面加载完成后初始化
+// 页面加载完成后初始化推荐栏
 document.addEventListener('DOMContentLoaded', function() {
-  const sections = document.querySelectorAll('.cart-recommendations[data-section-id]');
-
-  sections.forEach(section => {
-    // 创建推荐栏实例
-    const recommendations = new CartRecommendations(section);
-
-    // 将实例保存到全局，以便重试功能使用
-    window.cartRecommendations = recommendations;
-  });
+  if (window.cartRecommendationsSettings) {
+    new CartRecommendations(window.cartRecommendationsSettings);
+  }
 });
 
-// 监听购物车更新事件（如果需要）
-document.addEventListener('cart:updated', function(event) {
-  console.log('购物车已更新:', event.detail);
-});
+// 导出类以便测试或其他用途
+window.CartRecommendations = CartRecommendations;
