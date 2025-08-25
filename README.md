@@ -294,6 +294,33 @@ Successfully added to cart: {items: [...]}
 2. **验证CSS优先级** - 抽屉样式可能覆盖推荐栏样式
 3. **测试响应式布局** - 在不同设备上测试抽屉布局
 
+### 购物车变动时推荐栏一直Loading问题 ✅ (已修复)
+
+**问题表现**：改动购物车内容时，推荐栏显示"Loading..."不消失
+
+**修复措施**：
+1. **智能容器查找** - 自动识别页面和抽屉中的推荐栏
+2. **事件监听优化** - 监听多种购物车更新事件
+3. **ID冲突解决** - 使用drawer-前缀避免页面和抽屉ID冲突
+
+**调试步骤**：
+```javascript
+// 在控制台查看推荐栏初始化过程
+// 应该看到这些日志：
+CartRecommendations: Initializing...
+CartRecommendations: Found containers: ['recommendations-loading', 'recommendations-list', ...]
+Cart updated, refreshing recommendations...
+```
+
+### 图片不显示或加载慢问题 ✅ (已修复)
+
+**问题原因**：图片URL未使用Shopify优化参数
+
+**修复效果**：
+- ✅ 自动添加图片优化参数（width=300&height=300&crop=center）
+- ✅ 支持Shopify CDN加速
+- ✅ 设置图片尺寸属性防止布局偏移
+
 ### "API endpoint not configured" 错误
 
 如果看到这个错误，请检查：
@@ -398,7 +425,19 @@ CartRecommendations: Local data loaded successfully {...}
 
 ## 更新日志
 
-### v1.2.0 (2024年12月最新修复)
+### v1.3.0 (2024年12月全面优化)
+- ✅ **修复图片加载问题** - 使用Shopify图片优化，支持responsive图片
+- ✅ **修复购物车更新Loading问题** - 解决"Your cart"变动时推荐栏一直Loading的问题
+- ✅ **优化容器查找机制** - 智能识别页面和抽屉中的推荐栏容器
+- ✅ **解决ID冲突问题** - 使用唯一的drawer-前缀ID避免冲突
+- ✅ **增强购物车事件监听** - 监听多种购物车更新事件，确保及时刷新
+- ✅ **改进调试日志** - 添加详细的初始化和容器查找日志
+- **修复的文件**：
+  - `assets/cart-recommendations.js` - 核心逻辑优化
+  - `snippets/cart-drawer.liquid` - 抽屉容器ID修复
+  - `README.md` - 文档更新
+
+### v1.2.0 (2024年12月购物车修复)
 - ✅ **修复"Add to Cart"失败问题** - 解决点击加入购物车按钮时的错误
 - ✅ **增强错误处理机制** - 添加详细的错误分析和用户反馈
 - ✅ **优化演示数据处理** - 区分演示产品和真实产品，提供清晰指导
