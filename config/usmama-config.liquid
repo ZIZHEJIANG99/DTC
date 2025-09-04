@@ -1,0 +1,64 @@
+{% comment %}
+USMAMA 隐藏页面配置文件
+此文件包含 USMAMA 页面的所有配置选项
+修改此文件中的设置来自定义页面行为
+{% endcomment %}
+
+{%- comment -%}
+=== 产品配置 ===
+修改以下产品 handle 来指定要展示的产品
+请确保产品在 Shopify 后台中存在且已发布
+{%- endcomment -%}
+{%- assign usmama_product_1_handle = 'milkflow-drinkmix' -%}
+{%- assign usmama_product_2_handle = 'milkflow-soft-chew' -%}
+
+{%- comment -%}
+=== 访问控制配置 ===
+默认密钥：xyz
+要修改访问密钥，请更新 templates/page.usmama.liquid 文件中的 SECRET_KEY 变量
+{%- endcomment -%}
+{%- assign usmama_access_key = 'xyz' -%}
+
+{%- comment -%}
+=== 页面显示配置 ===
+{%- endcomment -%}
+{%- assign usmama_show_vendor = false -%}
+{%- assign usmama_show_rating = false -%}
+{%- assign usmama_show_secondary_image = false -%}
+{%- assign usmama_media_aspect_ratio = 'square' -%}
+{%- assign usmama_show_quick_add = true -%}
+
+{%- comment -%}
+=== 布局配置 ===
+{%- endcomment -%}
+{%- assign usmama_grid_desktop_cols = 2 -%}
+{%- assign usmama_grid_tablet_cols = 1 -%}
+
+{%- comment -%}
+=== 文本配置 ===
+{%- endcomment -%}
+{%- assign usmama_page_title = 'USMAMA Products' -%}
+{%- assign usmama_access_denied_title = 'Access Restricted' -%}
+{%- assign usmama_access_denied_message = 'This page requires special access. Please contact us if you need assistance.' -%}
+{%- assign usmama_products_not_found_title = 'Products not found' -%}
+{%- assign usmama_products_not_found_message = 'The specified products are not available. Please check the product handles in the template.' -%}
+
+{%- comment -%}
+=== 安全配置 ===
+{%- endcomment -%}
+{%- assign usmama_redirect_on_invalid_key = false -%}
+{%- assign usmama_redirect_delay = 2000 -%}
+{%- assign usmama_redirect_url = '/404' -%}
+{%- assign usmama_remove_key_from_url = false -%}
+
+{%- comment -%}
+=== 样式配置 ===
+这些CSS文件将被加载到页面中
+{%- endcomment -%}
+{%- assign usmama_required_styles = 'template-collection.css,component-card.css,component-price.css,component-loading-overlay.css,quick-add.css,component-cart-notification.css' | split: ',' -%}
+
+{%- comment -%}
+=== 脚本配置 ===
+这些JavaScript文件将被加载到页面中
+{%- endcomment -%}
+{%- assign usmama_required_scripts = 'quick-add.js,product-form.js' | split: ',' -%}

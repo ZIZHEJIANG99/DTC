@@ -34,6 +34,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% if page.handle == 'let-the-adventure-begin' %}
       <meta name="robots" content="noindex">
     {% endif %}
+    
+    {%- comment -%}
+      USMAMA 隐藏页面 - 阻止搜索引擎索引
+    {%- endcomment -%}
+    {% if page.handle == 'usmama' %}
+      <meta name="robots" content="noindex, nofollow">
+    {% endif %}
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">

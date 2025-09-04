@@ -1,0 +1,10 @@
+---
+description: "Do not delete previously completed tasks or requirements"
+globs:
+  - "**/*"
+alwaysApply: true
+---
+
+- 确保在修改时不会删除或覆盖已经完成的功能或需求。
+- 面对已有功能时，请优先考虑增量修改而不是删除。
+- 如果需要移除功能，请先与我确认（例如：respond with “Do you really want to delete completed requirement X?”）。

@@ -1,0 +1,280 @@
+{% comment %}
+  USMAMA 隐藏页面模板
+  用于展示 USMAMA 品牌的指定产品
+  需要通过 URL 参数 key 进行访问控制
+{% endcomment %}
+
+{%- comment -%}
+  引入必要的样式文件，保持与集合页面一致的外观
+{%- endcomment -%}
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'quick-add.css' | asset_url | stylesheet_tag }}
+{{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  获取指定的 USMAMA 产品
+  请根据实际的产品 handle 修改以下值
+{%- endcomment -%}
+{%- liquid
+  assign product1 = all_products['milkflow-drinkmix']
+  assign product2 = all_products['milkflow-soft-chew']
+  
+  comment
+    如果产品 handle 不同，请修改为实际的值：
+    assign product1 = all_products['实际的milkflow-drinkmix-handle']
+    assign product2 = all_products['实际的milkflow-soft-chew-handle']
+  endcomment
+-%}
+
+<div class="page-width">
+  {%- comment -%}
+    页面标题区域
+  {%- endcomment -%}
+  <header class="section-header text-center">
+    <h1 class="section-header__title">
+      {{ page.title | default: "USMAMA Products" }}
+    </h1>
+    {%- if page.content != blank -%}
+      <div class="rte">
+        {{ page.content }}
+      </div>
+    {%- endif -%}
+  </header>
+
+  {%- comment -%}
+    隐藏的产品内容容器
+    默认隐藏，只有通过密钥验证后才显示
+  {%- endcomment -%}
+  <div id="usmama-content" style="display: none;">
+    <div class="collection collection-template">
+      
+      {%- comment -%}
+        检查是否有可用的产品
+      {%- endcomment -%}
+      {%- assign available_products = 0 -%}
+      {%- if product1 -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if product2 -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+
+      {%- if available_products > 0 -%}
+        {%- comment -%}
+          产品网格容器，使用与集合页面相同的CSS类
+          采用2列布局（桌面端）和1列布局（移动端）
+        {%- endcomment -%}
+        <ul id="product-grid" 
+            class="grid product-grid grid--2-col-desktop grid--1-col-tablet-down" 
+            role="list">
+          
+          {%- comment -%}
+            渲染第一个产品：Milkflow Drinkmix
+          {%- endcomment -%}
+          {%- if product1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: product1,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-product-1',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- comment -%}
+            渲染第二个产品：Milkflow Soft Chew
+          {%- endcomment -%}
+          {%- if product2 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: product2,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-product-2',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+        </ul>
+
+        {%- comment -%}
+          产品计数显示
+        {%- endcomment -%}
+        <div class="collection-product-count light">
+          <p>{{ available_products }} products</p>
+        </div>
+
+      {%- else -%}
+        {%- comment -%}
+          没有找到产品时的提示信息
+        {%- endcomment -%}
+        <div class="collection collection--empty page-width">
+          <div class="loading-overlay gradient"></div>
+          <div class="title-wrapper center">
+            <h2 class="title title--primary">
+              Products not found
+            </h2>
+            <p class="collection-empty__subtext">
+              The specified products are not available. Please check the product handles in the template.
+            </p>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- comment -%}
+    无访问权限时显示的默认内容
+    当用户没有提供正确密钥时显示
+  {%- endcomment -%}
+  <div id="usmama-access-denied" style="display: block;">
+    <div class="collection collection--empty page-width">
+      <div class="title-wrapper center">
+        <h2 class="title title--primary">
+          Access Restricted
+        </h2>
+        <p class="collection-empty__subtext">
+          This page requires special access. Please contact us if you need assistance.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%- comment -%}
+  引入必要的JavaScript文件以支持快速加购等功能
+{%- endcomment -%}
+<script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{%- comment -%}
+  访问控制脚本
+  检查URL中的key参数，只有正确的密钥才能查看产品内容
+{%- endcomment -%}
+<script>
+(function() {
+  'use strict';
+  
+  // 配置访问密钥（可根据需要修改）
+  const SECRET_KEY = 'xyz';
+  
+  // 获取URL中的key参数
+  const urlParams = new URLSearchParams(window.location.search);
+  const providedKey = urlParams.get('key');
+  
+  // 获取页面元素
+  const contentDiv = document.getElementById('usmama-content');
+  const accessDeniedDiv = document.getElementById('usmama-access-denied');
+  
+  // 验证访问密钥
+  if (providedKey === SECRET_KEY) {
+    // 密钥正确，显示产品内容
+    if (contentDiv) {
+      contentDiv.style.display = 'block';
+    }
+    if (accessDeniedDiv) {
+      accessDeniedDiv.style.display = 'none';
+    }
+    
+    // 可选：从URL中移除key参数，保护密钥不被轻易发现
+    // if (window.history && window.history.replaceState) {
+    //   const cleanUrl = window.location.pathname;
+    //   window.history.replaceState({}, document.title, cleanUrl);
+    // }
+    
+  } else {
+    // 密钥错误或未提供，显示访问拒绝信息或重定向
+    if (contentDiv) {
+      contentDiv.style.display = 'none';
+    }
+    if (accessDeniedDiv) {
+      accessDeniedDiv.style.display = 'block';
+    }
+    
+    // 可选：重定向到404页面（取消注释以启用）
+    // setTimeout(function() {
+    //   window.location.href = '/404';
+    // }, 2000);
+  }
+})();
+</script>
+
+{%- comment -%}
+  页面加载完成后的初始化脚本
+  确保所有必要的组件正确加载
+{%- endcomment -%}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 初始化产品卡片相关功能
+  if (typeof window.Shopify !== 'undefined' && window.Shopify.theme) {
+    // 如果有自定义的主题初始化函数，在这里调用
+    console.log('USMAMA page loaded successfully');
+  }
+  
+  // 确保购物车功能正常工作
+  if (typeof CartNotification !== 'undefined') {
+    // CartNotification 已加载
+  }
+  
+  // 确保快速加购功能正常工作
+  if (typeof QuickAdd !== 'undefined') {
+    // QuickAdd 已加载
+  }
+});
+</script>
+
+{%- comment -%}
+  样式微调，确保页面布局与集合页面一致
+{%- endcomment -%}
+<style>
+/* 确保页面容器有适当的间距 */
+.page-width {
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  max-width: 120rem;
+}
+
+/* 确保产品网格在不同屏幕尺寸下正确显示 */
+.product-grid {
+  margin-bottom: 5rem;
+}
+
+/* 隐藏状态的平滑过渡 */
+#usmama-content,
+#usmama-access-denied {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* 访问拒绝页面的样式调整 */
+#usmama-access-denied .collection--empty {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 确保产品计数样式正确 */
+.collection-product-count {
+  text-align: center;
+  margin-top: 2rem;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 749px) {
+  .product-grid {
+    margin-bottom: 3rem;
+  }
+}
+</style>
