@@ -15,21 +15,27 @@
 {{ 'component-cart-notification.css' | asset_url | stylesheet_tag }}
 
 {%- comment -%}
-  获取指定的 USMAMA 产品
-  请根据实际的产品 handle 修改以下值
+  获取所有 USMAMA 产品
+  包含 C-Panty、Post Baby Panty、Shrinkx、Stomach Settle 和 Milkflow 系列
 {%- endcomment -%}
 {%- liquid
-
-  assign product1 = all_products[6761774743624]
-  assign product2 = all_products[6826778460232]
-
+  
+  assign cpanty = all_products['cpanty-highwaist']
+  assign cpanty_2pack = all_products['cpanty-highwaist-2pack']
 
   
-  comment
-    如果产品 handle 不同，请修改为实际的值：
-    assign product1 = all_products['实际的milkflow-drinkmix-handle']
-    assign product2 = all_products['实际的milkflow-soft-chew-handle']
-  endcomment
+  assign post_baby_panty = all_products['afterbabypanty-postpartum-underwear']
+  assign post_baby_panty_2pack = all_products['post-baby-panty-2-pack']
+
+  
+  assign shrinkx_charcoal = all_products['shrinkxbelly-bamboo-charcoal']
+  assign shrinkx_postpartum = all_products['shrinkxbelly-postpartum-belly-wrap']
+  assign shrinkx_postpartum_2pack = all_products['shrinkx-belly-postpartum-belly-wrap-2-pack']
+
+  
+  assign stomach_settle = all_products['stomach-settle-nausea-relief-drops-mint']
+  assign milkflow_drink = all_products['milkflow®-immune-support-drink-mix-orange-mango-16-ct']
+  assign milkflow_chews = all_products['milkflow®-breastfeeding-soft-chew-berry-flavor-28-ct']
 -%}
 
 <div class="page-width">
@@ -58,53 +64,206 @@
         检查是否有可用的产品
       {%- endcomment -%}
       {%- assign available_products = 0 -%}
-      {%- if product1 -%}
+      {%- if cpanty -%}
         {%- assign available_products = available_products | plus: 1 -%}
       {%- endif -%}
-      {%- if product2 -%}
+      {%- if cpanty_2pack -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if post_baby_panty -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if post_baby_panty_2pack -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if shrinkx_charcoal -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if shrinkx_postpartum -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if shrinkx_postpartum_2pack -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if stomach_settle -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if milkflow_drink -%}
+        {%- assign available_products = available_products | plus: 1 -%}
+      {%- endif -%}
+      {%- if milkflow_chews -%}
         {%- assign available_products = available_products | plus: 1 -%}
       {%- endif -%}
 
       {%- if available_products > 0 -%}
         {%- comment -%}
-          产品网格容器，使用与集合页面相同的CSS类
-          采用2列布局（桌面端）和1列布局（移动端）
+          产品网格容器 - 显示所有 USMAMA 产品
+          采用响应式网格布局
         {%- endcomment -%}
-        <ul id="product-grid" 
-            class="grid product-grid grid--2-col-desktop grid--1-col-tablet-down" 
+        <ul id="product-grid"
+            class="grid product-grid grid--4-col-desktop grid--3-col-tablet grid--2-col-tablet-down grid--1-col-mobile"
             role="list">
-          
+
           {%- comment -%}
-            渲染第一个产品：Milkflow Drinkmix
+            循环渲染所有产品
           {%- endcomment -%}
-          {%- if product1 -%}
+          {%- assign product_count = 0 -%}
+
+          {%- if cpanty -%}
+            {%- assign product_count = product_count | plus: 1 -%}
             <li class="grid__item">
               {% render 'card-product',
-                 card_product: product1,
+                 card_product: cpanty,
                  media_aspect_ratio: 'square',
                  show_secondary_image: false,
                  show_vendor: false,
                  show_rating: false,
                  show_quick_add: true,
-                 section_id: 'usmama-product-1',
+                 section_id: 'usmama-cpanty',
                  lazy_load: false
               %}
             </li>
           {%- endif -%}
 
-          {%- comment -%}
-            渲染第二个产品：Milkflow Soft Chew
-          {%- endcomment -%}
-          {%- if product2 -%}
+          {%- if cpanty_2pack -%}
+            {%- assign product_count = product_count | plus: 1 -%}
             <li class="grid__item">
               {% render 'card-product',
-                 card_product: product2,
+                 card_product: cpanty_2pack,
                  media_aspect_ratio: 'square',
                  show_secondary_image: false,
                  show_vendor: false,
                  show_rating: false,
                  show_quick_add: true,
-                 section_id: 'usmama-product-2',
+                 section_id: 'usmama-cpanty-2pack',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if post_baby_panty -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: post_baby_panty,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-post-baby-panty',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if post_baby_panty_2pack -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: post_baby_panty_2pack,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-post-baby-panty-2pack',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if shrinkx_charcoal -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: shrinkx_charcoal,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-shrinkx-charcoal',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if shrinkx_postpartum -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: shrinkx_postpartum,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-shrinkx-postpartum',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if shrinkx_postpartum_2pack -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: shrinkx_postpartum_2pack,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-shrinkx-postpartum-2pack',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if stomach_settle -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: stomach_settle,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-stomach-settle',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if milkflow_drink -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: milkflow_drink,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-milkflow-drink',
+                 lazy_load: false
+              %}
+            </li>
+          {%- endif -%}
+
+          {%- if milkflow_chews -%}
+            {%- assign product_count = product_count | plus: 1 -%}
+            <li class="grid__item">
+              {% render 'card-product',
+                 card_product: milkflow_chews,
+                 media_aspect_ratio: 'square',
+                 show_secondary_image: false,
+                 show_vendor: false,
+                 show_rating: false,
+                 show_quick_add: true,
+                 section_id: 'usmama-milkflow-chews',
                  lazy_load: false
               %}
             </li>
@@ -115,7 +274,7 @@
           产品计数显示
         {%- endcomment -%}
         <div class="collection-product-count light">
-          <p>{{ available_products }} products</p>
+          <p>{{ product_count }} products</p>
         </div>
 
       {%- else -%}
@@ -251,6 +410,20 @@ document.addEventListener('DOMContentLoaded', function() {
 /* 确保产品网格在不同屏幕尺寸下正确显示 */
 .product-grid {
   margin-bottom: 5rem;
+}
+
+/* 优化4列布局的间距 */
+.grid--4-col-desktop .grid__item {
+  padding: 0 0.75rem;
+  margin-bottom: 3rem;
+}
+
+/* 平板端3列布局优化 */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .grid--3-col-tablet .grid__item {
+    padding: 0 1rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 /* 隐藏状态的平滑过渡 */
