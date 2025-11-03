@@ -34,7 +34,7 @@
       "custom_css": [],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/HydraSpring_coming_soon.png",
+        "image": "shopify://shop_images/MAIN.gif",
         "mobimg": "shopify://shop_images/DTC_HydraSpring_Coming_Soon_Mobile.jpg",
         "section_css_class": "shopall-banner",
         "image_overlay_opacity": 0,
