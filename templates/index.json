@@ -12,6 +12,30 @@
     "7626d8fd-4688-4509-95d8-fc4b18df7fb2": {
       "type": "slideshow",
       "blocks": {
+        "slide_yD3Cdm": {
+          "type": "slide",
+          "settings": {
+            "background": "",
+            "background_mobile": "",
+            "text_color": "",
+            "text_color_mobile": "",
+            "image": "shopify://shop_images/DTC_BFCM_Banner_desktop.png",
+            "mob_image": "shopify://shop_images/DTC_BFCM_Banner_mobile.png",
+            "section_css_class": "Type your own CSS class",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
         "template--14671783133256__7626d8fd-4688-4509-95d8-fc4b18df7fb2-slide-1": {
           "type": "slide",
           "settings": {
@@ -110,6 +134,7 @@
         }
       },
       "block_order": [
+        "slide_yD3Cdm",
         "template--14671783133256__7626d8fd-4688-4509-95d8-fc4b18df7fb2-slide-1",
         "slide_8Xyt4r",
         "slide_gW9z7E",
