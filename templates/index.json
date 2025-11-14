@@ -154,11 +154,14 @@
     },
     "9cf8ce10-c20e-40f7-9e40-9cf4bfb9ecbb": {
       "type": "tabbing-featured-collection",
+      "custom_css": [
+        ".collection-tabs .collection-title {text-transform: none !important;}"
+      ],
       "settings": {
         "title": "Trusted Since 2005",
         "heading_size": "h1",
         "description": "",
-        "description_style": "body",
+        "description_style": "uppercase",
         "collection_title1": "Black Friday Sales",
         "collection": "black-friday-sales-collection",
         "collection_title2": "Lactation support",
