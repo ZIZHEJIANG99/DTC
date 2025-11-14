@@ -154,9 +154,7 @@
     },
     "9cf8ce10-c20e-40f7-9e40-9cf4bfb9ecbb": {
       "type": "tabbing-featured-collection",
-      "custom_css": [
-        ".collection-tabs .collection-title {text-transform: none !important;}"
-      ],
+      "custom_css": [],
       "settings": {
         "title": "Trusted Since 2005",
         "heading_size": "h1",
