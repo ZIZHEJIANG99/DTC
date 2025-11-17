@@ -3569,10 +3569,11 @@ details-disclosure > details {
   display: block !important;
 }
 
-/* Hide the bottom badge, keep the one over the image */
-.card-wrapper:has(a[href*="/products/milkscreen8"]) .card__content > .card__badge {
+/* Hide only the badge that's a direct child of card > card__content */
+.card-wrapper:has(a[href*="/products/milkscreen8"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
+
 
 
 
