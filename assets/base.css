@@ -3600,6 +3600,31 @@ details-disclosure > details {
   display: none !important;
 }
 
+/* Low in Stock badge for Milkflow Soft Chew - replaces Sale badge */
+.card-wrapper:has(a[href*="milkflow%C2%AE-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge.top.left .badge {
+  display: none !important;
+}
+
+.card-wrapper:has(a[href*="milkflow%C2%AE-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge::after {
+  content: "Low in Stock" !important;
+  display: inline-block !important;
+  background: #ee2938;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.card-wrapper:has(a[href*="milkflow%C2%AE-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge {
+  display: block !important;
+}
+
+/* Hide the bottom badge - only show top left */
+.card-wrapper:has(a[href*="milkflow%C2%AE-breastfeeding-soft-chew-berry-flavor-28-ct"]) > .card > .card__content > .card__badge {
+  display: none !important;
+}
 
 
 
