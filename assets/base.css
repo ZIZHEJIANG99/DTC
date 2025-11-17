@@ -3552,4 +3552,18 @@ details-disclosure > details {
 
 .index-page-section .header-wrapper{border:none;}
 
+/* BOGO badge for products tagged with badge-bogo */
+.card-wrapper:has(a[href*="badge-bogo"])::before {
+  content: "Buy 1 Get 1 Free";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ee2938;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  z-index: 2;
+}
 
