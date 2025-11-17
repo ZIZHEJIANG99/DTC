@@ -3553,13 +3553,21 @@ details-disclosure > details {
 .index-page-section .header-wrapper{border:none;}
 
 /* BOGO badge for Milkscreen8 product */
-.card-wrapper:has(a[href*="/products/milkscreen8"])::before,
-.card:has(a[href*="/products/milkscreen8"])::before,
-.product-card-wrapper:has(a[href*="/products/milkscreen8"])::before {
+.card-wrapper:has(a[href*="/products/milkscreen8"]) .card__badge::after {
   content: "Buy 1 Get 1 Free" !important;
+  display: inline-block !important;
+  background: #ee2938;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.card-wrapper:has(a[href*="/products/milkscreen8"]) .card__badge {
   display: block !important;
-  position: absolute;
-  top: 10px;
-  left:*
+}
+
 
 

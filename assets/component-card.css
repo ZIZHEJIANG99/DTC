@@ -372,12 +372,3 @@
 @media(max-width:749px){
   .card--standard>.card__content .card__information .card__heading a{display:box; display: -webkit-box; max-width: 200px; -webkit-line-clamp: 3; -webkit-box-orient: vertical;  overflow: hidden;}
 }
-/* BOGO badge for Milkscreen8 product */
-.card-wrapper:has(a[href*="/products/milkscreen8"])::before,
-.card:has(a[href*="/products/milkscreen8"])::before,
-.product-card-wrapper:has(a[href*="/products/milkscreen8"])::before {
-  content: "Buy 1 Get 1 Free" !important;
-  display: block !important;
-  position: absolute;
-  top: 10px;
-  left:*
