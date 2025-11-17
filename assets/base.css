@@ -3573,19 +3573,20 @@ details-disclosure > details {
 .card-wrapper:has(a[href*="/products/milkscreen8"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
-/* Add separate BOGO badge on product page */
-body[class*="milkscreen8"] .price::before,
-.product[data-product-handle="milkscreen8"] .price::before {
-  content: "Buy 1 Get 1 Free" !important;
+/* BOGO badge on product page for Milkscreen8 */
+.price:has(+ script[data-product-json*="milkscreen8"]) .price__badge-sale::after,
+body:has([data-product-url*="milkscreen8"]) .price .price__badge-sale::after {
+  content: "Buy 1 Get 1 Free";
   display: inline-block;
   background: #ee2938;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.66em 1.5rem;
   border-radius: 4px;
   font-weight: 600;
-  font-size: 0.875rem;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
 }
+
 
 
 
