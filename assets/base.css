@@ -3552,17 +3552,10 @@ details-disclosure > details {
 
 .index-page-section .header-wrapper{border:none;}
 
-/* BOGO badge for Milkscreen8 product using ID */
-#CardLink-template--15838319509576__product-grid-3570001870920 {
-  position: relative;
-}
-
-#CardLink-template--15838319509576__product-grid-3570001870920::before {
+/* BOGO badge for Milkscreen8 product */
+.card-wrapper:has(a[href*="/products/milkscreen8"]) .card__badge::after {
   content: "Buy 1 Get 1 Free" !important;
-  display: block !important;
-  position: absolute;
-  top: -200px;
-  left: 0;
+  display: inline-block !important;
   background: #ee2938;
   color: white;
   padding: 0.5rem 1rem;
@@ -3570,8 +3563,12 @@ details-disclosure > details {
   font-weight: 600;
   font-size: 0.875rem;
   white-space: nowrap;
-  z-index: 999;
 }
+
+.card-wrapper:has(a[href*="/products/milkscreen8"]) .card__badge {
+  display: block !important;
+}
+
 
 
 
