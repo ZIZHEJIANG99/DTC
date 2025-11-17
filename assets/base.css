@@ -3568,6 +3568,10 @@ details-disclosure > details {
 .card-wrapper:has(a[href*="/products/milkscreen8"]) .card__badge {
   display: block !important;
 }
+/* Hide the second duplicate badge */
+.card-wrapper:has(a[href*="/products/milkscreen8"]) .card__content > .card__badge {
+  display: none !important;
+}
 
 
 
