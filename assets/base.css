@@ -3573,18 +3573,9 @@ details-disclosure > details {
 .card-wrapper:has(a[href*="/products/milkscreen8"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
-/* Test if content property works */
-.price__badge-sale {
-  position: relative;
-}
 
-.price__badge-sale::after {
-  content: "TEST";
-  background: blue;
-  color: white;
-  padding: 5px;
-  margin-left: 10px;
-}
+
+
 
 
 
