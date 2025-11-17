@@ -3573,9 +3573,8 @@ details-disclosure > details {
 .card-wrapper:has(a[href*="/products/milkscreen8"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
-/* BOGO badge on product page for Milkscreen8 */
-.price:has(+ script[data-product-json*="milkscreen8"]) .price__badge-sale::after,
-body:has([data-product-url*="milkscreen8"]) .price .price__badge-sale::after {
+/* BOGO badge on product page - appears after price container */
+.template-product .price__container::after {
   content: "Buy 1 Get 1 Free";
   display: inline-block;
   background: #ee2938;
@@ -3583,8 +3582,9 @@ body:has([data-product-url*="milkscreen8"]) .price .price__badge-sale::after {
   padding: 0.66em 1.5rem;
   border-radius: 4px;
   font-weight: 600;
-  margin-left: 0.5rem;
-  font-size: 1rem;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  vertical-align: middle;
 }
 
 
