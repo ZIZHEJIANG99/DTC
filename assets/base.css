@@ -3575,11 +3575,11 @@ details-disclosure > details {
 }
 
 /* Limited Qty badge for Milkflow Immune Support - replaces Sale badge */
-.card-wrapper:has(a[href*="milkflow-immune-support-drink-mix-orange-mango-16-ct"]) .price__badge-sale {
+.card-wrapper:has(a[href*="/products/milkflow-immune-support-drink-mix-orange-mango-16-ct"]) .price__badge-sale {
   display: none !important;
 }
 
-.card-wrapper:has(a[href*="milkflow-immune-support-drink-mix-orange-mango-16-ct"]) .card__badge::after {
+.card-wrapper:has(a[href*="/products/milkflow-immune-support-drink-mix-orange-mango-16-ct"]) .card__badge::after {
   content: "Limited Qty" !important;
   display: inline-block !important;
   background: #ee2938;
@@ -3591,20 +3591,20 @@ details-disclosure > details {
   white-space: nowrap;
 }
 
-.card-wrapper:has(a[href*="milkflow-immune-support-drink-mix-orange-mango-16-ct"]) .card__badge {
+.card-wrapper:has(a[href*="/products/milkflow-immune-support-drink-mix-orange-mango-16-ct"]) .card__badge {
   display: block !important;
 }
 
-.card-wrapper:has(a[href*="milkflow-immune-support-drink-mix-orange-mango-16-ct"]) > .card > .card__content > .card__badge {
+.card-wrapper:has(a[href*="/products/milkflow-immune-support-drink-mix-orange-mango-16-ct"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
 
 /* Low in Stock badge for Milkflow Soft Chew - replaces Sale badge */
-.card-wrapper:has(a[href*="milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) .price__badge-sale {
+.card-wrapper:has(a[href*="/products/milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) .price__badge-sale {
   display: none !important;
 }
 
-.card-wrapper:has(a[href*="milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge::after {
+.card-wrapper:has(a[href*="/products/milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge::after {
   content: "Low in Stock" !important;
   display: inline-block !important;
   background: #ee2938;
@@ -3616,11 +3616,11 @@ details-disclosure > details {
   white-space: nowrap;
 }
 
-.card-wrapper:has(a[href*="milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge {
+.card-wrapper:has(a[href*="/products/milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) .card__badge {
   display: block !important;
 }
 
-.card-wrapper:has(a[href*="milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) > .card > .card__content > .card__badge {
+.card-wrapper:has(a[href*="/products/milkflow-breastfeeding-soft-chew-berry-flavor-28-ct"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
 
