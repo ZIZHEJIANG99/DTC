@@ -3575,8 +3575,10 @@ details-disclosure > details {
 }
 
 /* Limited Qty badge for Milkflow Immune Support - replaces Sale badge */
-.card-wrapper:has(a[href*="milkflow%C2%AE-immune-support-drink-mix-orange-mango-16-ct"]) .price__badge-sale {
+.card-wrapper:has(a[href*="milkflow%C2%AE-immune-support-drink-mix-orange-mango-16-ct"]) .price__badge-sale,
+.card-wrapper:has(a[href*="milkflow%C2%AE-immune-support-drink-mix-orange-mango-16-ct"]) .badge.price__badge-sale {
   display: none !important;
+  visibility: hidden !important;
 }
 
 .card-wrapper:has(a[href*="milkflow%C2%AE-immune-support-drink-mix-orange-mango-16-ct"]) .card__badge::after {
@@ -3598,6 +3600,7 @@ details-disclosure > details {
 .card-wrapper:has(a[href*="milkflow%C2%AE-immune-support-drink-mix-orange-mango-16-ct"]) > .card > .card__content > .card__badge {
   display: none !important;
 }
+
 
 
 
