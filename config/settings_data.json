@@ -346,7 +346,7 @@
       "/* Target sale badge on product cards */.badge.badge--bottom-left.color-accent-2,.card__badge .badge.color-accent-2,span.badge.badge--bottom-left.color-accent-2 {background-color: #ee2938 !important; color: white !important; border-color: #ee2938 !important;}",
       " /* Target sale badge on product pages */.badge.price__badge-sale.color-accent-1,span.badge.price__badge-sale.color-accent-1,.price__badge-sale {background-color: #ee2938 !important; color: white !important; border-color: #ee2938 !important;}",
       " /* Additional selectors to catch all instances */.card__badge .badge,.badge.price__badge-sale,[class*=\"price__badge\"][class*=\"sale\"] {background-color: #ee2938 !important; color: white !important; border-color: #ee2938 !important;}",
-      "/* Or simpler - just target the ID */#product-grid {margin-top: 60px !important;}"
+      "/* Or simpler - just target the ID */#product-grid {margin-top: 130px !important;}"
     ]
   }
 }
