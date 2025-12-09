@@ -133,6 +133,14 @@
                 {{- 'products.product.on_sale' | t -}}
               </span>
             {%- endif -%}
+            {%- if card_product.tags contains 'badge-new' -%}
+              <span
+                id="Badge-{{ section_id }}-{{ card_product.id }}"
+                class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                >
+                  New
+                  </span>
+                  {%- endif -%}
           </div>
         </div>
       </div>
@@ -391,6 +399,3 @@
     </div>
   </div>
 {%- endif -%}
-{% if product.tags contains 'badge-new' %}
-  <span class="product-badge badge-new">New</span>
-{% endif %}
